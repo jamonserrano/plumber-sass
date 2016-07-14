@@ -1,0 +1,14 @@
+
+h1, h2, h3, h4, h5, h6 {
+	@extend %header-font-family;
+}
+
+h1, h2, h3, h4 {
+	color: $accent;
+}
+
+h1 {
+	font-size: 6.625 * $base;
+	line-height: 8 * $base;
+	margin-top: 1 * $base;
+}
