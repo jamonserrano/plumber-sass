@@ -1,0 +1,13 @@
+p {
+	font-family: $body-font-family;
+}
+
+p {
+	@include align(
+		$font-size: 2,
+		$line-height: 3,
+		$leading-top: 0,
+		$leading-bottom: 1,
+		$baseline: $body-baseline
+	);
+}

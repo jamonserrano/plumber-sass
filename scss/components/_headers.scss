@@ -1,14 +1,42 @@
 
 h1, h2, h3, h4, h5, h6 {
-	@extend %header-font-family;
+	font-family: $header-font-family;
 }
 
 h1, h2, h3, h4 {
-	color: $accent;
+	color: $color-accent;
+}
+
+h5, h6 {
+	color: $color-dark;
 }
 
 h1 {
-	font-size: 6.625 * $base;
-	line-height: 8 * $base;
-	margin-top: 1 * $base;
+	@include align(
+		$font-size: 6.625,
+		$line-height: 8,
+		$leading-top: 6,
+		$leading-bottom: 3,
+		$baseline: $header-baseline
+	);
+}
+
+h2 {
+	@include align(
+		$font-size: 3.875,
+		$line-height: 6,
+		$leading-top: 3,
+		$leading-bottom: 1,
+		$baseline: $header-baseline
+	);
+}
+
+h3 {
+	@include align(
+		$font-size: 2.625,
+		$line-height: 4,
+		$leading-top: 3,
+		$leading-bottom: 0,
+		$baseline: $header-baseline
+	);
 }

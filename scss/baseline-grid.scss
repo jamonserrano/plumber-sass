@@ -1,18 +1,17 @@
-// === Helpers ===
-@import "helpers/variables";
-@import "helpers/functions";
- 
-#{$namespace} {
+// === Theme ===
+@import "themes/colors/classic";
+@import "themes/fonts/merriweather";
 
+// === Helpers ===
+@import "helpers/baselines";
+@import "helpers/functions";
+@import "helpers/variables";
+@import "helpers/mixins";
+
+#{$namespace} {
 	// === Core ===
 	@import "base/reset";
-	@import "base/base";
-
-	// === Theme ===
-	@import "themes/colors/classic";
-	@import "themes/fonts/merriweather";
-
-
+	
 	// === Components ===
 	@import "components/headers";
 	@import "components/text";
