@@ -28,9 +28,9 @@
 @mixin plumber($module, $tags) {
 	@each $tag, $styles in $tags {
 		$font-size: map-get($styles, font-size);
-		$leading-top: map-get($styles, leading-top);
-		$line-height: map-get($styles, line-height);
-		$leading-bottom: map-get($styles, leading-bottom);
+		$leading-top: map-get-if-integer($styles, leading-top);
+		$line-height: map-get-if-integer($styles, line-height);
+		$leading-bottom: map-get-if-integer($styles, leading-bottom);
 		$baseline: get-baseline(map-get($styles, font-family));
 		
 		#{$tag} {
