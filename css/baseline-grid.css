@@ -5,34 +5,45 @@ Get the defined baseline for the font-family
 /*
 Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
 */
-.baseline-grid {
-  /*// === Reset ===
-	@import "base/reset";
-	
-	// === Components ===
-	@import "components/headers";
-	@import "components/text";
-	@import "components/lists";
-	@import "components/tables";
-	*/ }
-  .baseline-grid h1 {
-    font-size: 53px;
-    margin-top: 45.185px;
-    padding-top: 0;
-    line-height: 64px;
-    padding-bottom: 2.815px;
-    margin-bottom: 24px; }
-  .baseline-grid h2 {
-    font-size: 31px;
-    margin-top: 20.995px;
-    padding-top: 0;
-    line-height: 48px;
-    padding-bottom: 3.005px;
-    margin-bottom: 8px; }
-  .baseline-grid h3 {
-    font-size: 21px;
-    margin-top: 24px;
-    padding-top: 0.545px;
-    line-height: 32px;
-    padding-bottom: 7.455px;
-    margin-bottom: 8px; }
+/*
+Get a value from a map only if it's an integer
+*/
+.baseline-grid h1 {
+  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+  font-size: 53px;
+  margin-top: 45.185px;
+  padding-top: 0;
+  line-height: 64px;
+  padding-bottom: 2.815px;
+  margin-bottom: 24px; }
+
+.baseline-grid h2 {
+  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+  font-size: 31px;
+  margin-top: 20.995px;
+  padding-top: 0;
+  line-height: 48px;
+  padding-bottom: 3.005px;
+  margin-bottom: 8px; }
+
+.baseline-grid h3 {
+  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+  font-size: 21px;
+  margin-top: 24px;
+  padding-top: 0.545px;
+  line-height: 32px;
+  padding-bottom: 7.455px;
+  margin-bottom: 0px; }
+
+.baseline-grid p, .baseline-grid a {
+  font-family: "Merriweather", Georgia, Times, serif;
+  font-size: 16px;
+  margin-top: -1.68px;
+  padding-top: 0;
+  line-height: 24px;
+  padding-bottom: 1.68px;
+  margin-bottom: 8px; }
+
+.baseline-grid h1, .baseline-grid h2, .baseline-grid h3, .baseline-grid h4, .baseline-grid h5, .baseline-grid h6 {
+  font-weight: normal;
+  color: #bd2d2d; }

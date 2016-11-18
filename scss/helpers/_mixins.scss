@@ -1,19 +1,20 @@
-@mixin align($font-size, $line-height, $leading-top, $leading-bottom, $baseline) {
+@mixin align($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom) {
 	// Calculate variables 
-	$font-size: $font-size * $module;
-	$line-height: $line-height * $module;
-	$leading-top: $leading-top * $module;
-	$leading-bottom: $leading-bottom * $module;	
-	$baseline-correction: get-baseline-correction($font-size, $line-height, $baseline);
+	$font-size: $font-size * $grid-height;
+	$line-height: $line-height * $grid-height;
+	$leading-top: $leading-top * $grid-height;
+	$leading-bottom: $leading-bottom * $grid-height;
+	$baseline-correction: get-baseline-correction($grid-height, $font-family, $font-size, $line-height);
 	
 	// CSS output (in logical order)
+	font-family: $font-family;
 	font-size: $font-size;
 	
 	// Keep the text around the middle of the line height
-	@if ($baseline-correction > $module / 2) {
+	@if ($baseline-correction > $grid-height / 2) {
 		// Push baseline down to the next gridline
 		margin-top: $leading-top;
-		padding-top: $module - $baseline-correction;
+		padding-top: $grid-height - $baseline-correction;
 	} @else {
 		// Pull baseline up to the previous gridline
 		margin-top: $leading-top - $baseline-correction;
@@ -25,16 +26,16 @@
 	margin-bottom: $leading-bottom;
 }
 
-@mixin plumber($module, $tags) {
+@mixin plumber($grid-height, $tags) {
 	@each $tag, $styles in $tags {
+		$font-family: map-get($styles, font-family);
 		$font-size: map-get($styles, font-size);
 		$leading-top: map-get-if-integer($styles, leading-top);
 		$line-height: map-get-if-integer($styles, line-height);
 		$leading-bottom: map-get-if-integer($styles, leading-bottom);
-		$baseline: get-baseline(map-get($styles, font-family));
 		
 		#{$tag} {
-			@include align($font-size, $line-height, $leading-top, $leading-bottom, $baseline);
+			@include align($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom);
 		}
 	}
 }
