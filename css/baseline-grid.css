@@ -29,33 +29,33 @@ Get the amount of top margin that needs to be applied for the baseline to sit on
     color: #2a2a2a; }
   .baseline-grid h1 {
     font-size: 53px;
+    margin-top: 45.185px;
+    padding-top: 0;
     line-height: 64px;
-    padding-top: 5.185px;
     padding-bottom: 2.815px;
-    margin-top: 48px;
     margin-bottom: 24px; }
   .baseline-grid h2 {
     font-size: 31px;
+    margin-top: 20.995px;
+    padding-top: 0;
     line-height: 48px;
-    padding-top: 4.995px;
     padding-bottom: 3.005px;
-    margin-top: 24px;
     margin-bottom: 8px; }
   .baseline-grid h3 {
     font-size: 21px;
-    line-height: 32px;
-    padding-top: 0.545px;
-    padding-bottom: 7.455px;
     margin-top: 24px;
-    margin-bottom: 0px; }
+    padding-top: 0.545px;
+    line-height: 32px;
+    padding-bottom: 7.455px;
+    margin-bottom: 8px; }
   .baseline-grid p {
     font-family: "Merriweather", Georgia, Times, serif; }
   .baseline-grid p {
     font-size: 16px;
+    margin-top: -1.68px;
+    padding-top: 0;
     line-height: 24px;
-    padding-top: 6.32px;
     padding-bottom: 1.68px;
-    margin-top: 0px;
     margin-bottom: 8px; }
   .baseline-grid table.table {
     border-collapse: collapse;
