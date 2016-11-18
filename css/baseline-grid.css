@@ -6,30 +6,15 @@ Get the defined baseline for the font-family
 Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
 */
 .baseline-grid {
-  /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/ }
-  .baseline-grid div, .baseline-grid span,
-  .baseline-grid h1, .baseline-grid h2, .baseline-grid h3, .baseline-grid h4, .baseline-grid h5, .baseline-grid h6, .baseline-grid p,
-  .baseline-grid blockquote, .baseline-grid pre, .baseline-grid a, .baseline-grid abbr, .baseline-grid acronym, .baseline-grid address, .baseline-grid big, .baseline-grid cite, .baseline-grid code, .baseline-grid del, .baseline-grid dfn, .baseline-grid em, .baseline-grid img, .baseline-grid ins, .baseline-grid kbd,
-  .baseline-grid q, .baseline-grid s, .baseline-grid samp, .baseline-grid small, .baseline-grid strike, .baseline-grid strong, .baseline-grid sub, .baseline-grid sup, .baseline-grid tt, .baseline-grid var, .baseline-grid b, .baseline-grid u, .baseline-grid i,
-  .baseline-grid dl, .baseline-grid dt, .baseline-grid dd, .baseline-grid ol, .baseline-grid ul, .baseline-grid li,
-  .baseline-grid table, .baseline-grid caption, .baseline-grid tbody, .baseline-grid tfoot, .baseline-grid thead, .baseline-grid tr, .baseline-grid th, .baseline-grid td,
-  .baseline-grid main, .baseline-grid article, .baseline-grid embed, .baseline-grid figure, .baseline-grid figcaption, .baseline-grid footer, .baseline-grid header, .baseline-grid hgroup,
-  .baseline-grid section, .baseline-grid summary, .baseline-grid time, .baseline-grid mark, .baseline-grid audio, .baseline-grid video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline; }
-  .baseline-grid h1, .baseline-grid h2, .baseline-grid h3, .baseline-grid h4, .baseline-grid h5, .baseline-grid h6 {
-    font-family: "Merriweather Sans", Helvetica, Arial, sans-serif; }
-  .baseline-grid h1, .baseline-grid h2, .baseline-grid h3, .baseline-grid h4 {
-    color: #bd2d2d; }
-  .baseline-grid h5, .baseline-grid h6 {
-    color: #2a2a2a; }
+  /*// === Reset ===
+	@import "base/reset";
+	
+	// === Components ===
+	@import "components/headers";
+	@import "components/text";
+	@import "components/lists";
+	@import "components/tables";
+	*/ }
   .baseline-grid h1 {
     font-size: 53px;
     margin-top: 45.185px;
@@ -37,29 +22,3 @@ Get the amount of top margin that needs to be applied for the baseline to sit on
     line-height: 64px;
     padding-bottom: 2.815px;
     margin-bottom: 24px; }
-  .baseline-grid h2 {
-    font-size: 31px;
-    margin-top: 20.995px;
-    padding-top: 0;
-    line-height: 48px;
-    padding-bottom: 3.005px;
-    margin-bottom: 8px; }
-  .baseline-grid h3 {
-    font-size: 21px;
-    margin-top: 24px;
-    padding-top: 0.545px;
-    line-height: 32px;
-    padding-bottom: 7.455px;
-    margin-bottom: 8px; }
-  .baseline-grid p {
-    font-family: "Merriweather", Georgia, Times, serif; }
-  .baseline-grid p {
-    font-size: 16px;
-    margin-top: -1.68px;
-    padding-top: 0;
-    line-height: 24px;
-    padding-bottom: 1.68px;
-    margin-bottom: 8px; }
-  .baseline-grid table.table {
-    border-collapse: collapse;
-    border-spacing: 0; }

@@ -9,7 +9,7 @@
 @import "helpers/mixins";
 
 #{$namespace} {
-	// === Reset ===
+	/*// === Reset ===
 	@import "base/reset";
 	
 	// === Components ===
@@ -17,4 +17,17 @@
 	@import "components/text";
 	@import "components/lists";
 	@import "components/tables";
+	*/
+	@include plumber(
+		$module: 8px,
+		$tags: (
+			"h1": (
+				font-family: $header-font-family,
+				font-size: 6.625,
+				leading-top: 6,
+				line-height: 8,
+				leading-bottom: 3
+			)
+		)
+	);
 }

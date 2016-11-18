@@ -24,3 +24,17 @@
 	padding-bottom: $baseline-correction;
 	margin-bottom: $leading-bottom;
 }
+
+@mixin plumber($module, $tags) {
+	@each $tag, $styles in $tags {
+		$font-size: map-get($styles, font-size);
+		$leading-top: map-get($styles, leading-top);
+		$line-height: map-get($styles, line-height);
+		$leading-bottom: map-get($styles, leading-bottom);
+		$baseline: get-baseline(map-get($styles, font-family));
+		
+		#{$tag} {
+			@include align($font-size, $line-height, $leading-top, $leading-bottom, $baseline);
+		}
+	}
+}
