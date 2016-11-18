@@ -1,13 +1,4 @@
 @import "https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:400,400i";
-/*
-Get the defined baseline for the font-family
-*/
-/*
-Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
-*/
-/*
-Get a value from a map only if it's an integer
-*/
 .baseline-grid h1 {
   font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
   font-size: 53px;
