@@ -19,3 +19,12 @@ Get the amount of top margin that needs to be applied for the baseline to sit on
 	// get the distance from the previous gridline
 	@return $baseline-from-top % $module;
 }
+
+@function map-get-if-integer($map, $key) {
+	$value: map-get($map, $key);
+	@if ($value != round($value)) {
+		@error "#{$key}: #{$value} - Expected an integer";
+	}
+
+	@return $value;
+}

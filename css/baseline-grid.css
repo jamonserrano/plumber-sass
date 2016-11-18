@@ -22,3 +22,17 @@ Get the amount of top margin that needs to be applied for the baseline to sit on
     line-height: 64px;
     padding-bottom: 2.815px;
     margin-bottom: 24px; }
+  .baseline-grid h2 {
+    font-size: 31px;
+    margin-top: 20.995px;
+    padding-top: 0;
+    line-height: 48px;
+    padding-bottom: 3.005px;
+    margin-bottom: 8px; }
+  .baseline-grid h3 {
+    font-size: 21px;
+    margin-top: 24px;
+    padding-top: 0.545px;
+    line-height: 32px;
+    padding-bottom: 7.455px;
+    margin-bottom: 8px; }
