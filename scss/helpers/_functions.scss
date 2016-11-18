@@ -6,6 +6,7 @@
 			 @return map-get($plumber-baselines, $font-family);
 		 }
 	}
+	@error "No baseline found for '#{$font-families}'. Add your font's baseline to $plumber-baselines."
 }
 
 // Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
@@ -21,7 +22,7 @@
 @function plumber-map-get-if-integer($map, $key) {
 	$value: map-get($map, $key);
 	@if $value != round($value) {
-		@error "#{$key}: #{$value} - Expected an integer";
+		@error "Expected an integer for #{$key}, got #{$value} instead.";
 	}
 
 	@return $value;
