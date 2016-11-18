@@ -1,10 +1,10 @@
-@mixin align($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom) {
+@mixin plumber-styles($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom) {
 	// Calculate variables 
 	$font-size: $font-size * $grid-height;
 	$line-height: $line-height * $grid-height;
 	$leading-top: $leading-top * $grid-height;
 	$leading-bottom: $leading-bottom * $grid-height;
-	$baseline-correction: get-baseline-correction($grid-height, $font-family, $font-size, $line-height);
+	$baseline-correction: plumber-get-baseline-correction($grid-height, $font-family, $font-size, $line-height);
 	
 	// CSS output (in logical order)
 	font-family: $font-family;
@@ -30,12 +30,12 @@
 	@each $tag, $styles in $tags {
 		$font-family: map-get($styles, font-family);
 		$font-size: map-get($styles, font-size);
-		$leading-top: map-get-if-integer($styles, leading-top);
-		$line-height: map-get-if-integer($styles, line-height);
-		$leading-bottom: map-get-if-integer($styles, leading-bottom);
+		$leading-top: plumber-map-get-if-integer($styles, leading-top);
+		$line-height: plumber-map-get-if-integer($styles, line-height);
+		$leading-bottom: plumber-map-get-if-integer($styles, leading-bottom);
 		
 		#{$tag} {
-			@include align($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom);
+			@include plumber-styles($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom);
 		}
 	}
 }
