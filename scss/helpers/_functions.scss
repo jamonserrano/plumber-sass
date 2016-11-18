@@ -1,0 +1,25 @@
+@function get-baseline($font-families) {
+	// try to get the font-base for any of the font families listed
+	@each $font-family in $font-families {
+		 @if map-has-key($baselines, $font-family) {
+			 @return map-get($baselines, $font-family);
+		 }
+	}
+}
+/*
+Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
+*/
+@function get-baseline-correction($font-size, $line-height, $baseline) {
+	// the text is centered in the bounding box defined by line-height
+	$baseline-from-top: ($line-height - $font-size) / 2 + ($font-size * $baseline);
+	
+	// get the distance from the previous gridline
+	$remainder: $baseline-from-top % $module;
+	@return $module - $remainder; 
+	// keep it around the nearest gridline
+	/*@if $remainder < $module / 2 {
+		@return -$remainder;
+	} @else {
+		@return $module - $remainder;
+	}*/
+}
