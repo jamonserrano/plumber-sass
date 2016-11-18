@@ -8,18 +8,19 @@
 	
 	// CSS output (in logical order)
 	font-size: $font-size;
+	
 	// Keep the text around the middle of the line height
-	@if ($baseline-correction <= $module / 2) {
-		// Push baseline down to the next line
+	@if ($baseline-correction > $module / 2) {
+		// Push baseline down to the next gridline
 		margin-top: $leading-top;
-		padding-top: $baseline-correction;
+		padding-top: $module - $baseline-correction;
 	} @else {
-		// Pull baseline up to the previous line
-		margin-top: $leading-top - $module + $baseline-correction;
+		// Pull baseline up to the previous gridline
+		margin-top: $leading-top - $baseline-correction;
 		padding-top: 0;
 	}
 
 	line-height: $line-height;
-	padding-bottom: $module - $baseline-correction;
+	padding-bottom: $baseline-correction;
 	margin-bottom: $leading-bottom;
 }
