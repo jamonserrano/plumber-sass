@@ -1,6 +1,4 @@
-/*
-Get the defined baseline for the font-family
-*/
+//Get the defined baseline for the font-family
 @function get-baseline($font-families) {
 	// try to get the font-base for any of the font families listed
 	@each $font-family in $font-families {
@@ -10,9 +8,7 @@ Get the defined baseline for the font-family
 	}
 }
 
-/*
-Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
-*/
+// Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
 @function get-baseline-correction($grid-height, $font-family, $font-size, $line-height) {
 	$baseline: get-baseline($font-family);
 	// the text is centered in the bounding box defined by line-height
@@ -21,9 +17,7 @@ Get the amount of top margin that needs to be applied for the baseline to sit on
 	@return $baseline-from-top % $grid-height;
 }
 
-/*
-Get a value from a map only if it's an integer
-*/
+// Get a value from a map only if it's an integer
 @function map-get-if-integer($map, $key) {
 	$value: map-get($map, $key);
 	@if $value != round($value) {
