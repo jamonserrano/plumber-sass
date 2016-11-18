@@ -12,14 +12,8 @@ Get the amount of top margin that needs to be applied for the baseline to sit on
 @function get-baseline-correction($font-size, $line-height, $baseline) {
 	// the text is centered in the bounding box defined by line-height
 	$baseline-from-top: ($line-height - $font-size) / 2 + ($font-size * $baseline);
-	
 	// get the distance from the previous gridline
 	$remainder: $baseline-from-top % $module;
+	
 	@return $module - $remainder; 
-	// keep it around the nearest gridline
-	/*@if $remainder < $module / 2 {
-		@return -$remainder;
-	} @else {
-		@return $module - $remainder;
-	}*/
 }
