@@ -1,16 +1,16 @@
 //Get the defined baseline for the font-family
-@function get-baseline($font-families) {
+@function plumber-get-baseline($font-families) {
 	// try to get the font-base for any of the font families listed
 	@each $font-family in $font-families {
-		 @if map-has-key($baselines, $font-family) {
-			 @return map-get($baselines, $font-family);
+		 @if map-has-key($plumber-baselines, $font-family) {
+			 @return map-get($plumber-baselines, $font-family);
 		 }
 	}
 }
 
 // Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
-@function get-baseline-correction($grid-height, $font-family, $font-size, $line-height) {
-	$baseline: get-baseline($font-family);
+@function plumber-get-baseline-correction($grid-height, $font-family, $font-size, $line-height) {
+	$baseline: plumber-get-baseline($font-family);
 	// the text is centered in the bounding box defined by line-height
 	$baseline-from-top: ($line-height - $font-size) / 2 + ($font-size * $baseline);
 	// return the distance of the baseline from the previous gridline
@@ -18,7 +18,7 @@
 }
 
 // Get a value from a map only if it's an integer
-@function map-get-if-integer($map, $key) {
+@function plumber-map-get-if-integer($map, $key) {
 	$value: map-get($map, $key);
 	@if $value != round($value) {
 		@error "#{$key}: #{$value} - Expected an integer";
