@@ -1,13 +1,25 @@
-@mixin plumber-styles($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom) {
+@mixin plumber($font-size, $leading-top, $line-height, $leading-bottom, $grid-height: $plumber-grid-height, $baseline: $plumber-baseline) {
+	// Check parameters
+	@if (not plumber-is-valid($leading-top)) {
+		@error "$leading-top parameter must be a positive integer, got #{$leading-top} instead.";
+	}
+
+	@if (not plumber-is-valid($line-height)) {
+		@error "$line-height parameter must be a positive integer, got #{$line-height} instead";
+	}
+
+	@if (not plumber-is-valid($leading-bottom)) {
+		@error "$leading-bottom parameter must be a positive integer, got #{$leading-bottom} instead";
+	}
+
 	// Calculate variables 
 	$font-size: $font-size * $grid-height;
 	$line-height: $line-height * $grid-height;
 	$leading-top: $leading-top * $grid-height;
 	$leading-bottom: $leading-bottom * $grid-height;
-	$baseline-correction: plumber-get-baseline-correction($grid-height, $font-family, $font-size, $line-height);
+	$baseline-correction: plumber-get-baseline-correction($font-size, $line-height, $grid-height, $baseline);
 	
 	// CSS output (in logical order)
-	font-family: $font-family;
 	font-size: $font-size;
 	
 	// Keep the text around the middle of the line height
@@ -24,18 +36,4 @@
 	line-height: $line-height;
 	padding-bottom: $baseline-correction;
 	margin-bottom: $leading-bottom;
-}
-
-@mixin plumber($grid-height, $tags) {
-	@each $tag, $styles in $tags {
-		$font-family: map-get($styles, font-family);
-		$font-size: map-get($styles, font-size);
-		$leading-top: plumber-map-get-if-integer($styles, leading-top);
-		$line-height: plumber-map-get-if-integer($styles, line-height);
-		$leading-bottom: plumber-map-get-if-integer($styles, leading-bottom);
-		
-		#{$tag} {
-			@include plumber-styles($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom);
-		}
-	}
 }

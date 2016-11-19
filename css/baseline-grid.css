@@ -1,40 +1,38 @@
 @import "https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:400,400i";
-.baseline-grid h1 {
-  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
-  font-size: 53px;
-  margin-top: 45.185px;
-  padding-top: 0;
-  line-height: 64px;
-  padding-bottom: 2.815px;
-  margin-bottom: 24px; }
-
-.baseline-grid h2 {
-  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
-  font-size: 31px;
-  margin-top: 20.995px;
-  padding-top: 0;
-  line-height: 48px;
-  padding-bottom: 3.005px;
-  margin-bottom: 8px; }
-
-.baseline-grid h3 {
-  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
-  font-size: 21px;
-  margin-top: 24px;
-  padding-top: 0.545px;
-  line-height: 32px;
-  padding-bottom: 7.455px;
-  margin-bottom: 0px; }
-
-.baseline-grid p, .baseline-grid a {
-  font-family: "Merriweather", Georgia, Times, serif;
-  font-size: 16px;
-  margin-top: -1.68px;
-  padding-top: 0;
-  line-height: 24px;
-  padding-bottom: 1.68px;
-  margin-bottom: 8px; }
-
 .baseline-grid h1, .baseline-grid h2, .baseline-grid h3, .baseline-grid h4, .baseline-grid h5, .baseline-grid h6 {
+  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
   font-weight: normal;
   color: #bd2d2d; }
+
+.baseline-grid h1 {
+  font-size: 3.3125rem;
+  margin-top: 2.82406rem;
+  padding-top: 0;
+  line-height: 4rem;
+  padding-bottom: 0.17594rem;
+  margin-bottom: 1.5rem; }
+
+.baseline-grid h2 {
+  font-size: 1.9375rem;
+  margin-top: 1.31219rem;
+  padding-top: 0;
+  line-height: 3rem;
+  padding-bottom: 0.18781rem;
+  margin-bottom: 0.5rem; }
+
+.baseline-grid h3 {
+  font-size: 1.3125rem;
+  margin-top: 1.5rem;
+  padding-top: 0.03406rem;
+  line-height: 2rem;
+  padding-bottom: 0.46594rem;
+  margin-bottom: 0rem; }
+
+.baseline-grid p {
+  font-family: "Merriweather", Georgia, Times, serif;
+  font-size: 1rem;
+  margin-top: -0.105rem;
+  padding-top: 0;
+  line-height: 1.5rem;
+  padding-bottom: 0.105rem;
+  margin-bottom: 0.5rem; }
