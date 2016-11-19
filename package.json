@@ -1,25 +1,16 @@
 {
-  "name": "baseline-grid",
+  "name": "sass-plumber",
   "version": "0.1.0",
   "description": "CSS baseline grid to attain vertical rhythm",
-  "main": "index.js",
-  "scripts": {
-    "build": "node-sass --include-path scss scss/baseline-grid.scss css/baseline-grid.css",
-    "watch": "npm run build -- --watch"
-  },
+  "main": "_plumber.scss",
   "repository": {
     "type": "git",
     "url": "git+https://jamonserrano@github.com/jamonserrano/plumber.git"
   },
-  "author": "",
+  "author": "Viktor Honti",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jamonserrano/plumber/issues"
   },
-  "homepage": "https://jamonserrano.github.io/plumber",
-  "devDependencies": {
-    "node-sass": "^3.8.0",
-    "nodemon": "^1.9.2",
-    "sass-lint": "^1.8.2"
-  }
+  "homepage": "https://jamonserrano.github.io/plumber"
 }

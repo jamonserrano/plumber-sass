@@ -1,3 +1,6 @@
+/*
+    PLUMBER - CSS Baseline Grid
+*/
 @mixin plumber($font-size, $leading-top, $line-height, $leading-bottom, $grid-height: $plumber-grid-height, $baseline: $plumber-baseline) {
 	// Check parameters
 	@if (not plumber-is-valid($leading-top)) {
@@ -36,4 +39,17 @@
 	line-height: $line-height;
 	padding-bottom: $baseline-correction;
 	margin-bottom: $leading-bottom;
+}
+
+// Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
+@function plumber-get-baseline-correction($font-size, $line-height, $grid-height, $baseline) {
+	// the text is centered in the bounding box defined by line-height
+	$baseline-from-top: ($line-height - $font-size) / 2 + ($font-size * $baseline);
+	// return the distance of the baseline from the previous gridline
+	@return $baseline-from-top % $grid-height;
+}
+
+// Check if a value is not an integer
+@function plumber-is-valid($value) {
+	@return ($value == round($value) and $value >= 0);
 }
