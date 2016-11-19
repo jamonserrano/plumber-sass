@@ -1,15 +1,41 @@
-@mixin align($font-size, $line-height, $leading-top, $leading-bottom, $baseline) {
-	$font-size: $font-size * $module;
-	$line-height: $line-height * $module;
-	$leading-top: $leading-top * $module;
-	$leading-bottom: $leading-bottom * $module;
-	$baseline-correction: get-baseline-correction($font-size, $line-height, $baseline);
-	$baseline-from-bottom: (($line-height - $font-size) / -2) - ((1 - $baseline) * $font-size);
-
+@mixin plumber-styles($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom) {
+	// Calculate variables 
+	$font-size: $font-size * $grid-height;
+	$line-height: $line-height * $grid-height;
+	$leading-top: $leading-top * $grid-height;
+	$leading-bottom: $leading-bottom * $grid-height;
+	$baseline-correction: plumber-get-baseline-correction($grid-height, $font-family, $font-size, $line-height);
+	
+	// CSS output (in logical order)
+	font-family: $font-family;
 	font-size: $font-size;
+	
+	// Keep the text around the middle of the line height
+	@if ($baseline-correction > $grid-height / 2) {
+		// Push baseline down to the next gridline
+		margin-top: $leading-top;
+		padding-top: $grid-height - $baseline-correction;
+	} @else {
+		// Pull baseline up to the previous gridline
+		margin-top: $leading-top - $baseline-correction;
+		padding-top: 0;
+	}
+
 	line-height: $line-height;
-	padding-top: $baseline-correction;
-	padding-bottom: $module - $baseline-correction;
-	margin-top: $leading-top;
+	padding-bottom: $baseline-correction;
 	margin-bottom: $leading-bottom;
+}
+
+@mixin plumber($grid-height, $tags) {
+	@each $tag, $styles in $tags {
+		$font-family: map-get($styles, font-family);
+		$font-size: map-get($styles, font-size);
+		$leading-top: plumber-map-get-if-integer($styles, leading-top);
+		$line-height: plumber-map-get-if-integer($styles, line-height);
+		$leading-bottom: plumber-map-get-if-integer($styles, leading-bottom);
+		
+		#{$tag} {
+			@include plumber-styles($grid-height, $font-family, $font-size, $line-height, $leading-top, $leading-bottom);
+		}
+	}
 }

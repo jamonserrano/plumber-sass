@@ -9,12 +9,42 @@
 @import "helpers/mixins";
 
 #{$namespace} {
-	// === Core ===
-	@import "base/reset";
-	
-	// === Components ===
-	@import "components/headers";
-	@import "components/text";
-	@import "components/lists";
-	@import "components/tables";
+	@include plumber(
+		$grid-height: 8px,
+		$tags: (
+			h1: (
+				font-family: $header-font-family,
+				font-size: 6.625,
+				leading-top: 6,
+				line-height: 8,
+				leading-bottom: 3
+			),
+			h2: (
+				font-family: $header-font-family,
+				font-size: 3.875,
+				leading-top: 3,
+				line-height: 6,
+				leading-bottom: 1
+			),
+			h3: (
+				font-family: $header-font-family,
+				font-size: 2.625,
+				leading-top: 3,
+				line-height: 4,
+				leading-bottom: 0
+			),
+			"p, a": (
+				font-family: $body-font-family,
+				font-size: 2,
+				leading-top: 0,
+				line-height: 3,
+				leading-bottom: 1
+			)
+		)
+	);
+
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: normal;
+		color: $color-accent;
+	}
 }

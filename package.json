@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://jamonserrano@github.com/jamonserrano/baseline-grid.git"
+    "url": "git+https://jamonserrano@github.com/jamonserrano/plumber.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jamonserrano/baseline-grid/issues"
+    "url": "https://github.com/jamonserrano/plumber/issues"
   },
-  "homepage": "https://github.com/jamonserrano/baseline-grid#readme",
+  "homepage": "https://jamonserrano.github.io/plumber",
   "devDependencies": {
     "node-sass": "^3.8.0",
     "nodemon": "^1.9.2",
