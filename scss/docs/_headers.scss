@@ -1,6 +1,6 @@
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $header-font-family;
+	font-family: $header-font;
 }
 
 h1, h2, h3, h4 {
@@ -8,35 +8,32 @@ h1, h2, h3, h4 {
 }
 
 h5, h6 {
-	color: $color-dark;
+	color: $color-medium;
 }
 
 h1 {
-	@include align(
+	@include plumber(
 		$font-size: 6.625,
 		$leading-top: 6,
 		$line-height: 8,
-		$leading-bottom: 3,
-		$baseline: $header-baseline
+		$leading-bottom: 3
 	);
 }
 
 h2 {
-	@include align(
+	@include plumber(
 		$font-size: 3.875,
 		$leading-top: 3,
 		$line-height: 6,
-		$leading-bottom: 1,
-		$baseline: $header-baseline
+		$leading-bottom: 1
 	);
 }
 
 h3 {
-	@include align(
+	@include plumber(
 		$font-size: 2.625,
 		$leading-top: 3,
 		$line-height: 4,
-		$leading-bottom: 1,
-		$baseline: $header-baseline
+		$leading-bottom: 1
 	);
 }
