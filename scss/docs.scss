@@ -1,7 +1,7 @@
 // === Reset ===
 @import "base/reset";
 // === Plumber ===
-//@import "node_modules/sass-plumber/plumber";
+@import "node_modules/plumber-sass/plumber";
 // === Theme ===
 @import "docs/init";
 @import "docs/headers";
