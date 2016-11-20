@@ -26,7 +26,7 @@ section, summary, time, mark, audio, video {
     PLUMBER - CSS Baseline Grid
 */
 body {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0, transparent 1px);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0, transparent 1px);
   background-size: 100% 0.5rem; }
 
 h1, h2, h3, h4, h5, h6 {
