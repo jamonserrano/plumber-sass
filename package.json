@@ -1,16 +1,24 @@
 {
-  "name": "sass-plumber",
+  "name": "plumber-sass",
   "version": "0.1.0",
-  "description": "CSS baseline grid to attain vertical rhythm",
+  "description": "Real baseline grids with SASS",
   "main": "_plumber.scss",
   "repository": {
     "type": "git",
-    "url": "git+https://jamonserrano@github.com/jamonserrano/plumber.git"
+    "url": "git+https://jamonserrano@github.com/jamonserrano/plumber-sass.git"
   },
+  "keywords": [
+    "css",
+    "sass",
+    "scss",
+    "baseline-grid",
+    "vertical-rhythm",
+    "typography"
+  ],
   "author": "Viktor Honti",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jamonserrano/plumber/issues"
+    "url": "https://github.com/jamonserrano/plumber-sass/issues"
   },
-  "homepage": "https://jamonserrano.github.io/plumber"
+  "homepage": "https://jamonserrano.github.io/plumber-sass"
 }
