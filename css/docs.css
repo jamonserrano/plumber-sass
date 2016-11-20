@@ -3,6 +3,10 @@
    License: none (public domain)
 */
 @import "https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:400,400i";
+html, body {
+  margin: 0;
+  padding: 0; }
+
 div, span,
 h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd,
@@ -21,6 +25,10 @@ section, summary, time, mark, audio, video {
 /*
     PLUMBER - CSS Baseline Grid
 */
+body {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0, transparent 1px);
+  background-size: 100% 0.5rem; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Merriweather Sans", Helvetica, Arial, sans-serif; }
 
