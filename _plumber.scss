@@ -1,6 +1,5 @@
-/*
-    PLUMBER - CSS Baseline Grid
-*/
+// PLUMBER - Real baseline grids with SASS
+
 @mixin plumber($font-size, $leading-top, $line-height, $leading-bottom, $grid-height: $plumber-grid-height, $baseline: $plumber-baseline) {
 	// Check parameters
 	@if (not plumber-is-valid($leading-top)) {
@@ -15,33 +14,35 @@
 		@error "$leading-bottom parameter must be a positive integer, got #{$leading-bottom} instead";
 	}
 
-	// Calculate variables 
+	// Calculate relative sizes
 	$font-size: $font-size * $grid-height;
 	$line-height: $line-height * $grid-height;
 	$leading-top: $leading-top * $grid-height;
 	$leading-bottom: $leading-bottom * $grid-height;
+	// Calculate the baseline correction
 	$baseline-correction: plumber-get-baseline-correction($font-size, $line-height, $grid-height, $baseline);
 	
-	// CSS output (in logical order)
+	// CSS output
 	font-size: $font-size;
 	
-	// Keep the text around the middle of the line height
+	// Move the text to the nearest gridline
+	// The correction is  
 	@if ($baseline-correction > $grid-height / 2) {
 		// Push baseline down to the next gridline
-		margin-top: $leading-top;
+		margin-top: $leading-top - $grid-height;
 		padding-top: $grid-height - $baseline-correction;
 	} @else {
-		// Pull baseline up to the previous gridline
+		// Pull baseline up to the previous gridline (use margin-top as negative paddings don't make sense)
 		margin-top: $leading-top - $baseline-correction;
 		padding-top: 0;
 	}
-
+	
 	line-height: $line-height;
 	padding-bottom: $baseline-correction;
 	margin-bottom: $leading-bottom;
 }
 
-// Get the amount of top margin that needs to be applied for the baseline to sit on a gridline
+// Get the amount of that needs to be applied for the text to sit on a gridline
 @function plumber-get-baseline-correction($font-size, $line-height, $grid-height, $baseline) {
 	// the text is centered in the bounding box defined by line-height
 	$baseline-from-top: ($line-height - $font-size) / 2 + ($font-size * $baseline);
