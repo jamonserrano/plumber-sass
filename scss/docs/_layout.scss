@@ -1,3 +1,21 @@
+html {
+    font-size: 9px;
+}
+
 body {
     @include grid-background();
+}
+
+main {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+@media (max-width: 640px) {
+    main {
+        padding: 0 2rem;
+    }
 }

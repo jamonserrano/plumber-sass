@@ -1,39 +1,36 @@
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: $header-font;
+h1, h2, h3 {
+	font-family: $font;
+	font-weight: 300;
 }
 
-h1, h2, h3, h4 {
-	color: $color-accent;
-}
-
-h5, h6 {
+h1, h2, h3 {
 	color: $color-medium;
 }
 
 h1 {
 	@include plumber(
-		$font-size: 6.625,
-		$leading-top: 6,
-		$line-height: 8,
+		$font-size: 4,
+		$leading-top: 5,
+		$line-height: 5,
 		$leading-bottom: 3
 	);
 }
 
 h2 {
 	@include plumber(
-		$font-size: 3.875,
-		$leading-top: 3,
-		$line-height: 6,
-		$leading-bottom: 1
+		$font-size: (24/9),
+		$leading-top: 4,
+		$line-height: 3,
+		$leading-bottom: 2
 	);
 }
 
 h3 {
 	@include plumber(
-		$font-size: 2.625,
+		$font-size: 2,
 		$leading-top: 3,
-		$line-height: 4,
+		$line-height: 3,
 		$leading-bottom: 1
 	);
 }

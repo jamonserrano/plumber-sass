@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import "https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:400,400i";
+@import "https://fonts.googleapis.com/css?family=Fira+Sans:300,400";
 html, body {
   margin: 0;
   padding: 0; }
@@ -25,54 +25,64 @@ section, summary, time, mark, audio, video {
 /*
     PLUMBER - CSS Baseline Grid
 */
+html {
+  font-size: 9px; }
+
 body {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3) 0, transparent 1px);
-  background-size: 100% 0.5rem; }
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2) 0, transparent 1px);
+  background-size: 100% 1rem; }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Merriweather Sans", Helvetica, Arial, sans-serif; }
+main {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 40px; }
 
-h1, h2, h3, h4 {
-  color: #bd2d2d; }
+@media (max-width: 640px) {
+  main {
+    padding: 0 2rem; } }
 
-h5, h6 {
+h1, h2, h3 {
+  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+  font-weight: 300; }
+
+h1, h2, h3 {
   color: #585858; }
 
 h1 {
-  font-size: 3.3125rem;
-  margin-top: 2.82406rem;
-  padding-top: 0;
-  line-height: 4rem;
-  padding-bottom: 0.17594rem;
-  margin-bottom: 1.5rem; }
+  font-size: 4rem;
+  margin-top: 5rem;
+  padding-top: 0.4rem;
+  line-height: 5rem;
+  padding-bottom: 0.6rem;
+  margin-bottom: 3rem; }
 
 h2 {
-  font-size: 1.9375rem;
-  margin-top: 1.31219rem;
+  font-size: 2.66667rem;
+  margin-top: 3.76667rem;
   padding-top: 0;
   line-height: 3rem;
-  padding-bottom: 0.18781rem;
-  margin-bottom: 0.5rem; }
+  padding-bottom: 0.23333rem;
+  margin-bottom: 2rem; }
 
 h3 {
-  font-size: 1.3125rem;
-  margin-top: 1.5rem;
-  padding-top: 0.03406rem;
-  line-height: 2rem;
-  padding-bottom: 0.46594rem;
-  margin-bottom: 0.5rem; }
+  font-size: 2rem;
+  margin-top: 2.95rem;
+  padding-top: 0;
+  line-height: 3rem;
+  padding-bottom: 0.05rem;
+  margin-bottom: 1rem; }
 
 table.table {
   border-collapse: collapse;
   border-spacing: 0; }
 
 p {
-  font-family: "Merriweather", Georgia, Times, serif; }
-
-p {
-  font-size: 1rem;
-  margin-top: -0.105rem;
+  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+  font-size: 2rem;
+  margin-top: -0.05rem;
   padding-top: 0;
-  line-height: 1.5rem;
-  padding-bottom: 0.105rem;
-  margin-bottom: 0.5rem; }
+  line-height: 3rem;
+  padding-bottom: 0.05rem;
+  margin-bottom: 1rem; }

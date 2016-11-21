@@ -1,12 +1,11 @@
 // === Typography ===
-@import "https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:400,400i";
+@import "https://fonts.googleapis.com/css?family=Fira+Sans:300,400";
 
-$header-font: ("Merriweather Sans", Helvetica, Arial, sans-serif);
-$body-font: ("Merriweather", Georgia, Times, serif);
+$font: ("Fira Sans", Helvetica, Arial, sans-serif);
 $code-font: ("Consolas", "Monaco", Courier, monospace);
 
-$plumber-grid-height: 0.5rem;
-$plumber-baseline: 0.855;
+$plumber-grid-height: 1rem;
+$plumber-baseline: 0.775;
 
 // === Colors ===
 $color-dark: #2a2a2a;
