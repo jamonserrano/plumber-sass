@@ -1,9 +1,10 @@
 p {
-	font-family: $font;
+	font-family: $body-font;
 	@include plumber(
 		$font-size: 2,
 		$line-height: 3,
 		$leading-top: 0,
-		$leading-bottom: 1
+		$leading-bottom: 1,
+		$baseline: $body-baseline
 	);
 }

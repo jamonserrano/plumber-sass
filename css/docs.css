@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import "https://fonts.googleapis.com/css?family=Fira+Sans:300,400";
+@import url("https://fonts.googleapis.com/css?family=Lato|Lora:700i");
 html, body {
   margin: 0;
   padding: 0; }
@@ -22,12 +22,12 @@ section, summary, time, mark, audio, video {
   font: inherit;
   vertical-align: baseline; }
 
+html {
+  font-size: 8px; }
+
 /*
     PLUMBER - CSS Baseline Grid
 */
-html {
-  font-size: 9px; }
-
 body {
   background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2) 0, transparent 1px);
   background-size: 100% 1rem; }
@@ -44,34 +44,34 @@ main {
     padding: 0 2rem; } }
 
 h1, h2, h3 {
-  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
-  font-weight: 300; }
+  font-family: "Lora", serif;
+  font-weight: 700; }
 
 h1, h2, h3 {
   color: #585858; }
 
 h1 {
-  font-size: 4rem;
-  margin-top: 5rem;
-  padding-top: 0.4rem;
+  font-size: 4.5rem;
+  margin-top: 4.7945rem;
+  padding-top: 0;
   line-height: 5rem;
-  padding-bottom: 0.6rem;
+  padding-bottom: 0.2055rem;
   margin-bottom: 3rem; }
 
 h2 {
-  font-size: 2.66667rem;
-  margin-top: 3.76667rem;
-  padding-top: 0;
+  font-size: 3rem;
+  margin-top: 4rem;
+  padding-top: 0.363rem;
   line-height: 3rem;
-  padding-bottom: 0.23333rem;
+  padding-bottom: 0.637rem;
   margin-bottom: 2rem; }
 
 h3 {
-  font-size: 2rem;
-  margin-top: 2.95rem;
+  font-size: 2.25rem;
+  margin-top: 2.64725rem;
   padding-top: 0;
   line-height: 3rem;
-  padding-bottom: 0.05rem;
+  padding-bottom: 0.35275rem;
   margin-bottom: 1rem; }
 
 table.table {
@@ -79,10 +79,10 @@ table.table {
   border-spacing: 0; }
 
 p {
-  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 2rem;
-  margin-top: -0.05rem;
+  margin-top: -0.274rem;
   padding-top: 0;
   line-height: 3rem;
-  padding-bottom: 0.05rem;
+  padding-bottom: 0.274rem;
   margin-bottom: 1rem; }

@@ -1,12 +1,12 @@
 // === Reset ===
 @import "base/reset";
 @import "base/helpers";
+@import "base/common";
 
 // === Plumber ===
 @import "node_modules/plumber-sass/plumber";
 
 // === Theme ===
-@import "docs/init";
 @import "docs/layout";
 @import "docs/headers";
 @import "docs/lists";

@@ -1,0 +1,21 @@
+// === Typography ===
+@import url('https://fonts.googleapis.com/css?family=Lato|Lora:700i');
+
+$header-font: ("Lora", serif);
+$body-font: ("Lato", sans-serif);
+$code-font: ("Consolas", "Monaco", Courier, monospace);
+
+html {
+    font-size: 8px;
+}
+
+$plumber-grid-height: 1rem;
+$header-baseline: 0.879;
+$body-baseline: 0.887;
+
+// === Colors ===
+$color-dark: #2a2a2a;
+$color-medium: #585858;
+$color-light: #d4d4d4;
+$color-accent: #f2c94c;
+$color-background: #fcfcfc;
