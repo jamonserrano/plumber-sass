@@ -1,11 +1,9 @@
 
 h1, h2, h3 {
-	font-family: $header-font;
+	font-family: $font-header;
 	font-weight: 700;
-}
-
-h1, h2, h3 {
 	color: $color-medium;
+	@include font-smoothing;
 }
 
 h1 {
@@ -14,7 +12,7 @@ h1 {
 		$leading-top: 5,
 		$line-height: 5,
 		$leading-bottom: 3,
-		$baseline: $header-baseline
+		$baseline: $baseline-header
 	);
 }
 
@@ -24,7 +22,7 @@ h2 {
 		$leading-top: 4,
 		$line-height: 3,
 		$leading-bottom: 2,
-		$baseline: $header-baseline
+		$baseline: $baseline-header
 	);
 }
 
@@ -34,6 +32,6 @@ h3 {
 		$leading-top: 3,
 		$line-height: 3,
 		$leading-bottom: 1,
-		$baseline: $header-baseline
+		$baseline: $baseline-header
 	);
 }

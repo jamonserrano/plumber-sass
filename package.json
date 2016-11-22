@@ -5,12 +5,12 @@
   "main": "index.html",
   "scripts": {
     "build-docs": "node-sass --include-path scss scss/docs.scss css/docs.css",
-    "build-tools": "node-sass --include-path scss scss/tools.scss css/tools.css",
-    "build-examples": "node-sass --include-path scss scss/examples.scss css/examples.css",
-    "build": "npm run build-docs && npm run build-tools && npm run build-examples",
+    "build-measure": "node-sass --include-path scss scss/measure.scss css/measure.css",
+    "build-demo": "node-sass --include-path scss scss/demo.scss css/demo.css",
+    "build": "npm run build-docs && npm run build-tools && npm run build-demo",
     "watch-docs": "npm run build-docs -- --watch",
-    "watch-tools": "npm run build-tools -- --watch",
-    "watch-examples": "npm run build-examples -- --watch",
+    "watch-measure": "npm run build-measure -- --watch",
+    "watch-demo": "npm run build-demo -- --watch",
     "watch": "npm build -- --watch"
   },
   "repository": {

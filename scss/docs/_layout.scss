@@ -1,17 +1,18 @@
+$content-width: 640px;
+
 body {
-    @include grid-background();
+    //@include grid-background();
+    background-color: $color-background;
 }
 
 main {
     box-sizing: border-box;
     width: 100%;
-    max-width: 640px;
+    max-width: $content-width;
     margin: 0 auto;
     padding: 0 40px;
-}
 
-@media (max-width: 640px) {
-    main {
-        padding: 0 2rem;
+    @media (max-width: $content-width) {
+        padding: 0 20px;
     }
 }

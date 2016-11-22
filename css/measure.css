@@ -1,0 +1,175 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Lato|Lora:700i");
+@import url("https://fonts.googleapis.com/css?family=Lora:400i");
+html, body {
+  margin: 0;
+  padding: 0; }
+
+div, span,
+h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd,
+q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+dl, dt, dd, ol, ul, li,
+table, caption, tbody, tfoot, thead, tr, th, td,
+main, article, embed, figure, figcaption, footer, header, hgroup,
+section, summary, time, mark, audio, video,
+input, textarea {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box; }
+
+html {
+  font-size: 8px; }
+
+/*
+    PLUMBER - CSS Baseline Grid
+*/
+main {
+  width: 100vw;
+  height: 100vh;
+  background: #f2c94c; }
+
+section {
+  width: 100%; }
+
+.measure-area {
+  position: absolute;
+  left: 0;
+  bottom: 40rem;
+  overflow: hidden;
+  height: 1000px; }
+
+.letter {
+  font-size: 1000px;
+  line-height: 1000px;
+  color: #2a2a2a;
+  font-family: "Lora", serif;
+  font-weight: 400;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+  text-align: right;
+  width: 100%;
+  left: -50%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
+
+.ruler {
+  position: absolute;
+  left: 0;
+  top: 844px;
+  z-index: 0;
+  width: 100%;
+  height: 0px;
+  border-top: 1px dashed #fcfcfc;
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #fcfcfc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
+
+.ruler-box {
+  position: absolute;
+  top: -26px;
+  left: calc(75% - (104px / 2));
+  background: #f2c94c;
+  border: 1px dashed #fcfcfc;
+  width: 104px;
+  height: 49px;
+  font-size: 32px;
+  line-height: 49px;
+  text-align: center; }
+
+.ruler-name {
+  position: absolute;
+  font-size: 21px;
+  top: -45px;
+  width: 100%;
+  text-align: center; }
+
+.instructions {
+  background: #2a2a2a;
+  height: 32rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 5rem 20px 0;
+  color: #d4d4d4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  overflow: hidden; }
+  .instructions h1 {
+    font-family: "Lora", serif;
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 0rem;
+    padding-top: 0.363rem;
+    line-height: 3rem;
+    padding-bottom: 0.637rem;
+    margin-bottom: 3rem; }
+  .instructions .steps {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap; }
+  .instructions p {
+    font-family: "Lato", sans-serif;
+    font-size: 2rem;
+    margin-top: -0.258rem;
+    padding-top: 0;
+    line-height: 3rem;
+    padding-bottom: 0.258rem;
+    margin-bottom: 0rem;
+    width: 320px;
+    margin: 0 30px 1rem; }
+    @media (max-width: 1180px) {
+      .instructions p {
+        margin-left: auto;
+        margin-right: auto; } }
+    @media (max-width: 1100px) {
+      .instructions p {
+        width: 100%; } }
+  .instructions textarea {
+    -webkit-appearance: none;
+    background: transparent;
+    width: 320px;
+    border: 1px solid #606060;
+    resize: none;
+    height: 42px;
+    word-break: break-all;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.75rem;
+    margin-top: 1rem;
+    padding-top: 0.32275rem;
+    line-height: 2rem;
+    padding-bottom: 0.67725rem;
+    margin-bottom: 0rem;
+    margin-top: 9px; }
+    @media (max-width: 1100px) {
+      .instructions textarea {
+        height: 24px;
+        font-size: 1.75rem;
+        margin-top: 0rem;
+        padding-top: 0.32275rem;
+        line-height: 2rem;
+        padding-bottom: 0.67725rem;
+        margin-bottom: 0rem;
+        position: relative;
+        top: 7px; } }
+  .instructions a {
+    text-decoration: none;
+    color: #f2c94c; }
+    .instructions a:hover {
+      text-decoration: underline; }

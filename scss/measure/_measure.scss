@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css?family=Lora:400i");
+
+.measure-area {
+    position: absolute;
+    left: 0;
+    bottom: $instructions-height + 8rem;
+    overflow: hidden;
+    height: 1000px;
+}
+
+.letter {
+    font-size: 1000px;
+    line-height: 1000px;
+    color: $color-dark;
+    font-family: $font-header;
+    font-weight: 400;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    text-align: right;
+    width: 100%;
+    left: -50%;
+    @include font-smoothing;
+}
+
+.ruler {
+    position: absolute;
+    left: 0;
+    top: 844px;
+    z-index: 0;
+    width: 100%;
+    height: 0px;
+    border-top: 1px dashed $color-background;
+    font-family: $font-header;
+    font-style: italic;
+    font-weight: 400;
+    color: $color-background;
+    @include font-smoothing;
+
+}
+
+.ruler-box {
+    $width: 104px;
+    $height: 49px;
+    position: absolute;
+    top: -26px;
+    left: calc(75% - (#{$width} / 2));
+    background: $color-accent;
+    border: 1px dashed $color-background;
+    width: $width;
+    height: $height;
+    font-size: 32px;
+    line-height: $height;
+    text-align: center;
+}
+
+.ruler-name {
+    position: absolute;
+    font-size: 21px;
+    top: -45px;
+    width: 100%;
+    text-align: center;
+}

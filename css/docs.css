@@ -20,7 +20,8 @@ section, summary, time, mark, audio, video {
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+  box-sizing: border-box; }
 
 html {
   font-size: 8px; }
@@ -29,8 +30,7 @@ html {
     PLUMBER - CSS Baseline Grid
 */
 body {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2) 0, transparent 1px);
-  background-size: 100% 1rem; }
+  background-color: #fcfcfc; }
 
 main {
   box-sizing: border-box;
@@ -38,17 +38,17 @@ main {
   max-width: 640px;
   margin: 0 auto;
   padding: 0 40px; }
-
-@media (max-width: 640px) {
-  main {
-    padding: 0 2rem; } }
+  @media (max-width: 640px) {
+    main {
+      padding: 0 20px; } }
 
 h1, h2, h3 {
   font-family: "Lora", serif;
-  font-weight: 700; }
-
-h1, h2, h3 {
-  color: #585858; }
+  font-weight: 700;
+  color: #606060;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always; }
 
 h1 {
   font-size: 4.5rem;

@@ -2,3 +2,9 @@
     background-image: linear-gradient(to top, $color 0, transparent 1px);
     background-size: 100% $grid-height;
 }
+
+@mixin font-smoothing {
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+	font-smooth: always;
+}
