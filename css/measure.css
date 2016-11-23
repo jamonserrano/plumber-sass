@@ -167,7 +167,9 @@ section {
         padding-bottom: 0.67725rem;
         margin-bottom: 0rem;
         position: relative;
-        top: 7px; } }
+        top: 7px;
+        white-space: nowrap;
+        word-break: normal; } }
   .instructions a {
     text-decoration: none;
     color: #f2c94c; }
