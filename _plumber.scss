@@ -1,56 +1,59 @@
 // PLUMBER - Real baseline grids with SASS
-
-@mixin plumber($font-size, $leading-top, $line-height, $leading-bottom, $grid-height: $plumber-grid-height, $baseline: $plumber-baseline) {
-	// Check parameters
-	@if (not plumber-is-valid($leading-top)) {
-		@error "$leading-top parameter must be a positive integer, got #{$leading-top} instead.";
+@mixin plumber($font-size, $line-height, $leading-top, $leading-bottom, $grid-height: $plumber-grid-height, $baseline-height: $plumber-baseline-height) {
+	// leadings must be natural numbers
+	@if (not plumber-is-natural-number($leading-top)) {
+		@error "$leading-top parameter must be a natural number, got #{$leading-top} instead.";
+	}
+	@if (not plumber-is-natural-number($leading-bottom)) {
+		@error "$leading-bottom parameter must be a natural number, got #{$leading-bottom} instead";
+	}
+	// line-height must be a positive integer
+	@if (not ($line-height == round($line-height) and $line-height > 0)) {
+		@error "$line-height parameter must be a natural number, got #{$line-height} instead";
 	}
 
-	@if (not plumber-is-valid($line-height)) {
-		@error "$line-height parameter must be a positive integer, got #{$line-height} instead";
-	}
+	// all values in the following calculations are expressed as multiples of the grid height
+	// and measured from the bottom of the text block
 
-	@if (not plumber-is-valid($leading-bottom)) {
-		@error "$leading-bottom parameter must be a positive integer, got #{$leading-bottom} instead";
-	}
+	// the distance of the original baseline from the bottom
+	$baseline-from-bottom: ($line-height - $font-size) / 2 + ($font-size * $baseline-height);
+	// the corrected baseline will be on the nearest gridline
+	$corrected-baseline: round($baseline-from-bottom);
+	// the difference between the original and the corrected baseline
+	$baseline-difference: $corrected-baseline - $baseline-from-bottom;
 
-	// Calculate relative sizes
-	$font-size: $font-size * $grid-height;
-	$line-height: $line-height * $grid-height;
-	$leading-top: $leading-top * $grid-height;
-	$leading-bottom: $leading-bottom * $grid-height;
-	// Calculate the baseline correction
-	$baseline-correction: plumber-get-baseline-correction($font-size, $line-height, $grid-height, $baseline);
-	
-	// CSS output
-	font-size: $font-size;
-	
-	// Move the text to the nearest gridline
-	// The correction is  
-	@if ($baseline-correction > $grid-height / 2) {
-		// Push baseline down to the next gridline
-		margin-top: $leading-top - $grid-height;
-		padding-top: $grid-height - $baseline-correction;
+	// the top margin is calculated from the specified top leading and the baseline correction
+	$margin-top: $leading-top - ($line-height - $corrected-baseline) - $baseline-difference;
+	$padding-top: 0;
+
+	// placeholders
+	$padding-bottom: null;
+	$margin-bottom: null;
+
+	@if ($baseline-difference < 0) {
+		// the baseline was moved down to the next gridline
+		// add the remaining distance to reach the next gridline
+		$padding-bottom: 1 + $baseline-difference;
+		// add bottom leading and remove the 1 excess grid height that comes from pushing down
+		$margin-bottom: $leading-bottom - $corrected-baseline - 1;
 	} @else {
-		// Pull baseline up to the previous gridline (use margin-top as negative paddings don't make sense)
-		margin-top: $leading-top - $baseline-correction;
-		padding-top: 0;
+		// the baseline was moved up to the previous gridline or is on a gridline
+		// add the same difference to the bottom to reach the next gridline
+		$padding-bottom: $baseline-difference;
+		// add bottom leading
+		$margin-bottom: $leading-bottom - $corrected-baseline;
 	}
 	
-	line-height: $line-height;
-	padding-bottom: $baseline-correction;
-	margin-bottom: $leading-bottom;
+	// generate the actual CSS from the calculated multipliers
+	font-size: $font-size * $grid-height;
+	line-height: $line-height * $grid-height;
+	margin-top: $margin-top * $grid-height;
+	padding-top: $padding-top * $grid-height;
+	padding-bottom: $padding-bottom * $grid-height;
+	margin-bottom: $margin-bottom * $grid-height;
 }
 
-// Get the amount of that needs to be applied for the text to sit on a gridline
-@function plumber-get-baseline-correction($font-size, $line-height, $grid-height, $baseline) {
-	// the text is centered in the bounding box defined by line-height
-	$baseline-from-top: ($line-height - $font-size) / 2 + ($font-size * $baseline);
-	// return the distance of the baseline from the previous gridline
-	@return $baseline-from-top % $grid-height;
-}
-
-// Check if a value is not an integer
-@function plumber-is-valid($value) {
+// Check if a value is a natural number
+@function plumber-is-natural-number($value) {
 	@return ($value == round($value) and $value >= 0);
 }
