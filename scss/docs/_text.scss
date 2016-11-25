@@ -3,8 +3,8 @@ p {
 	@include plumber(
 		$font-size: 2,
 		$line-height: 3,
-		$leading-top: 0,
-		$leading-bottom: 1,
-		$baseline: $baseline-body
+		$leading-top: 2,
+		$leading-bottom: 2,
+		$baseline-height: $baseline-body
 	);
 }

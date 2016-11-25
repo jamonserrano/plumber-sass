@@ -14,7 +14,8 @@ q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
 dl, dt, dd, ol, ul, li,
 table, caption, tbody, tfoot, thead, tr, th, td,
 main, article, embed, figure, figcaption, footer, header, hgroup,
-section, summary, time, mark, audio, video {
+section, summary, time, mark, audio, video,
+input, textarea {
   margin: 0;
   padding: 0;
   border: 0;
@@ -26,11 +27,9 @@ section, summary, time, mark, audio, video {
 html {
   font-size: 8px; }
 
-/*
-    PLUMBER - CSS Baseline Grid
-*/
 body {
-  background-color: #fcfcfc; }
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2) 0, transparent 1px);
+  background-size: 100% 1rem; }
 
 main {
   box-sizing: border-box;
@@ -52,25 +51,25 @@ h1, h2, h3 {
 
 h1 {
   font-size: 4.5rem;
-  margin-top: 4.7945rem;
-  padding-top: 0;
   line-height: 5rem;
+  margin-top: 4.7945rem;
+  padding-top: 0rem;
   padding-bottom: 0.2055rem;
   margin-bottom: 3rem; }
 
 h2 {
   font-size: 3rem;
-  margin-top: 4rem;
-  padding-top: 0.363rem;
   line-height: 3rem;
+  margin-top: 3.363rem;
+  padding-top: 0rem;
   padding-bottom: 0.637rem;
   margin-bottom: 2rem; }
 
 h3 {
   font-size: 2.25rem;
-  margin-top: 2.64725rem;
-  padding-top: 0;
   line-height: 3rem;
+  margin-top: 2.64725rem;
+  padding-top: 0rem;
   padding-bottom: 0.35275rem;
   margin-bottom: 1rem; }
 
@@ -81,8 +80,8 @@ table.table {
 p {
   font-family: "Lato", sans-serif;
   font-size: 2rem;
-  margin-top: -0.274rem;
-  padding-top: 0;
   line-height: 3rem;
+  margin-top: -0.274rem;
+  padding-top: 0rem;
   padding-bottom: 0.274rem;
   margin-bottom: 1rem; }

@@ -6,32 +6,33 @@ h1, h2, h3 {
 	@include font-smoothing;
 }
 
+
 h1 {
 	@include plumber(
 		$font-size: 4.5,
-		$leading-top: 5,
+		$leading-top: 9,
 		$line-height: 5,
-		$leading-bottom: 3,
-		$baseline: $baseline-header
+		$leading-bottom: 4,
+		$baseline-height: $baseline-header
 	);
 }
 
 h2 {
 	@include plumber(
 		$font-size: 3,
-		$leading-top: 4,
+		$leading-top: 6,
 		$line-height: 3,
-		$leading-bottom: 2,
-		$baseline: $baseline-header
+		$leading-bottom: 3,
+		$baseline-height: $baseline-header
 	);
 }
 
 h3 {
 	@include plumber(
 		$font-size: 2.25,
-		$leading-top: 3,
+		$leading-top: 5,
 		$line-height: 3,
-		$leading-bottom: 1,
-		$baseline: $baseline-header
+		$leading-bottom: 2,
+		$baseline-height: $baseline-header
 	);
 }
