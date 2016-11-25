@@ -12,19 +12,24 @@ $plumber-leading-from-baseline: true !default;
 	$grid-height: $plumber-grid-height,
 	$baseline-height: $plumber-baseline-height
 ) {
-	// All values are expressed as multiples of grid height and measured from the bottom of the text block
-
-	// *** VALIDATE PARAMETERS ***	
-	// leadings must be natural numbers
+	// *** VALIDATE PARAMETERS ***
+	@if $font-size <= 0 {
+		@error '$font-size parameter must be a positive number, got #{$font-size} instead';
+	}	
+	@if not plumber-is-positive-integer($line-height) {
+		@error '$line-height parameter must be a positive integer, got #{$line-height} instead';
+	}
 	@if not plumber-is-natural-number($leading-top) {
 		@error '$leading-top parameter must be a non-negative integer, got #{$leading-top} instead.';
 	}
 	@if not plumber-is-natural-number($leading-bottom) {
 		@error '$leading-bottom parameter must be a non-negative integer, got #{$leading-bottom} instead';
 	}
-	// line-height must be a positive integer
-	@if $line-height != round($line-height) or $line-height <= 0 {
-		@error '$line-height parameter must be a natural number, got #{$line-height} instead';
+	@if unitless($grid-height) or $grid-height < 0 {
+		@error '$grid-height parameter must be a positive unit, got #{$grid-height} instead';
+	}
+	@if not (unitless($baseline-height) and $baseline-height >= 0 and $baseline-height < 1) {
+		@error '$baseline-height parameter must be a number between 0 and 1, got #{$baseline-height} instead';
 	}
 
 	// *** CALCULATE BASELINE CORRECTION ***
@@ -77,7 +82,11 @@ $plumber-leading-from-baseline: true !default;
 	margin-bottom: $margin-bottom * $grid-height;
 }
 
-// Check if a value is a natural number
+// Check if a value is a non-negative integer
 @function plumber-is-natural-number($value) {
-	@return ($value == round($value) and $value >= 0);
+	@return (unitless($value) and $value == round($value) and $value >= 0);
+}
+// Check if a value is a positive integer
+@function plumber-is-positive-integer($value) {
+	@return (unitless($value) and $value == round($value) and $value > 0);
 }
