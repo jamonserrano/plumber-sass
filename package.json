@@ -26,7 +26,7 @@
   "devDependencies": {
     "node-sass": "^3.8.0",
     "nodemon": "^1.9.2",
-    "plumber-sass": "^0.1.0",
+    "plumber-sass": "*",
     "sass-lint": "^1.8.2"
   }
 }
