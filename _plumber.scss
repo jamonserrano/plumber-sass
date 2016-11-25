@@ -1,20 +1,33 @@
-// PLUMBER - Real baseline grids with SASS
-@mixin plumber($font-size, $line-height, $leading-top, $leading-bottom, $grid-height: $plumber-grid-height, $baseline-height: $plumber-baseline-height) {
+// *** PLUMBER - Real baseline grids with SASS ***
+
+// Sets the origin of the leadings to the baseline
+// Override it to set the origin to the edges of the text block
+$plumber-leading-from-baseline: true !default;
+
+@mixin plumber(
+	$font-size,
+	$line-height,
+	$leading-top,
+	$leading-bottom,
+	$grid-height: $plumber-grid-height,
+	$baseline-height: $plumber-baseline-height
+) {
+	// All values are expressed as multiples of grid height and measured from the bottom of the text block
+
+	// *** VALIDATE PARAMETERS ***	
 	// leadings must be natural numbers
-	@if (not plumber-is-natural-number($leading-top)) {
-		@error "$leading-top parameter must be a natural number, got #{$leading-top} instead.";
+	@if not plumber-is-natural-number($leading-top) {
+		@error '$leading-top parameter must be a non-negative integer, got #{$leading-top} instead.';
 	}
-	@if (not plumber-is-natural-number($leading-bottom)) {
-		@error "$leading-bottom parameter must be a natural number, got #{$leading-bottom} instead";
+	@if not plumber-is-natural-number($leading-bottom) {
+		@error '$leading-bottom parameter must be a non-negative integer, got #{$leading-bottom} instead';
 	}
 	// line-height must be a positive integer
-	@if (not ($line-height == round($line-height) and $line-height > 0)) {
-		@error "$line-height parameter must be a natural number, got #{$line-height} instead";
+	@if $line-height != round($line-height) or $line-height <= 0 {
+		@error '$line-height parameter must be a natural number, got #{$line-height} instead';
 	}
 
-	// all values in the following calculations are expressed as multiples of the grid height
-	// and measured from the bottom of the text block
-
+	// *** CALCULATE BASELINE CORRECTION ***
 	// the distance of the original baseline from the bottom
 	$baseline-from-bottom: ($line-height - $font-size) / 2 + ($font-size * $baseline-height);
 	// the corrected baseline will be on the nearest gridline
@@ -22,29 +35,40 @@
 	// the difference between the original and the corrected baseline
 	$baseline-difference: $corrected-baseline - $baseline-from-bottom;
 
+	// *** CALCULATE LEADING ORIGINS ***
+	// leadings can be measured either from the edges of the text block…
+	$leading-top-origin: 0;
+	$leading-bottom-origin: 0;
+	// …or from the baseline
+	@if ($plumber-leading-from-baseline == true) {
+		$leading-top-origin: $line-height - $corrected-baseline;
+		$leading-bottom-origin: $corrected-baseline;
+	}
+
+	// *** APPLY BASELINE CORRECTION, TOP LEADING ***
 	// the top margin is calculated from the specified top leading and the baseline correction
-	$margin-top: $leading-top - ($line-height - $corrected-baseline) - $baseline-difference;
+	$margin-top: $leading-top - $leading-top-origin - $baseline-difference;
 	$padding-top: 0;
 
-	// placeholders
+	// *** COMPENSATE FOR BASELINE CORRECTION, BOTTOM LEADING ***
 	$padding-bottom: null;
 	$margin-bottom: null;
-
-	@if ($baseline-difference < 0) {
+	// bottom padding and margin depend on the direction of the baseline correction
+	@if $baseline-difference < 0 {
 		// the baseline was moved down to the next gridline
 		// add the remaining distance to reach the next gridline
 		$padding-bottom: 1 + $baseline-difference;
 		// add bottom leading and remove the 1 excess grid height that comes from pushing down
-		$margin-bottom: $leading-bottom - $corrected-baseline - 1;
+		$margin-bottom: $leading-bottom - $leading-bottom-origin - 1;
 	} @else {
 		// the baseline was moved up to the previous gridline or is on a gridline
 		// add the same difference to the bottom to reach the next gridline
 		$padding-bottom: $baseline-difference;
 		// add bottom leading
-		$margin-bottom: $leading-bottom - $corrected-baseline;
+		$margin-bottom: $leading-bottom - $leading-bottom-origin;
 	}
 	
-	// generate the actual CSS from the calculated multipliers
+	// *** CSS OUTPUT ***
 	font-size: $font-size * $grid-height;
 	line-height: $line-height * $grid-height;
 	margin-top: $margin-top * $grid-height;
