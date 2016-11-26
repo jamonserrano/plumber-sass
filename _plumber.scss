@@ -1,7 +1,7 @@
 // *** PLUMBER - Real baseline grids with SASS ***
 
 // Override this variable to set the leading origin to the baseline
-$plumber-baseline-leading: false !default;
+$plumber-leading-from-baseline: false !default;
 
 @mixin plumber(
 	$font-size,
@@ -40,7 +40,7 @@ $plumber-baseline-leading: false !default;
 		@error '$leading parameter must be an integer, got #{$leading} instead';
 	}
 	// if baseline origin is used for leadings substract the distance of the baseline from the edges
-	@if $plumber-baseline-leading {
+	@if $plumber-leading-from-baseline {
 		$leading: $leading - $corrected-baseline;
 	}
 
