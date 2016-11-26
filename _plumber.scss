@@ -1,12 +1,14 @@
 // *** PLUMBER - Real baseline grids with SASS ***
 
-// Override this variable to set the leading origin to the baseline
-$plumber-leading-from-baseline: false !default;
+// Sets the origin of the leadings to the baseline
+// Override it to set the origin to the edges of the text block
+$plumber-leadings-from-baseline: false !default;
 
 @mixin plumber(
 	$font-size,
 	$line-height,
-	$leading: null,
+	$leading-top: null,
+	$leading-bottom: null,
 	$grid-height: $plumber-grid-height,
 	$baseline: $plumber-baseline
 ) {
@@ -14,7 +16,7 @@ $plumber-leading-from-baseline: false !default;
 	@if $font-size <= 0 {
 		@error '$font-size parameter must be a positive number, got #{$font-size} instead';
 	}	
-	@if not unitless($line-height) or $line-height != round($line-height) or $line-height <= 0 {
+	@if not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
 		@error '$line-height parameter must be a positive integer, got #{$line-height} instead';
 	}
 	@if unitless($grid-height) or $grid-height < 0 {
@@ -30,38 +32,51 @@ $plumber-leading-from-baseline: false !default;
 	// the corrected baseline will be on the nearest gridline
 	$corrected-baseline: round($baseline-from-bottom);
 	// the difference between the original and the corrected baseline
-	$baseline-difference: $baseline-from-bottom - $corrected-baseline;
+	$baseline-difference: $corrected-baseline - $baseline-from-bottom;
 
-	// *** CALCULATE LEADING ***
+	// *** CALCULATE LEADINGS ***
+	// apply zero top leading if missing or validate if specified
+	@if not $leading-top {
+		$leading-top: 0;
+	} @else if not -plumber-is-integer($leading-top) {
+		@error '$leading-top parameter must be a non-negative integer, got #{$leading-top} instead.';
+	}
 	// apply zero bottom leading if missing or validate if specified
-	@if not $leading {
-		$leading: 0;
-	} @else if not unitless($leading) or $leading != round($leading) {
-		@error '$leading parameter must be an integer, got #{$leading} instead';
+	@if not $leading-bottom {
+		$leading-bottom: 0;
+	} @else if not -plumber-is-integer($leading-bottom) {
+		@error '$leading-bottom parameter must be a non-negative integer, got #{$leading-bottom} instead';
 	}
 	// if baseline origin is used for leadings substract the distance of the baseline from the edges
-	@if $plumber-leading-from-baseline {
-		$leading: $leading - $corrected-baseline;
+	@if $plumber-leadings-from-baseline {
+		$leading-top: $leading-top - ($line-height - $corrected-baseline);
+		$leading-bottom: $leading-bottom - $corrected-baseline;
 	}
 
-	// *** CALCULATE MARGINS & PADDINGS
-	$margin-top: 0;
-	$padding-top: 0;
-	$padding-bottom: 0;
+	// *** CALCULATE MARGINS AND PADDINGS ***
+	$padding-top: null;
+	$margin-top: null;
 	$margin-bottom: null;
-
-	@if $baseline-difference > 0 {
-		// we need to push down the baseline to the next gridline
-		// so we apply some padding
-		$padding-top: $baseline-difference;
-		// and add the remaining distance to the leading to reach a gridline
-		$margin-bottom: $leading - $baseline-difference;
+	$padding-bottom: null;
+	
+	@if $baseline-difference < 0 {
+		// add top leading
+		$margin-top: $leading-top;
+		// push the baseline down to the next gridline
+		$padding-top: - $baseline-difference;
+		// add the remaining distance to reach the next gridline
+		$padding-bottom: 1 + $baseline-difference;
+		// add bottom leading and remove the 1 excess grid height that comes from pushing down
+		$margin-bottom: $leading-bottom - 1;
 	} @else {
-		// we need to pull up the baseline to the previous gridline
-		// so we apply some negative margin
-		$margin-top: $baseline-difference;
-		// and substract the same distance from the leading to reach a gridline
-		$margin-bottom: $leading - $baseline-difference;
+		// add top leading and remove the 1 excess grid height that comes from pulling up
+		$margin-top: $leading-top - 1;
+		// pull the baseline up to the previous gridline
+		$padding-top: 1 - $baseline-difference;
+		// add the remaining distance to reach the next gridline
+		$padding-bottom: $baseline-difference;
+		// add bottom leading
+		$margin-bottom: $leading-bottom;
 	}
 	
 	// *** CSS OUTPUT ***
@@ -71,4 +86,9 @@ $plumber-leading-from-baseline: false !default;
 	padding-top: $padding-top * $grid-height;
 	padding-bottom: $padding-bottom * $grid-height;
 	margin-bottom: $margin-bottom * $grid-height;
+}
+
+// Check if a value is a non-negative integer
+@function -plumber-is-integer($value) {
+	@return (unitless($value) and $value == round($value));
 }
