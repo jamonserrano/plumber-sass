@@ -42,7 +42,7 @@ And include it from the bower_components folder of your project:
 ```scss
 $plumber-grid-height: 12px; // Pixels
 // or
-$plumber-grid-height: 2rem; // Ems
+$plumber-grid-height: 2rem; // Rems
 ```
 
 2\. Look up the baseline of your font family in the table or use the measure tool. Put the result in the `$plumber-baseline` global variable.
@@ -79,7 +79,7 @@ When using multiple fonts or families, you can define a baseline for each of the
 
 ```scss
 $header-baseline: 0.121; // Helvetica Neue
-$body-baseline: 0.151 // Georgia
+$body-baseline: 0.151; // Georgia
 
 h1 {
 	@include plumber(
@@ -119,10 +119,10 @@ p {
 }
 
 html {
-	// grid height: 12px, <p> font size: 18px
+	// grid height: 12px, paragraph font size: 18px
 	font-size: 12px;
 	
-	// grid-height: 16px, <p> font size: 24px
+	// grid-height: 16px, paragraph font size: 24px
 	@media screen and (min-width: 641px) {
 		font-size: 16px;
 	}
@@ -174,8 +174,8 @@ Name | Description | Type | Default value
 ---- | ----------- | ---- | -------------
 $font-size | Font size as a fraction of grid height | Positive number |
 $line-height | Line height as a multiple of grid height| Positive integer |
-$leading-top _(optional)_ | Top leading* | Integer | 0<sup>†</sup>
-$leading-bottom _(optional)_ | Bottom leading* | Integer | 0<sup>†</sup>
+$leading-top _(optional)_ | Top leading* as a multiple of grid height* | Integer | 0<sup>†</sup>
+$leading-bottom _(optional)_ | Bottom leading* as a multiple of grid height | Integer | 0<sup>†</sup>
 $grid-height _(optional)_ | Override the default grid height | Any unit | $plumber-grid-height |
 $baseline _(optional)_ | Override the default baseline | Fraction between 0 and 1 | $plumber-baseline |
 
