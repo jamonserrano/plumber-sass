@@ -140,9 +140,7 @@ $plumber-leadings-from-baseline: true;
 
 ### Precision
 Due to SASS's precision, rounding, and browser text engines it's entirely possible that the rendered text will not sit _exactly_ on the baseline. This does not corrupt the grid as the different heights set on a given element always add up to a whole gridline.
-
-### Chasing perfection
-Despite the above mentioned shortfalls following these guidelines will get you closer to pixel perfection:
+Following these guidelines will get you closer to pixel perfection:
 
 * Define grid height in pixels, or as a multiple of the base font height (e.g. 16px or 1rem).
 * Use an even grid height (e.g. 8px).
