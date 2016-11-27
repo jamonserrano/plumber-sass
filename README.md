@@ -151,10 +151,10 @@ The best practice seems to be to use a grid that has half of the height of the n
 
 > The font-specific `$baseline` is not set in stone. If all else fails, feel free to tinker with it until you get acceptable results.
 
-### The baseline can vary among fonts in the same family
+### Varying baseline among fonts in the same family
 Although some weights or styles in the same family can sit on different baselines, it's generally fine to use the one for the regular font. If pixel perfection is important, define individual baselines for each font.
 
-### Responsive grid with viewport-specific units
+### Viewport-specific units
 While supported, specifying `$grid-height` in vh, vw, vmin, vmax is discouraged because this usually yields fractional pixels that can seriously hamper precision.
 
 ### Collapsing margins
