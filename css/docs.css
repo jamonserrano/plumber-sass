@@ -153,6 +153,10 @@ pre[class*="language-"] > code {
   margin-bottom: 2rem;
   overflow: auto; }
 
+:not(pre) > code,
+pre[class*="language-"] {
+  background: #f4f4f4; }
+
 :not(pre) > code {
   padding: 1px 4px 2px;
   margin-bottom: -4px;
