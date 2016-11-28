@@ -20,7 +20,7 @@ $ npm install plumber-sass --save-dev
 ```
 And include it from the node_modules folder of your project:
 
-```sass
+```scss
 @include node_modules/plumber-sass/plumber;
 ```
 
@@ -32,7 +32,7 @@ $ bower install plumber-sass --save-dev
 ```
 And include it from the bower_components folder of your project:
 
-```sass
+```scss
 @include bower_components/plumber-sass/plumber;
 ```
 
