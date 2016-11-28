@@ -1,7 +1,7 @@
 # Plumber
 _Real baseline grids with SASS_
 
-Plumber helps you add vertical rhythm to your page using a real baseline grid – with each line of text sitting on a gridline. Its simplicity makes it easier to implement graphical designs or to create better looking documents from scratch.
+Plumber helps you create better looking documents by adding vertical rhythm to your page easily.
 
 ## Installation
 
@@ -37,7 +37,7 @@ And include it from the bower_components folder of your project:
 ```
 
 ## Usage
-1\. Set the height of the vertical grid on your page in any unit with the `$plumber-grid-height` global variable:
+1\. Set the height of the vertical grid in your preferred unit with the `$plumber-grid-height` global variable:
 
 ```scss
 $plumber-grid-height: 12px; // Pixels
@@ -51,7 +51,7 @@ $plumber-grid-height: 2rem; // Rems
 $plumber-baseline: 0.121; // Helvetica Neue
 ```
 
-3\. Include the plumber mixin in your styles. Each parameter should be a multiple of the grid height, the font size can be a fraction.
+3\. Include the plumber mixin in your styles. Each parameter should be a multiple of the grid height, only the font size can be a fraction.
 
 ```scss
 h1 {
@@ -75,7 +75,7 @@ h2 {
 
 ### Using multiple fonts
 
-When using multiple fonts or families, you can define a baseline for each of them and use it as the optional `$baseline` parameter:
+When using multiple fonts or families, you can define a baseline for each and use it as the optional `$baseline` parameter:
 
 ```scss
 $header-baseline: 0.121; // Helvetica Neue
@@ -104,7 +104,7 @@ p {
 ```
 
 ### Responsive typography
-Plumber supports responsive typography out of the box. Just specify the grid height in rems or other relative units, and the font metrics will change along.
+Plumber supports responsive typography. Just specify the grid height in rems or other relative units, and the font metrics will change along.
 
 ```scss
 $plumber-grid-height: 1rem;
@@ -136,20 +136,17 @@ Leadings are measured from the top and bottom edges of the text block by default
 $plumber-leadings-from-baseline: true;
 ```
 
-## Important considerations
+## Considerations
 
 ### Precision
-Due to SASS's precision, rounding, and browser text engines it's entirely possible that the rendered text will not sit _exactly_ on the baseline. This does not corrupt the grid as the different heights set on a given element always add up to a whole gridline.
-Following these guidelines will get you closer to pixel perfection:
+Due to SASS's precision, rounding, and browser text engines it's entirely possible that the rendered text will not sit _exactly_ on the baseline. This does not corrupt the grid as the different heights always add up to a whole gridline. Following these guidelines will get you closer to pixel perfection:
 
 * Define grid height in pixels, or as a multiple of the base font height (e.g. 16px or 1rem).
 * Use an even grid height (e.g. 8px).
 * Use a grid height with many divisors (e.g. 12px).
 * Use font sizes that produce whole numbers when multiplied with the grid height.
 
-The best practice seems to be to use a grid that has half of the height of the normal font-size (e.g. setting paragraphs in 16px and the grid height to 8px).
-
-> The font-specific `$baseline` is not set in stone. If all else fails, feel free to tinker with it until you get acceptable results.
+> Setting a base font size to 2 grid heights eliminates most inaccuracies.
 
 ### Varying baseline among fonts in the same family
 Although some weights or styles in the same family can sit on different baselines, it's generally fine to use the one for the regular font. If pixel perfection is important, define individual baselines for each font.
