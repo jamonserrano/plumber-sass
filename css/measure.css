@@ -2,8 +2,8 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Lato|Lora:700i");
-@import url("https://fonts.googleapis.com/css?family=Lora:400i");
+@import url("https://fonts.googleapis.com/css?family=Lora:700i|Lato:400,700|Inconsolata");
+@import url("https://fonts.googleapis.com/css?family=Lora:400i|Inconsolata");
 html, body {
   margin: 0;
   padding: 0; }
@@ -21,16 +21,12 @@ input, textarea {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
   box-sizing: border-box; }
 
 html {
   font-size: 8px; }
 
-/*
-    PLUMBER - CSS Baseline Grid
-*/
 main {
   width: 100vw;
   height: 100vh;
@@ -104,7 +100,7 @@ section {
   bottom: 0;
   left: 0;
   padding: 5rem 20px 0;
-  color: #d4d4d4;
+  color: #ccc;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
@@ -113,11 +109,11 @@ section {
     font-family: "Lora", serif;
     text-align: center;
     font-size: 3rem;
+    line-height: 3rem;
     margin-top: 0rem;
     padding-top: 0.363rem;
-    line-height: 3rem;
     padding-bottom: 0.637rem;
-    margin-bottom: 3rem; }
+    margin-bottom: 2rem; }
   .instructions .steps {
     display: flex;
     justify-content: center;
@@ -126,9 +122,9 @@ section {
   .instructions p {
     font-family: "Lato", sans-serif;
     font-size: 2rem;
-    margin-top: -0.258rem;
-    padding-top: 0;
     line-height: 3rem;
+    margin-top: -1rem;
+    padding-top: 0.742rem;
     padding-bottom: 0.258rem;
     margin-bottom: 0rem;
     width: 320px;
@@ -151,21 +147,21 @@ section {
     padding-left: 1rem;
     padding-right: 1rem;
     font-size: 1.75rem;
+    line-height: 2rem;
     margin-top: 1rem;
     padding-top: 0.32275rem;
-    line-height: 2rem;
     padding-bottom: 0.67725rem;
-    margin-bottom: 0rem;
+    margin-bottom: -1rem;
     margin-top: 9px; }
     @media (max-width: 1100px) {
       .instructions textarea {
         height: 24px;
         font-size: 1.75rem;
+        line-height: 2rem;
         margin-top: 0rem;
         padding-top: 0.32275rem;
-        line-height: 2rem;
         padding-bottom: 0.67725rem;
-        margin-bottom: 0rem;
+        margin-bottom: -1rem;
         position: relative;
         top: 7px;
         white-space: nowrap;

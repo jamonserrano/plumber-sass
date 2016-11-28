@@ -1,8 +1,8 @@
 $content-width: 640px;
 
 body {
-    @include grid-background();
-    //background-color: $color-background;
+    //@include grid-background();
+    background-color: $color-background;
 }
 
 main {

@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Lato|Lora:700i");
+@import url("https://fonts.googleapis.com/css?family=Lora:700i|Lato:400,700|Inconsolata");
 html, body {
   margin: 0;
   padding: 0; }
@@ -19,17 +19,14 @@ input, textarea {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
   box-sizing: border-box; }
 
 html {
-  font-size: 8px; }
+  font-size: 8px;
+  font-family: "Lato", sans-serif; }
 
 body {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.2) 0, transparent 1px);
-  background-size: 100% 1rem; }
+  background-color: #fcfcfc; }
 
 main {
   box-sizing: border-box;
@@ -50,38 +47,173 @@ h1, h2, h3 {
   font-smooth: always; }
 
 h1 {
-  font-size: 4.5rem;
+  font-size: 4.75rem;
   line-height: 5rem;
-  margin-top: 4.7945rem;
-  padding-top: 0rem;
-  padding-bottom: 0.2055rem;
-  margin-bottom: 3rem; }
+  margin-top: 4rem;
+  padding-top: 0.69975rem;
+  padding-bottom: 0.30025rem;
+  margin-bottom: 4rem; }
 
 h2 {
   font-size: 3rem;
-  line-height: 3rem;
-  margin-top: 3.363rem;
-  padding-top: 0rem;
-  padding-bottom: 0.637rem;
+  line-height: 4rem;
+  margin-top: 3rem;
+  padding-top: 0.863rem;
+  padding-bottom: 0.137rem;
   margin-bottom: 2rem; }
 
 h3 {
   font-size: 2.25rem;
   line-height: 3rem;
-  margin-top: 2.64725rem;
-  padding-top: 0rem;
+  margin-top: 3rem;
+  padding-top: 0.64725rem;
   padding-bottom: 0.35275rem;
   margin-bottom: 1rem; }
 
-table.table {
+table {
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+  table-layout: fixed; }
+  table.parameters col {
+    width: 25%; }
+  table tr {
+    margin-top: -1px;
+    border-bottom: 1px solid #c0c0c0; }
+  table thead tr {
+    border-bottom-color: #f2c94c; }
+  table th, table td {
+    text-align: left;
+    vertical-align: top;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    margin-top: 0rem;
+    padding-top: 0.32275rem;
+    padding-bottom: 0.67725rem;
+    margin-bottom: 0rem;
+    padding-left: 1rem; }
 
 p {
-  font-family: "Lato", sans-serif;
   font-size: 2rem;
   line-height: 3rem;
-  margin-top: -0.274rem;
-  padding-top: 0rem;
+  margin-top: -1rem;
+  padding-top: 0.726rem;
   padding-bottom: 0.274rem;
   margin-bottom: 1rem; }
+
+ul {
+  margin-top: 2rem;
+  margin-bottom: 3rem; }
+
+li {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: -1rem;
+  padding-top: 0.726rem;
+  padding-bottom: 0.274rem;
+  margin-bottom: 1rem;
+  margin-left: 1em; }
+
+pre {
+  padding: 1rem 1.5rem 1px;
+  margin-top: -1px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #f2c94c; }
+
+code {
+  color: #2a2a2a;
+  background: none;
+  font-family: "Inconsolata", monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none; }
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code::-moz-selection, code ::-moz-selection {
+  background: #b3d4fc; }
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code::selection, code ::selection {
+  background: #b3d4fc; }
+
+pre[class*="language-"] > code {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 1rem;
+  padding-top: 0.81rem;
+  padding-bottom: 0.19rem;
+  margin-bottom: 2rem;
+  overflow: auto; }
+
+:not(pre) > code {
+  padding: 1px 4px 2px;
+  margin-bottom: -4px;
+  white-space: normal;
+  line-height: 1; }
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #c0c0c0; }
+
+.token.punctuation {
+  color: #606060; }
+
+.namespace {
+  opacity: .7; }
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #606060; }
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #27ae60; }
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #eb5757; }
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #2d9cdb; }
+
+.token.function {
+  color: #eb5757; }
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #2a2a2a; }
+
+.token.important,
+.token.bold {
+  font-weight: bold; }
+
+.token.italic {
+  font-style: italic; }
+
+.token.entity {
+  cursor: help; }
