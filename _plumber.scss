@@ -120,9 +120,9 @@ $-plumber-defaults: (
 	use-baseline-origin: false,
 ) !default;
 
-// Set default values
-@mixin plumber-set-defaults($defaults) {
-	$-plumber-defaults: map-merge($-plumber-defaults, $defaults) !global;
+// Merge provided settings into the defaults map 
+@mixin plumber-set-defaults($defaults...) {
+	$-plumber-defaults: map-merge($-plumber-defaults, keywords($defaults)) !global;
 }
 
 // Get a default value 
