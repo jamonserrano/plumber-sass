@@ -1,11 +1,11 @@
 # Plumber
 _Real baseline grids with SASS_
 
-Plumber helps you create better looking documents by adding vertical rhythm to your page easily.
+Create better looking documents and speed up CSS development by adding vertical rhythm to your page. Plumber positions every line of text on a gridline by adjusting paddings and margins.
 
 ## Installation
 
-### Manual installation
+### Manual
 Download and extract [the latest version](https://api.github.com/repos/jamonserrano/plumber-sass/zipball), move `_plumber.scss` into the vendor folder of your project and include it:
 
 ```sass
@@ -37,25 +37,17 @@ And include it from the bower_components folder of your project:
 ```
 
 ## Usage
-1\. Set the height of the vertical grid in your preferred unit with the `$plumber-grid-height` global variable:
+1\. Decide on the grid height you will use in the unit of your choice (pixels or rems are recommended.
 
-```scss
-$plumber-grid-height: 12px; // Pixels
-// or
-$plumber-grid-height: 2rem; // Rems
-```
+2\. Look up the baseline of your font family in the table or use the measure tool. E.g. the value for Helvetica Neue is 0.121.
 
-2\. Look up the baseline of your font family in the table or use the measure tool. Put the result in the `$plumber-baseline` global variable.
-
-```scss
-$plumber-baseline: 0.121; // Helvetica Neue
-```
-
-3\. Include the plumber mixin in your styles. Each parameter should be a multiple of the grid height, only the font size can be a fraction.
+3\. Include the plumber mixin in your styles:
 
 ```scss
 h1 {
 	@include plumber(
+		$grid-height: 1rem,
+		$baseline: 0.121
 		$font-size: 4.5,
 		$line-height: 6,
 		$leading-top: 9,
@@ -63,41 +55,56 @@ h1 {
 	);
 }
 
-h2 {
+p {
 	@include plumber(
-		$font-size: 3.25,
-		$line-height: 4,
-		$leading-top: 6,
-		$leading-bottom: 2
+		$grid-height: 1rem,
+		$baseline: 0.121
+		$font-size: 2,
+		$line-height: 3,
+		$leading-top: 0,
+		$leading-bottom: 1
+	);
+}
+```
+
+### Default settings
+To avoid repeating yourself, you should set up default values for each parameter before using the mixin:
+
+```scss
+@include plumber-set-defaults(
+	$grid-height: 1rem,
+	$baseline: 0.121,
+	$font-size: 2,
+	$line-height: 3,
+	$leading-top: 0,
+	$leading-bottom: 1
+);
+
+p {
+	// using only default values
+	@include plumber();
+}
+
+li {
+	// override leadings
+	@include plumber(
+		leading-top: 1,
+		leading-bottom: 2
 	);
 }
 ```
 
 ### Using multiple fonts
 
-When using multiple fonts or families, you can define a baseline for each and use it as the optional `$baseline` parameter:
+When using multiple fonts or families, you can define a baseline for each one and use the optional `$baseline` parameter:
 
 ```scss
-$header-baseline: 0.121; // Helvetica Neue
-$body-baseline: 0.151; // Georgia
+$quote-baseline: 0.151; // Georgia
 
-h1 {
+blockquote {
 	@include plumber(
-		$font-size: 4.5,
-		$line-height: 6,
-		$leading-top: 9,
-		$leading-bottom: 3,
-		$baseline: $header-baseline
-	);
-}
-
-p {
-	@include plumber(
-		$font-size: 2,
-		$line-height: 3,
-		$leading-top: 2,
-		$leading-bottom: 2,
-		$baseline: $body-baseline
+		//...
+		$baseline: $quote-baseline
 	);
 }
 
@@ -107,33 +114,30 @@ p {
 Plumber supports responsive typography. Just specify the grid height in rems or other relative units, and the font metrics will change along.
 
 ```scss
-$plumber-grid-height: 1rem;
-
-p {
-	@include plumber(
-		$font-size: 2,
-		$line-height: 3,
-		$leading-top: 2,
-		$leading-bottom: 2
-	);
-}
+@include plumber-set-defaults(
+	$grid-height: 1rem,
+	$font-size: 2
+	//...
+);
 
 html {
-	// grid height: 12px, paragraph font size: 18px
-	font-size: 12px;
+	font-size: 8px;
+	// grid height => 8px, font size => 16px
 	
-	// grid-height: 16px, paragraph font size: 24px
 	@media screen and (min-width: 641px) {
-		font-size: 16px;
+		font-size: 12px;
+		// grid-height => 12px, font size => 24px
 	}
 }
 ```
 
 ### Alternative leading calculation
-Leadings are measured from the top and bottom edges of the text block by default. To measure them from the baseline, set the global `$plumber-leadings-from-baseline` variable to `true` before using the mixin:
+Leadings are measured from the top and bottom edges of the text block by default. To measure them from the baseline, set `use-baseline-origin: true` before using the mixin:
 
 ```scss
-$plumber-leadings-from-baseline: true;
+@include plumber-set-defaults(
+	$use-baseline-origin: true
+);
 ```
 
 ## Considerations
@@ -152,10 +156,10 @@ Due to SASS's precision, rounding, and browser text engines it's entirely possib
 Although some weights or styles in the same family can sit on different baselines, it's generally fine to use the one for the regular font. If pixel perfection is important, define individual baselines for each font.
 
 ### Viewport-specific units
-While supported, specifying `$grid-height` in vh, vw, vmin, vmax is discouraged because this usually yields fractional pixels that can seriously hamper precision.
+While supported, specifying the grid height in vh, vw, vmin, vmax is discouraged because this usually yields fractional pixels that can seriously hamper precision.
 
 ### Collapsing margins
-Plumber's use of collapsing margins makes it possible to specify the minimum distance between blocks of texts. If you don't need this, you can omit either the `$leading-top` or the `$leading-bottom` parameter.
+Plumber's use of collapsing margins makes it possible to specify the minimum distance between blocks of texts. If you don't need this, you can set either the `$leading-top` or the `$leading-bottom` parameters to 0.
 
 
 ## API
@@ -165,41 +169,24 @@ The main mixin.
 
 **Parameters:**
 
+>All parameters are optional, default values can be changed with the `plumber-set-defaults` mixin.
+
 Name | Description | Type | Default value
 ---- | ----------- | ---- | -------------
-$font-size | Font size as a fraction of grid height | Positive number |
-$line-height | Line height as a multiple of grid height| Positive integer |
-$leading-top _(optional)_ | Top leading* as a multiple of grid height* | Integer | 0<sup>†</sup>
-$leading-bottom _(optional)_ | Bottom leading* as a multiple of grid height | Integer | 0<sup>†</sup>
-$grid-height _(optional)_ | Override the default grid height | Any unit | $plumber-grid-height |
-$baseline _(optional)_ | Override the default baseline | Fraction between 0 and 1 | $plumber-baseline |
-
-
-> \* Leadings are measured from either the baseline or the edges of the text block, depending on the value of `$plumber-leadings-from-baseline`. 
-> 
-> <sup>†</sup> The default value is always calculated so there will be no visible gap above or below the text block.
+$baseline | Override the default baseline | Fraction between 0 and 1 | –
+$font-size | Font size as a fraction of grid height | Positive number | 2
+$grid-height | Override the default grid height | Any unit | 1rem
+$leading-top | Top leading as a multiple of grid height | Integer | 0<sup></sup>
+$leading-bottom | Bottom leading as a multiple of grid height | Integer | 0<sup></sup>
+$line-height | Line height as a multiple of grid height| Positive integer | 3
+$use-baseline-origin | Set the origin of leadings to the baseline | Boolean | false
 
 **Output:** `font-size`, `line-height`, `margin-top`, `padding-top`, `padding-bottom`, `margin-bottom` properties with the same unit as the grid height.
 
+### plumber-set-defaults
+Set up and change default parameters to use.
 
-### $plumber-grid-height
-Defines the global vertical grid height. Can be omitted if `$grid-height` is provided with every include.
-
-**Type:** Any unit
-
-
-### $plumber-baseline
-Defines the global baseline. Can be omitted if `$baseline` is provided with every include.
-
-**Type:** Fraction between 0 and 1
-
-
-### $plumber-leadings-from-baseline
-Changes the leading measurement from the edges of the text block to the baseline.
-
-**Type**: Boolean
-
-**Default value:** false
+**Parameters:** Same as the main mixin
 
 ## License
 MIT License
