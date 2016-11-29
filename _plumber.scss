@@ -1,29 +1,62 @@
 // *** PLUMBER - Real baseline grids with SASS ***
-
-// Sets the origin of the leadings to the baseline
-// Override it to set the origin to the edges of the text block
-$plumber-leadings-from-baseline: false !default;
-
 @mixin plumber(
-	$font-size,
-	$line-height,
+	$font-size: null,
+	$line-height: null,
 	$leading-top: null,
 	$leading-bottom: null,
-	$grid-height: $plumber-grid-height,
-	$baseline: $plumber-baseline
+	$grid-height: null,
+	$baseline: null,
+	$use-baseline-origin: null
 ) {
 	// *** VALIDATE PARAMETERS ***
-	@if $font-size <= 0 {
-		@error '$font-size parameter must be a positive number, got #{$font-size} instead';
-	}	
+	// font-size
+	@if not $font-size {
+		$font-size: -plumber-get-default(font-size);
+	}
+	@if not unitless($font-size) or $font-size <= 0 {
+		@error '$font-size parameter must be a positive unitless number, got #{$font-size} instead';
+	}
+	// line-height
+	@if not $line-height {
+		$line-height: -plumber-get-default(line-height);
+	}
 	@if not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
-		@error '$line-height parameter must be a positive integer, got #{$line-height} instead';
+		@error '$line-height parameter must be a positive unitless integer, got #{$line-height} instead';
+	}
+	// leading-top
+	@if not $leading-top {
+		$leading-top: -plumber-get-default(leading-top);
+	} @else if not -plumber-is-integer($leading-top) {
+		@error '$leading-top parameter must be a non-negative integer, got #{$leading-top} instead.';
+	}
+	// leading-bottom
+	@if not $leading-bottom {
+		$leading-bottom: -plumber-get-default(leading-bottom);
+	} @else if not -plumber-is-integer($leading-bottom) {
+		@error '$leading-bottom parameter must be a non-negative integer, got #{$leading-bottom} instead';
+	}
+	// grid-height
+	@if not $grid-height {
+		$grid-height: -plumber-get-default(grid-height);
 	}
 	@if unitless($grid-height) or $grid-height < 0 {
 		@error '$grid-height parameter must be a positive unit, got #{$grid-height} instead';
 	}
-	@if not (unitless($baseline) and $baseline >= 0 and $baseline < 1) {
-		@error '$baseline parameter must be a number between 0 and 1, got #{$baseline} instead';
+	// baseline
+	@if not $baseline {
+		$baseline: -plumber-get-default(baseline);
+	}
+	@if not $baseline {
+		@error '$baseline must be passed as a parameter or defined in defaults';
+	} @else if not (unitless($baseline) and $baseline >= 0 and $baseline < 1) {
+		@error '$baseline parameter must be a unitless fraction between 0 and 1, got #{$baseline} instead';
+	}
+	// use-baseline-origin
+	@if not $use-baseline-origin {
+		$use-baseline-origin: -plumber-get-default(use-baseline-origin);
+	}
+	@if type-of($use-baseline-origin) != bool {
+		@error '$use-baseline-origin parameter must be Boolean, got #{$use-baseline-origin} instead';
 	}
 
 	// *** CALCULATE BASELINE CORRECTION ***
@@ -33,22 +66,9 @@ $plumber-leadings-from-baseline: false !default;
 	$corrected-baseline: round($baseline-from-bottom);
 	// the difference between the original and the corrected baseline
 	$baseline-difference: $corrected-baseline - $baseline-from-bottom;
-
-	// *** CALCULATE LEADINGS ***
-	// apply zero top leading if missing or validate if specified
-	@if not $leading-top {
-		$leading-top: 0;
-	} @else if not -plumber-is-integer($leading-top) {
-		@error '$leading-top parameter must be a non-negative integer, got #{$leading-top} instead.';
-	}
-	// apply zero bottom leading if missing or validate if specified
-	@if not $leading-bottom {
-		$leading-bottom: 0;
-	} @else if not -plumber-is-integer($leading-bottom) {
-		@error '$leading-bottom parameter must be a non-negative integer, got #{$leading-bottom} instead';
-	}
+	
 	// if baseline origin is used for leadings substract the distance of the baseline from the edges
-	@if $plumber-leadings-from-baseline {
+	@if $use-baseline-origin == true {
 		$leading-top: $leading-top - ($line-height - $corrected-baseline);
 		$leading-bottom: $leading-bottom - $corrected-baseline;
 	}
@@ -86,6 +106,28 @@ $plumber-leadings-from-baseline: false !default;
 	padding-top: $padding-top * $grid-height;
 	padding-bottom: $padding-bottom * $grid-height;
 	margin-bottom: $margin-bottom * $grid-height;
+}
+
+// *** DEFAULTS *** 
+// Do not change it here, use the plumber-set-defaults mixin instead!
+$-plumber-defaults: (
+	font-size: 2,
+	line-height: 3,
+	leading-top: 0,
+	leading-bottom: 0,
+	grid-height: 1rem,
+	baseline: null,
+	use-baseline-origin: false,
+) !default;
+
+// Set default values
+@mixin plumber-set-defaults($defaults) {
+	$-plumber-defaults: map-merge($-plumber-defaults, $defaults) !global;
+}
+
+// Get a default value 
+@function -plumber-get-default($key) {
+	@return map-get($-plumber-defaults, $key);
 }
 
 // Check if a value is a non-negative integer
