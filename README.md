@@ -9,7 +9,7 @@ Create better looking documents and speed up CSS development by adding vertical 
 Download and extract [the latest version](https://api.github.com/repos/jamonserrano/plumber-sass/zipball), move `_plumber.scss` into the vendor folder of your project and include it:
 
 ```sass
-@include path/to/folder/plumber;
+@include vendor/plumber;
 ```
 
 ### NPM
@@ -167,9 +167,8 @@ Plumber's use of collapsing margins makes it possible to specify the minimum dis
 ### plumber
 The main mixin.
 
-**Parameters:**
+**Parameters:** All parameters are optional, default values can be changed with the `plumber-set-defaults` mixin.
 
->All parameters are optional, default values can be changed with the `plumber-set-defaults` mixin.
 
 Name | Description | Type | Default value
 ---- | ----------- | ---- | -------------
