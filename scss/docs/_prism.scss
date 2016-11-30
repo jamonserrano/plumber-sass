@@ -1,13 +1,13 @@
 
 pre[class*="language-"] {
-	@include plumber();
-	border-left: 4px solid $color-accent;
-	padding-left: 2rem;
+	@include plumber(
+		$leading-bottom: 2
+	);
 }
 
 code {
 	color: $color-dark;
-	background: none;
+	background-color: $color-code-background;
 	font-family: $code-font;
 	text-align: left;
 	white-space: pre;
@@ -36,9 +36,14 @@ code::selection, code ::selection {
 
 // Code blocks
 pre[class*="language-"] > code {
+	@include plumber-box(
+		$padding: 1
+	);
+	padding-left: 2rem;
+	border-left: 4px solid $color-accent;
+	// scrolling
 	overflow: auto;
 	// to keep the rhythm
-	line-height: inherit;
 	display: block;
 }
 

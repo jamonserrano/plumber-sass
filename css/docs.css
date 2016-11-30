@@ -132,13 +132,11 @@ pre[class*="language-"] {
   margin-top: calc(-1 * 1rem);
   padding-top: calc(0.726 * 1rem);
   padding-bottom: calc(0.274 * 1rem);
-  margin-bottom: calc(1 * 1rem);
-  border-left: 4px solid #f2c94c;
-  padding-left: 2rem; }
+  margin-bottom: calc(2 * 1rem); }
 
 code {
   color: #2a2a2a;
-  background: none;
+  background-color: #f4f4f4;
   font-family: "Lato", monospace;
   text-align: left;
   white-space: pre;
@@ -162,8 +160,13 @@ code::selection, code ::selection {
   background: #b3d4fc; }
 
 pre[class*="language-"] > code {
+  margin-top: calc(0rem - 0px);
+  padding-top: 1rem;
+  margin-bottom: calc(0rem - 0px);
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  border-left: 4px solid #f2c94c;
   overflow: auto;
-  line-height: inherit;
   display: block; }
 
 :not(pre) > code {
