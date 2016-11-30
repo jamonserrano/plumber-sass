@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Lora:700i|Lato:400,700|Inconsolata");
+@import url("https://fonts.googleapis.com/css?family=Lora:700i|Vollkorn|Inconsolata");
 html, body {
   margin: 0;
   padding: 0; }
@@ -21,25 +21,29 @@ input, textarea {
   border: 0;
   box-sizing: border-box; }
 
-html {
-  font-size: 8px;
-  font-family: "Lato", sans-serif; }
-
 body {
+  background-image: linear-gradient(to top, blue 0, transparent 1px);
+  background-size: 100% 1rem;
   background-color: #fcfcfc; }
 
 main {
-  box-sizing: border-box;
   width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 40px; }
-  @media (max-width: 640px) {
+  max-width: 70rem;
+  margin: 80px auto 0;
+  padding: 0 40px;
+  overflow: hidden; }
+  @media (max-width: 70rem) {
     main {
       padding: 0 20px; } }
 
+html {
+  font-size: 10px;
+  font-family: "Vollkorn", sans-serif;
+  font-weight: 400; }
+
 h1, h2, h3 {
   font-family: "Lora", serif;
+  font-style: italic;
   font-weight: 700;
   color: #606060;
   -webkit-font-smoothing: antialiased;
@@ -47,11 +51,11 @@ h1, h2, h3 {
   font-smooth: always; }
 
 h1 {
-  font-size: 4.75rem;
+  font-size: 4.8rem;
   line-height: 5rem;
   margin-top: 4rem;
-  padding-top: 0.69975rem;
-  padding-bottom: 0.30025rem;
+  padding-top: 0.6808rem;
+  padding-bottom: 0.3192rem;
   margin-bottom: 4rem; }
 
 h2 {
@@ -63,12 +67,33 @@ h2 {
   margin-bottom: 2rem; }
 
 h3 {
-  font-size: 2.25rem;
+  font-size: 2.4rem;
   line-height: 3rem;
   margin-top: 3rem;
-  padding-top: 0.64725rem;
-  padding-bottom: 0.35275rem;
+  padding-top: 0.5904rem;
+  padding-bottom: 0.4096rem;
   margin-bottom: 1rem; }
+
+p {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: -1rem;
+  padding-top: 0.826rem;
+  padding-bottom: 0.174rem;
+  margin-bottom: 1rem; }
+
+ul {
+  margin-top: 2rem;
+  margin-bottom: 3rem; }
+
+li {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: -1rem;
+  padding-top: 0.826rem;
+  padding-bottom: 0.174rem;
+  margin-bottom: 1rem;
+  margin-left: 1em; }
 
 table {
   border-collapse: collapse;
@@ -87,36 +112,16 @@ table {
     font-size: 1.75rem;
     line-height: 2rem;
     margin-top: 0rem;
-    padding-top: 0.32275rem;
-    padding-bottom: 0.67725rem;
+    padding-top: 0.41025rem;
+    padding-bottom: 0.58975rem;
     margin-bottom: 0rem;
     padding-left: 1rem; }
 
-p {
-  font-size: 2rem;
-  line-height: 3rem;
-  margin-top: -1rem;
-  padding-top: 0.726rem;
-  padding-bottom: 0.274rem;
-  margin-bottom: 1rem; }
-
-ul {
-  margin-top: 2rem;
-  margin-bottom: 3rem; }
-
-li {
-  font-size: 2rem;
-  line-height: 3rem;
-  margin-top: -1rem;
-  padding-top: 0.726rem;
-  padding-bottom: 0.274rem;
-  margin-bottom: 1rem;
-  margin-left: 1em; }
-
-pre {
-  padding: 1rem 1.5rem 1px;
-  margin-top: -1px;
-  margin-bottom: 2rem;
+pre[class*="language-"] {
+  margin-top: calc(1rem - 0);
+  padding-top: 1rem;
+  margin-bottom: calc(1rem - 0);
+  padding-bottom: 1rem;
   border-left: 4px solid #f2c94c; }
 
 code {
@@ -147,10 +152,10 @@ code::selection, code ::selection {
 pre[class*="language-"] > code {
   font-size: 2rem;
   line-height: 3rem;
-  margin-top: 1rem;
+  margin-top: -1rem;
   padding-top: 0.81rem;
   padding-bottom: 0.19rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   overflow: auto; }
 
 :not(pre) > code,

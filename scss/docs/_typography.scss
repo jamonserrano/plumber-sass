@@ -1,0 +1,120 @@
+// *** Variables ***
+@import url('https://fonts.googleapis.com/css?family=Lora:700i|Vollkorn|Inconsolata');
+
+$header-font: ('Lora', serif);
+$header-baseline: 0.121;
+
+$body-font: ('Vollkorn', sans-serif);
+$body-font-size: 2;
+$body-baseline: 0.163;
+
+$code-font: ('Inconsolata', monospace);
+$code-baseline: 0.155;
+
+@include plumber-set-defaults(
+	$font-size: $body-font-size,
+	$baseline: $body-baseline,
+	$grid-height: $gh
+);
+
+html {
+    font-size: 10px;
+    font-family: $body-font;
+    font-weight: 400;
+}
+
+// *** Headers ***
+h1, h2, h3 {
+	font-family: $header-font;
+	font-style: italic;
+	font-weight: 700;
+	color: $color-medium;
+	@include font-smoothing;
+}
+
+
+h1 {
+	@include plumber(
+		$font-size: 4.8,
+		$leading-top: 5,
+		$line-height: 5,
+		$leading-bottom: 4,
+		$baseline: $header-baseline
+	);
+}
+
+h2 {
+	@include plumber(
+		$font-size: 3,
+		$leading-top: 4,
+		$line-height: 4,
+		$leading-bottom: 2,
+		$baseline: $header-baseline
+	);
+}
+
+h3 {
+	@include plumber(
+		$font-size: 2.4,
+		$leading-top: 4,
+		$line-height: 3,
+		$leading-bottom: 1,
+		$baseline: $header-baseline
+	);
+}
+
+
+// *** Body text ***
+p {
+	@include plumber(
+		$leading-bottom: 1
+	);
+}
+
+
+// *** Lists
+ul {
+	margin-top: $gh * 2;
+	margin-bottom: $gh * 3;
+}
+
+li {
+	@include plumber(
+		$leading-bottom: 1
+	);
+	margin-left: 1em;
+}
+
+
+// *** Tables ***
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	//line-height: 16px;
+	//font-size: 14px;
+	table-layout: fixed;
+
+	&.parameters col {
+		width: 25%;
+	}
+
+	tr {
+		margin-top: -1px;
+		border-bottom: 1px solid $color-light;
+	}
+
+	thead tr {
+		border-bottom-color: $color-accent;		
+	}
+
+	th, td {
+		text-align: left;
+		vertical-align: top;
+		@include plumber(
+			$font-size: 14/8,
+			$line-height: 2,
+			$leading-bottom: 1
+		);
+		padding-left: 1rem;
+	}
+}

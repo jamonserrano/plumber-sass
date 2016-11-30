@@ -1,20 +1,3 @@
-// === Typography ===
-@import url('https://fonts.googleapis.com/css?family=Lora:700i|Lato:400,700|Inconsolata');
-
-$font-header: ('Lora', serif);
-$font-body: ('Lato', sans-serif);
-$font-code: ('Inconsolata', monospace);
-
-html {
-    font-size: 8px;
-    font-family: $font-body;
-}
-//$plumber-baseline-leading: true;
-$plumber-grid-height: 1rem;
-$baseline-header: 0.121;
-$baseline-body: 0.113;
-$baseline-code: 0.155;
-
 // === Colors ===
 $color-dark: #2a2a2a;
 $color-medium: #606060;

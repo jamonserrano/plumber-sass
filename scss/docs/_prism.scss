@@ -1,16 +1,15 @@
-pre {
-	// Manual correction until I figure out how to set paddings within <pre>
-	$margin-correction: 1px;
-	padding: $plumber-grid-height 1.5rem $margin-correction;
-	margin-top: -$margin-correction;
-	margin-bottom: $plumber-grid-height * 2;
+pre[class*="language-"] {
+	@include plumber-box(
+		$margin: 1,
+		$padding: 1
+	);
 	border-left: 4px solid $color-accent;
 }
 
 code {
 	color: $color-dark;
 	background: none;
-	font-family: $font-code;
+	font-family: $code-font;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
@@ -39,11 +38,7 @@ code::selection, code ::selection {
 // Code blocks
 pre[class*="language-"] > code {
 	@include plumber(
-		$font-size: 2,
-		$line-height: 3,
-		$leading-top: 2,
-		$leading-bottom: 2,
-		$baseline: $baseline-code
+		$baseline: $code-baseline
 	);
 	overflow: auto;
 }
