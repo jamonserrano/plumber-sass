@@ -20,23 +20,23 @@
 			<section>
                 <h3 id="toc_2">Manual installation</h3>
                 <p>Download and extract <a href="https://api.github.com/repos/jamonserrano/plumber-sass/zipball">the latest version</a>, move <code>_plumber.scss</code> into the vendor folder of your project and include it:</p>
-                <div><pre><code class="language-scss">@include path/to/folder/plumber;</code></pre></div>
+                <pre><code class="language-scss">@include path/to/folder/plumber;</code></pre>
 			</section>
 
 			<section>
                 <h3 id="toc_3">NPM</h3>
                 <p>Install:</p>
-                <div><pre><code class="language-bash">$ npm install plumber-sass --save-dev</code></pre></div>
+                <pre><code class="language-bash">$ npm install plumber-sass --save-dev</code></pre>
                 <p>And include it from the <code>node_modules</code> folder of your project:</p>
-                <div><pre><code class="language-scss">@include node_modules/plumber-sass/plumber;</code></pre></div>
+                <pre><code class="language-scss">@include node_modules/plumber-sass/plumber;</code></pre>
 			</section>
 
 			<section>
                 <h3 id="toc_4">Bower</h3>
                 <p>Install:</p>
-                <div><pre><code class="language-bash">$ bower install plumber-sass --save-dev</code></pre></div>
+                <pre><code class="language-bash">$ bower install plumber-sass --save-dev</code></pre>
                 <p>And include it from the bower_components folder of your project:</p>
-                <div><pre><code class="language-scss">@include bower_components/plumber-sass/plumber;</code></pre></div>
+                <pre><code class="language-scss">@include bower_components/plumber-sass/plumber;</code></pre>
 			</section>
 		</section>
 
@@ -45,19 +45,19 @@
 
 			<section>
         <p>1. Set the height of the vertical grid on your page in your preferred unit with the <code>$plumber-grid-height</code> global variable:</p>
-        <div><pre><code class="language-scss">$plumber-grid-height: 12px; // Pixels
+        <pre><code class="language-scss">$plumber-grid-height: 12px; // Pixels
 // or
-$plumber-grid-height: 2rem; // Rems</code></pre></div>
+$plumber-grid-height: 2rem; // Rems</code></pre>
 			</section>
 
 			<section>
                 <p>2. Look up the baseline of your font family in the table or use the measure tool. Put the result in the <code>$plumber-baseline</code> global variable.</p>
-                <div><pre><code class="language-scss">$plumber-baseline: 0.121; // Helvetica Neue</code></pre></div>
+                <pre><code class="language-scss">$plumber-baseline: 0.121; // Helvetica Neue</code></pre>
 			</section>
 
 			<section>
                 <p>3. Include the plumber mixin in your styles. Each parameter should be a multiple of the grid height, only the font size can be a fraction.</p>
-                <div><pre><code class="language-scss">h1 {
+                <pre><code class="language-scss">h1 {
     @include plumber(
         $font-size: 4.5,
         $line-height: 6,
@@ -74,13 +74,13 @@ h2 {
         $leading-bottom: 2
     );
 }
-</code></pre></div>
+</code></pre>
 			</section>
 
 			<section>
     	<h3 id="toc_6">Using multiple fonts</h3>
     	<p>When using multiple fonts or families, you can define a baseline for each and use it as the optional <code>$baseline</code> parameter:</p>
-	    <div><pre><code class="language-scss">$header-baseline: 0.121; // Helvetica Neue
+	    <pre><code class="language-scss">$header-baseline: 0.121; // Helvetica Neue
 $body-baseline: 0.151; // Georgia
 
 h1 {
@@ -102,13 +102,13 @@ p {
         $baseline: $body-baseline
     );
 }
-</code></pre></div>
+</code></pre>
 			</section>
 
 			<section>
 	            <h3 id="toc_7">Responsive typography</h3>
 	            <p>Plumber supports responsive typography. Just specify the grid height in rems or other relative units, and the font metrics will change along.</p>
-	            <div><pre><code class="language-scss">$plumber-grid-height: 1rem;
+	            <pre><code class="language-scss">$plumber-grid-height: 1rem;
 
 p {
     @include plumber(
@@ -128,7 +128,7 @@ html {
         font-size: 16px;
     }
 }
-</code></pre></div>
+</code></pre>
 			</section>
 
 			<section>
@@ -136,7 +136,7 @@ html {
 
                 <p>Leadings are measured from the top and bottom edges of the text block by default. To measure them from the baseline, set the <code>$plumber-leadings-from-baseline</code> global variable to <code>true</code> before using the mixin:</p>
 
-                <div><pre><code class="language-scss">$plumber-leadings-from-baseline: true;</code></pre></div>
+                <pre><code class="language-scss">$plumber-leadings-from-baseline: true;</code></pre>
 			</section>
 		</section>
 
@@ -179,63 +179,64 @@ html {
                 <h3 id="toc_15">plumber</h3>
                 <p>The main mixin.</p>
                 <p><strong>Parameters:</strong></p>
-                <table class="parameters">
-                    <colgroup>
-                        <col></col>
-                        <col ></col>
-                        <col></col>
-                        <col></col>
-                    </colgroup>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Type</th>
-                            <th>Default value</th>
-                        </tr>
-                    </thead>
+                <div class="table-wrapper">
+                    <table class="parameters">
+                        <colgroup>
+                            <col></col>
+                            <col ></col>
+                            <col></col>
+                            <col></col>
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Default value</th>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        <tr>
-                            <td>$font-size</td>
-                            <td>Font size as a fraction of grid height</td>
-                            <td>Positive number</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>$line-height</td>
-                            <td>Line height as a multiple of grid height</td>
-                            <td>Positive integer</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>$leading-top <br><em>(optional)</em>
-                            </td>
-                            <td>Top leading* as a multiple of grid height</td>
-                            <td>Integer</td>
-                            <td>0<sup>†</sup></td>
-                        </tr>
-                        <tr>
-                            <td>$leading-bottom <br><em>(optional)</em></td>
-                            <td>Bottom leading* as a multiple of grid height</td>
-                            <td>Integer</td>
-                            <td>0<sup>†</sup></td>
-                        </tr>
-                        <tr>
-                            <td>$grid-height <br><em>(optional)</em></td>
-                            <td>Override the default grid height</td>
-                            <td>Any unit</td>
-                            <td>$plumber-grid-height</td>
-                        </tr>
-                        <tr>
-                            <td>$baseline <br><em>(optional)</em></td>
-                            <td>Override the default baseline</td>
-                            <td>Fraction between 0 and 1</td>
-                            <td>$plumber-baseline</td>
-                        </tr>
-                    </tbody>
-                </table>
-
+                        <tbody>
+                            <tr>
+                                <td>$font-size</td>
+                                <td>Font size as a fraction of grid height</td>
+                                <td>Positive number</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>$line-height</td>
+                                <td>Line height as a multiple of grid height</td>
+                                <td>Positive integer</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>$leading-top <br><em>(optional)</em>
+                                </td>
+                                <td>Top leading* as a multiple of grid height</td>
+                                <td>Integer</td>
+                                <td>0<sup>†</sup></td>
+                            </tr>
+                            <tr>
+                                <td>$leading-bottom <br><em>(optional)</em></td>
+                                <td>Bottom leading* as a multiple of grid height</td>
+                                <td>Integer</td>
+                                <td>0<sup>†</sup></td>
+                            </tr>
+                            <tr>
+                                <td>$grid-height <br><em>(optional)</em></td>
+                                <td>Override the default grid height</td>
+                                <td>Any unit</td>
+                                <td>$plumber-grid-height</td>
+                            </tr>
+                            <tr>
+                                <td>$baseline <br><em>(optional)</em></td>
+                                <td>Override the default baseline</td>
+                                <td>Fraction between 0 and 1</td>
+                                <td>$plumber-baseline</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <blockquote>
                     <p>* Leadings are measured from either the baseline or the edges of the text block, depending on the value of <code>$plumber-leadings-from-baseline</code>. </p>
 

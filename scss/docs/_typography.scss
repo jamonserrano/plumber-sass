@@ -1,15 +1,15 @@
 // *** Variables ***
-@import url('https://fonts.googleapis.com/css?family=Lora:700i|Vollkorn|Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Lora:700i|Lato|Inconsolata');
 
 $header-font: ('Lora', serif);
 $header-baseline: 0.121;
 
-$body-font: ('Vollkorn', sans-serif);
+$body-font: ('Lato', sans-serif);
 $body-font-size: 2;
-$body-baseline: 0.163;
+$body-baseline: 0.113;
 
-$code-font: ('Inconsolata', monospace);
-$code-baseline: 0.155;
+$code-font: ('Lato', monospace);
+$code-baseline: 0.113;
 
 @include plumber-set-defaults(
 	$font-size: $body-font-size,
@@ -86,21 +86,38 @@ li {
 }
 
 
+blockquote {
+	@include plumber-box(
+		$margin: 1 2,
+		$padding: 1
+	);
+	background-color: fade-out($color-light, 0.5);
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
 // *** Tables ***
+.table-wrapper {
+	@include plumber(
+		$leading-top: 1,
+		$leading-bottom: 2
+	);
+}
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 	//line-height: 16px;
 	//font-size: 14px;
 	table-layout: fixed;
+	font-size: 2rem;
+	line-height: 3rem;
 
-	&.parameters col {
+	col {
 		width: 25%;
 	}
 
 	tr {
-		margin-top: -1px;
-		border-bottom: 1px solid $color-light;
 	}
 
 	thead tr {
@@ -110,11 +127,6 @@ table {
 	th, td {
 		text-align: left;
 		vertical-align: top;
-		@include plumber(
-			$font-size: 14/8,
-			$line-height: 2,
-			$leading-bottom: 1
-		);
 		padding-left: 1rem;
 	}
 }

@@ -2,7 +2,7 @@ $content-width: 70rem;
 $gh: 1rem;
 
 body {
-    @include grid-background(blue, $gh);
+    @include grid-background(rgba(255,0,0,0.3), $gh);
     background-color: $color-background;
     //background-color: $color-accent;
 }

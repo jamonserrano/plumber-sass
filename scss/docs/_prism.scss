@@ -1,8 +1,9 @@
 pre[class*="language-"] {
-	@include plumber-box(
+	/*@include plumber-box(
 		$margin: 1,
 		$padding: 1
-	);
+	);*/
+	@include plumber();
 	border-left: 4px solid $color-accent;
 }
 
@@ -37,15 +38,15 @@ code::selection, code ::selection {
 
 // Code blocks
 pre[class*="language-"] > code {
-	@include plumber(
-		$baseline: $code-baseline
-	);
 	overflow: auto;
+	// to keep the rhythm
+	line-height: inherit;
+	display: block;
 }
 
 :not(pre) > code,
 pre[class*="language-"] {
-	background: $color-code-background;
+	//background: $color-code-background;
 }
 
 // Inline code

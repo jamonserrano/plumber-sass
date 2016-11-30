@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Lora:700i|Vollkorn|Inconsolata");
+@import url("https://fonts.googleapis.com/css?family=Lora:700i|Lato|Inconsolata");
 html, body {
   margin: 0;
   padding: 0; }
@@ -22,7 +22,7 @@ input, textarea {
   box-sizing: border-box; }
 
 body {
-  background-image: linear-gradient(to top, blue 0, transparent 1px);
+  background-image: linear-gradient(to top, rgba(255, 0, 0, 0.3) 0, transparent 1px);
   background-size: 100% 1rem;
   background-color: #fcfcfc; }
 
@@ -38,7 +38,7 @@ main {
 
 html {
   font-size: 10px;
-  font-family: "Vollkorn", sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400; }
 
 h1, h2, h3 {
@@ -78,8 +78,8 @@ p {
   font-size: 2rem;
   line-height: 3rem;
   margin-top: -1rem;
-  padding-top: 0.826rem;
-  padding-bottom: 0.174rem;
+  padding-top: 0.726rem;
+  padding-bottom: 0.274rem;
   margin-bottom: 1rem; }
 
 ul {
@@ -90,44 +90,60 @@ li {
   font-size: 2rem;
   line-height: 3rem;
   margin-top: -1rem;
-  padding-top: 0.826rem;
-  padding-bottom: 0.174rem;
+  padding-top: 0.726rem;
+  padding-bottom: 0.274rem;
   margin-bottom: 1rem;
   margin-left: 1em; }
+
+blockquote {
+  margin-top: calc(1rem - 0px);
+  padding-top: 1rem;
+  margin-bottom: calc(2rem - 0px);
+  padding-bottom: 1rem;
+  background-color: rgba(192, 192, 192, 0.5);
+  padding-left: 2em;
+  padding-right: 2em; }
+
+.table-wrapper {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 0rem;
+  padding-top: 0.726rem;
+  padding-bottom: 0.274rem;
+  margin-bottom: 2rem; }
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  table-layout: fixed; }
-  table.parameters col {
+  table-layout: fixed;
+  font-size: 2rem;
+  line-height: 3rem; }
+  table col {
     width: 25%; }
-  table tr {
-    margin-top: -1px;
-    border-bottom: 1px solid #c0c0c0; }
   table thead tr {
     border-bottom-color: #f2c94c; }
   table th, table td {
     text-align: left;
     vertical-align: top;
-    font-size: 1.75rem;
-    line-height: 2rem;
-    margin-top: 0rem;
-    padding-top: 0.41025rem;
-    padding-bottom: 0.58975rem;
-    margin-bottom: 0rem;
     padding-left: 1rem; }
 
 pre[class*="language-"] {
-  margin-top: calc(1rem - 0);
-  padding-top: 1rem;
-  margin-bottom: calc(1rem - 0);
-  padding-bottom: 1rem;
+  /*@include plumber-box(
+		$margin: 1,
+		$padding: 1
+	);*/
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: -1rem;
+  padding-top: 0.726rem;
+  padding-bottom: 0.274rem;
+  margin-bottom: 0rem;
   border-left: 4px solid #f2c94c; }
 
 code {
   color: #2a2a2a;
   background: none;
-  font-family: "Inconsolata", monospace;
+  font-family: "Lato", monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -150,17 +166,9 @@ code::selection, code ::selection {
   background: #b3d4fc; }
 
 pre[class*="language-"] > code {
-  font-size: 2rem;
-  line-height: 3rem;
-  margin-top: -1rem;
-  padding-top: 0.81rem;
-  padding-bottom: 0.19rem;
-  margin-bottom: 0rem;
-  overflow: auto; }
-
-:not(pre) > code,
-pre[class*="language-"] {
-  background: #f4f4f4; }
+  overflow: auto;
+  line-height: inherit;
+  display: block; }
 
 :not(pre) > code {
   padding: 1px 4px 2px;
