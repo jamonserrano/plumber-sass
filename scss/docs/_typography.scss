@@ -5,16 +5,16 @@ $header-font: ('Lora', serif);
 $header-baseline: 0.121;
 
 $body-font: ('Lato', sans-serif);
-$body-font-size: 2;
 $body-baseline: 0.113;
 
 $code-font: ('Lato', monospace);
 $code-baseline: 0.113;
 
 @include plumber-set-defaults(
-	$font-size: $body-font-size,
+	$font-size: 2,
 	$baseline: $body-baseline,
-	$grid-height: $gh
+	$grid-height: $gh,
+	$leading-bottom: 1
 );
 
 html {
@@ -58,17 +58,14 @@ h3 {
 		$font-size: 2.4,
 		$leading-top: 4,
 		$line-height: 3,
-		$leading-bottom: 1,
 		$baseline: $header-baseline
 	);
 }
 
 
 // *** Body text ***
-p {
-	@include plumber(
-		$leading-bottom: 1
-	);
+p, li {
+	@include plumber();
 }
 
 
@@ -79,21 +76,24 @@ ul {
 }
 
 li {
-	@include plumber(
-		$leading-bottom: 1
-	);
 	margin-left: 1em;
 }
 
-
 blockquote {
 	@include plumber-box(
-		$margin: 1 2,
+		$margin: 0 2,
 		$padding: 1
 	);
 	background-color: fade-out($color-light, 0.5);
 	padding-left: 2em;
 	padding-right: 2em;
+
+	p {
+		@include plumber(
+			$font-size: 1.5,
+			$leading-bottom: 0
+		);
+	}
 }
 
 // *** Tables ***

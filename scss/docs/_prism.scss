@@ -1,10 +1,8 @@
+
 pre[class*="language-"] {
-	/*@include plumber-box(
-		$margin: 1,
-		$padding: 1
-	);*/
 	@include plumber();
 	border-left: 4px solid $color-accent;
+	padding-left: 2rem;
 }
 
 code {
