@@ -44,7 +44,7 @@ pre[class*="language-"] > code {
 	padding-left: 2rem;
 	border-left: 4px solid $color-accent;
 	// scrolling
-	overflow: auto;
+	overflow-x: auto;
 	// to keep the rhythm
 	display: block;
 }

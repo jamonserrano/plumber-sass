@@ -119,8 +119,7 @@ table {
 	th, td {
 		text-align: left;
 		vertical-align: top;
-		padding-left: 1em;
-		padding-bottom: $gh;
+		padding: 0 0.5rem $gh;
 		border-bottom: $border-width solid $color-light;
 
 		&:first-child {

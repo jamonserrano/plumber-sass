@@ -122,8 +122,7 @@ table {
   table th, table td {
     text-align: left;
     vertical-align: top;
-    padding-left: 1em;
-    padding-bottom: 1rem;
+    padding: 0 0.5rem 1rem;
     border-bottom: 1px solid #c0c0c0; }
     table th:first-child, table td:first-child {
       padding-left: 0; }
@@ -182,7 +181,7 @@ pre[class*="language-"] > code {
   padding-bottom: 1rem;
   padding-left: 2rem;
   border-left: 4px solid #f2c94c;
-  overflow: auto;
+  overflow-x: auto;
   display: block; }
 
 :not(pre) > code {
