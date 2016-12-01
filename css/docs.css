@@ -22,8 +22,6 @@ input, textarea {
   box-sizing: border-box; }
 
 body {
-  background-image: linear-gradient(to top, rgba(255, 0, 0, 0.2) 0, transparent 1px);
-  background-size: 100% 1rem;
   background-color: #fcfcfc; }
 
 main {
@@ -74,13 +72,13 @@ h3 {
   padding-bottom: calc(0.4096 * 1rem);
   margin-bottom: calc(1 * 1rem); }
 
-p, li {
+p {
   font-size: 2rem;
   line-height: 3rem;
   margin-top: calc(-1 * 1rem);
   padding-top: calc(0.726 * 1rem);
   padding-bottom: calc(0.274 * 1rem);
-  margin-bottom: calc(1 * 1rem); }
+  margin-bottom: calc(2 * 1rem); }
 
 ul {
   margin-top: calc(2rem - 0px);
@@ -89,23 +87,13 @@ ul {
   padding-bottom: 0rem; }
 
 li {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: calc(-1 * 1rem);
+  padding-top: calc(0.726 * 1rem);
+  padding-bottom: calc(0.274 * 1rem);
+  margin-bottom: calc(1 * 1rem);
   margin-left: 1em; }
-
-blockquote {
-  margin-top: calc(0rem - 0px);
-  padding-top: 1rem;
-  margin-bottom: calc(2rem - 0px);
-  padding-bottom: 1rem;
-  background-color: rgba(192, 192, 192, 0.5);
-  padding-left: 2em;
-  padding-right: 2em; }
-  blockquote p {
-    font-size: 1.5rem;
-    line-height: 3rem;
-    margin-top: calc(-1 * 1rem);
-    padding-top: calc(0.9195 * 1rem);
-    padding-bottom: calc(0.0805 * 1rem);
-    margin-bottom: calc(0 * 1rem); }
 
 .table-wrapper {
   font-size: 1.7rem;
@@ -136,18 +124,34 @@ strong, table th {
   font-weight: 700;
   color: #606060; }
 
-pre[class*="language-"] {
-  font-size: 2rem;
+p.note {
+  font-size: 1.7rem;
+  font-size: 1.7rem;
   line-height: 3rem;
-  margin-top: calc(0 * 1rem);
-  padding-top: calc(0.726 * 1rem);
-  padding-bottom: calc(0.274 * 1rem);
+  margin-top: calc(-1 * 1rem);
+  padding-top: calc(0.8421 * 1rem);
+  padding-bottom: calc(0.1579 * 1rem);
+  margin-bottom: calc(2 * 1rem);
+  color: #606060; }
+
+span.note-sign {
+  color: #606060; }
+
+a {
+  color: #2d9cdb; }
+
+pre[class*="language-"] {
+  font-size: 1.8rem;
+  line-height: 3rem;
+  margin-top: calc(-2 * 1rem);
+  padding-top: calc(0.8988 * 1rem);
+  padding-bottom: calc(0.1012 * 1rem);
   margin-bottom: calc(2 * 1rem); }
 
 code {
-  color: #2a2a2a;
+  color: #606060;
   background-color: #f4f4f4;
-  font-family: "Lato", monospace;
+  font-family: "Inconsolata", monospace;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -191,11 +195,14 @@ pre[class*="language-"] > code {
 .token.cdata {
   color: #c0c0c0; }
 
+/*
 .token.punctuation {
-  color: #606060; }
+	color: $color-medium;
+}
 
 .namespace {
-  opacity: .7; }
+	opacity: .7;
+}
 
 .token.property,
 .token.tag,
@@ -204,7 +211,8 @@ pre[class*="language-"] > code {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #606060; }
+	color: $color-dark;
+}
 
 .token.selector,
 .token.attr-name,
@@ -212,34 +220,47 @@ pre[class*="language-"] > code {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #27ae60; }
+	color: #27ae60;
+	color: $color-medium;
+}
 
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #eb5757; }
+	color: #eb5757;
+	color: $color-medium;
+}
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #2d9cdb; }
+	color: #2d9cdb;
+	color: $color-medium;
+}
 
 .token.function {
-  color: #eb5757; }
+	color: #eb5757;
+	color: $color-medium;
+}
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: #2a2a2a; }
+	color: $color-dark;
+}
+
 
 .token.important,
 .token.bold {
-  font-weight: bold; }
-
+	font-weight: bold;
+}
 .token.italic {
-  font-style: italic; }
+	font-style: italic;
+}
 
 .token.entity {
-  cursor: help; }
+	cursor: help;
+}
+*/

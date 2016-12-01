@@ -7,14 +7,14 @@ $header-baseline: 0.121;
 $body-font: ('Lato', sans-serif);
 $body-baseline: 0.113;
 
-$code-font: ('Lato', monospace);
-$code-baseline: 0.113;
+$code-font: ('Inconsolata', monospace);
+$code-baseline: 0.166;
 
 @include plumber-set-defaults(
 	$font-size: 2,
 	$baseline: $body-baseline,
 	$grid-height: $gh,
-	$leading-bottom: 1
+	$leading-bottom: 2
 );
 
 html {
@@ -48,7 +48,6 @@ h2 {
 		$font-size: 3,
 		$leading-top: 4,
 		$line-height: 4,
-		$leading-bottom: 2,
 		$baseline: $header-baseline
 	);
 }
@@ -57,6 +56,7 @@ h3 {
 	@include plumber(
 		$font-size: 2.4,
 		$leading-top: 4,
+		$leading-bottom: 1,
 		$line-height: 3,
 		$baseline: $header-baseline
 	);
@@ -64,7 +64,7 @@ h3 {
 
 
 // *** Body text ***
-p, li {
+p {
 	@include plumber();
 }
 
@@ -78,24 +78,10 @@ ul {
 }
 
 li {
-	margin-left: 1em;
-}
-
-blockquote {
-	@include plumber-box(
-		$margin: 0 2,
-		$padding: 1
+	@include plumber(
+		$leading-bottom: 1
 	);
-	background-color: fade-out($color-light, 0.5);
-	padding-left: 2em;
-	padding-right: 2em;
-
-	p {
-		@include plumber(
-			$font-size: 1.5,
-			$leading-bottom: 0
-		);
-	}
+	margin-left: 1em;
 }
 
 
@@ -105,7 +91,6 @@ blockquote {
 .table-wrapper {
 	@include plumber(
 		$leading-top: 1,
-		$leading-bottom: 2,
 		$font-size: 1.7
 	);
 }
@@ -147,4 +132,20 @@ table {
 strong {
 	font-weight: 700;
 	color: $color-medium;
+}
+
+p.note {
+	font-size: $gh * 1.7;
+	@include plumber(
+		$font-size: 1.7
+	);
+	color: $color-medium;
+}
+
+span.note-sign {
+	color: $color-medium;
+}
+
+a {
+	color: $color-link;
 }
