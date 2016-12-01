@@ -68,6 +68,16 @@ p {
 	@include plumber();
 }
 
+p.note {
+	font-size: $gh * 1.7;
+	@include plumber(
+		$font-size: 1.7,
+		$leading-top: -1
+	);
+	color: $color-medium;
+}
+
+
 
 // *** Lists
 
@@ -109,9 +119,13 @@ table {
 	th, td {
 		text-align: left;
 		vertical-align: top;
-		padding-left: 1rem;
+		padding-left: 1em;
 		padding-bottom: $gh;
 		border-bottom: $border-width solid $color-light;
+
+		&:first-child {
+			padding-left: 0;
+		}
 	}
 
 	th {
@@ -131,14 +145,6 @@ table {
 
 strong {
 	font-weight: 700;
-	color: $color-medium;
-}
-
-p.note {
-	font-size: $gh * 1.7;
-	@include plumber(
-		$font-size: 1.7
-	);
 	color: $color-medium;
 }
 
