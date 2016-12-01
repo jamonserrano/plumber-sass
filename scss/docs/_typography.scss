@@ -1,5 +1,5 @@
 // *** Variables ***
-@import url('https://fonts.googleapis.com/css?family=Lora:700i|Lato|Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Lora:700i|Lato:400,700|Inconsolata');
 
 $header-font: ('Lora', serif);
 $header-baseline: 0.121;
@@ -36,7 +36,7 @@ h1, h2, h3 {
 h1 {
 	@include plumber(
 		$font-size: 4.8,
-		$leading-top: 5,
+		$leading-top: 4,
 		$line-height: 5,
 		$leading-bottom: 4,
 		$baseline: $header-baseline
@@ -70,9 +70,11 @@ p, li {
 
 
 // *** Lists
+
 ul {
-	margin-top: $gh * 2;
-	margin-bottom: $gh * 3;
+	@include plumber-box(
+		$margin: 2 3
+	);
 }
 
 li {
@@ -96,37 +98,53 @@ blockquote {
 	}
 }
 
+
 // *** Tables ***
+
+// As paddings cannot be set on any table elements we need to use a wrapper
 .table-wrapper {
 	@include plumber(
 		$leading-top: 1,
-		$leading-bottom: 2
+		$leading-bottom: 2,
+		$font-size: 1.7
 	);
 }
 
 table {
+	$border-width: 1px;
+
 	border-collapse: collapse;
 	border-spacing: 0;
-	//line-height: 16px;
-	//font-size: 14px;
 	table-layout: fixed;
-	font-size: 2rem;
-	line-height: 3rem;
 
 	col {
 		width: 25%;
-	}
-
-	tr {
-	}
-
-	thead tr {
-		border-bottom-color: $color-accent;		
 	}
 
 	th, td {
 		text-align: left;
 		vertical-align: top;
 		padding-left: 1rem;
+		padding-bottom: $gh;
+		border-bottom: $border-width solid $color-light;
 	}
+
+	th {
+		@extend strong;
+		// for some reason, border IS NOT calculated into th height
+		padding-top: $gh;
+	}
+
+	td {
+		// for some reason, border IS calculated into td height
+		padding-top: calc(#{$gh} - #{$border-width});
+	}
+}
+
+
+// *** Inline elements ***
+
+strong {
+	font-weight: 700;
+	color: $color-medium;
 }

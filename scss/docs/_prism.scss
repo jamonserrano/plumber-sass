@@ -1,6 +1,7 @@
 
 pre[class*="language-"] {
 	@include plumber(
+		$leading-top: 1,
 		$leading-bottom: 2
 	);
 }

@@ -2,14 +2,14 @@ $content-width: 70rem;
 $gh: 1rem;
 
 body {
-    //@include grid-background(rgba(255,0,0,0.3), $gh);
+    @include grid-background(rgba(255,0,0,0.2), $gh);
     background-color: $color-background;
 }
 
 main {
     width: 100%;
     max-width: $content-width;
-    margin: 80px auto 0;
+    margin: 0 auto;
     padding: 0 40px;
     @media (max-width: $content-width) {
         padding: 0 20px;

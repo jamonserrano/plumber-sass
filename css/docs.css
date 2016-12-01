@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Lora:700i|Lato|Inconsolata");
+@import url("https://fonts.googleapis.com/css?family=Lora:700i|Lato:400,700|Inconsolata");
 html, body {
   margin: 0;
   padding: 0; }
@@ -10,7 +10,7 @@ html, body {
 div, span,
 h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd,
-q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+q, s, samp, small, strike, strong, table th, sub, sup, tt, var, b, u, i,
 dl, dt, dd, ol, ul, li,
 table, caption, tbody, tfoot, thead, tr, th, td,
 main, article, embed, figure, figcaption, footer, header, hgroup,
@@ -22,12 +22,14 @@ input, textarea {
   box-sizing: border-box; }
 
 body {
+  background-image: linear-gradient(to top, rgba(255, 0, 0, 0.2) 0, transparent 1px);
+  background-size: 100% 1rem;
   background-color: #fcfcfc; }
 
 main {
   width: 100%;
   max-width: 70rem;
-  margin: 80px auto 0;
+  margin: 0 auto;
   padding: 0 40px;
   overflow: hidden; }
   @media (max-width: 70rem) {
@@ -51,7 +53,7 @@ h1, h2, h3 {
 h1 {
   font-size: 4.8rem;
   line-height: 5rem;
-  margin-top: calc(4 * 1rem);
+  margin-top: calc(3 * 1rem);
   padding-top: calc(0.6808 * 1rem);
   padding-bottom: calc(0.3192 * 1rem);
   margin-bottom: calc(4 * 1rem); }
@@ -81,8 +83,10 @@ p, li {
   margin-bottom: calc(1 * 1rem); }
 
 ul {
-  margin-top: 2rem;
-  margin-bottom: 3rem; }
+  margin-top: calc(2rem - 0px);
+  padding-top: 0rem;
+  margin-bottom: calc(3rem - 0px);
+  padding-bottom: 0rem; }
 
 li {
   margin-left: 1em; }
@@ -104,32 +108,38 @@ blockquote {
     margin-bottom: calc(0 * 1rem); }
 
 .table-wrapper {
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 3rem;
   margin-top: calc(0 * 1rem);
-  padding-top: calc(0.726 * 1rem);
-  padding-bottom: calc(0.274 * 1rem);
+  padding-top: calc(0.8421 * 1rem);
+  padding-bottom: calc(0.1579 * 1rem);
   margin-bottom: calc(2 * 1rem); }
 
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  table-layout: fixed;
-  font-size: 2rem;
-  line-height: 3rem; }
+  table-layout: fixed; }
   table col {
     width: 25%; }
-  table thead tr {
-    border-bottom-color: #f2c94c; }
   table th, table td {
     text-align: left;
     vertical-align: top;
-    padding-left: 1rem; }
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #c0c0c0; }
+  table th {
+    padding-top: 1rem; }
+  table td {
+    padding-top: calc(1rem - 1px); }
+
+strong, table th {
+  font-weight: 700;
+  color: #606060; }
 
 pre[class*="language-"] {
   font-size: 2rem;
   line-height: 3rem;
-  margin-top: calc(-1 * 1rem);
+  margin-top: calc(0 * 1rem);
   padding-top: calc(0.726 * 1rem);
   padding-bottom: calc(0.274 * 1rem);
   margin-bottom: calc(2 * 1rem); }
