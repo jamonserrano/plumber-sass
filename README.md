@@ -6,7 +6,7 @@ Create better looking documents and speed up CSS development by adding vertical 
 ## Installation
 
 ### Manual
-Download and extract [the latest version](https://api.github.com/repos/jamonserrano/plumber-sass/zipball), move `_plumber.scss` into the vendor folder of your project and include it:
+Download and extract [the latest release](https://api.github.com/repos/jamonserrano/plumber-sass/zipball), move `_plumber.scss` into the vendor folder of your project and include it:
 
 ```sass
 @include vendor/plumber;
@@ -39,7 +39,7 @@ And include it from the bower_components folder of your project:
 ## Usage
 1\. Decide on the grid height you will use in the unit of your choice (pixels or rems are recommended.
 
-2\. Look up the baseline of your font family in the table or use the measure tool. E.g. the value for Helvetica Neue is 0.121.
+2\. Look up the baseline of your font family in the table or use the measure tool. For exapmle the value for Helvetica Neue is 0.121.
 
 3\. Include the plumber mixin in your styles:
 
@@ -47,7 +47,7 @@ And include it from the bower_components folder of your project:
 h1 {
 	@include plumber(
 		$grid-height: 1rem,
-		$baseline: 0.121
+		$baseline: 0.121,
 		$font-size: 4.5,
 		$line-height: 6,
 		$leading-top: 9,
@@ -58,7 +58,7 @@ h1 {
 p {
 	@include plumber(
 		$grid-height: 1rem,
-		$baseline: 0.121
+		$baseline: 0.121,
 		$font-size: 2,
 		$line-height: 3,
 		$leading-top: 0,
@@ -103,7 +103,6 @@ $quote-baseline: 0.151; // Georgia
 
 blockquote {
 	@include plumber(
-		//...
 		$baseline: $quote-baseline
 	);
 }
@@ -117,7 +116,6 @@ Plumber supports responsive typography. Just specify the grid height in rems or 
 @include plumber-set-defaults(
 	$grid-height: 1rem,
 	$font-size: 2
-	//...
 );
 
 html {
@@ -132,7 +130,7 @@ html {
 ```
 
 ### Alternative leading calculation
-Leadings are measured from the top and bottom edges of the text block by default. To measure them from the baseline, set `use-baseline-origin: true` before using the mixin:
+Leadings are measured from the top and bottom edges of the text block by default. To measure them from the baseline, set `$use-baseline-origin: true` before using the mixin:
 
 ```scss
 @include plumber-set-defaults(
@@ -143,14 +141,11 @@ Leadings are measured from the top and bottom edges of the text block by default
 ## Considerations
 
 ### Precision
-Due to SASS's precision, rounding, and browser text engines it's entirely possible that the rendered text will not sit _exactly_ on the baseline. This does not corrupt the grid as the different heights always add up to a whole gridline. Following these guidelines will get you closer to pixel perfection:
+Due to SASS's precision, rounding, and browser text engines it's entirely possible that the rendered text will not sit _exactly_ on the baseline. Following these guidelines will get you closer to pixel perfection:
 
-* Define grid height in pixels, or as a multiple of the base font height (e.g. 16px or 1rem).
-* Use an even grid height (e.g. 8px).
-* Use a grid height with many divisors (e.g. 12px).
-* Use font sizes that produce whole numbers when multiplied with the grid height.
-
-> Setting a base font size to 2 grid heights eliminates most inaccuracies.
+* Define grid height in pixels, or as a multiple of the base font height.
+* Use a grid height with many divisors.
+* Use font sizes that produce whole numbers with the grid height.
 
 ### Varying baseline among fonts in the same family
 Although some weights or styles in the same family can sit on different baselines, it's generally fine to use the one for the regular font. If pixel perfection is important, define individual baselines for each font.
@@ -159,7 +154,7 @@ Although some weights or styles in the same family can sit on different baseline
 While supported, specifying the grid height in vh, vw, vmin, vmax is discouraged because this usually yields fractional pixels that can seriously hamper precision.
 
 ### Collapsing margins
-Plumber's use of collapsing margins makes it possible to specify the minimum distance between blocks of texts. If you don't need this, you can set either the `$leading-top` or the `$leading-bottom` parameters to 0.
+Plumber's use of collapsing margins makes it possible to specify the minimum distance between blocks of texts. If you don't need this, you can set either of `$leading-top` or `$leading-bottom` parameters to 0.
 
 
 ## API
@@ -167,23 +162,27 @@ Plumber's use of collapsing margins makes it possible to specify the minimum dis
 ### plumber
 The main mixin.
 
-**Parameters:** All parameters are optional, default values can be changed with the `plumber-set-defaults` mixin.
+**Parameters:** All parameters are optional, default values can be changed with `plumber-set-defaults`.
 
 
 Name | Description | Type | Default value
 ---- | ----------- | ---- | -------------
-$baseline | Override the default baseline | Fraction between 0 and 1 | –
-$font-size | Font size as a fraction of grid height | Positive number | 2
+$baseline | Override the default baseline | Fraction between 0 and 1 | —
+$font-size | Font size as a fraction of the grid height | Positive number | 2
 $grid-height | Override the default grid height | Any unit | 1rem
-$leading-top | Top leading as a multiple of grid height | Integer | 0<sup></sup>
-$leading-bottom | Bottom leading as a multiple of grid height | Integer | 0<sup></sup>
+$leading-top | Top leading* as a multiple of grid height | Integer | 0**
+$leading-bottom | Bottom leading* as a multiple of grid height | Integer | 0**
 $line-height | Line height as a multiple of grid height| Positive integer | 3
 $use-baseline-origin | Set the origin of leadings to the baseline | Boolean | false
+
+> * Leadings are measured from either the baseline or the edges of the text block, depending on the `$plumber-leadings-from-baseline` setting.
+> 
+> ** The default value is always calculated so there will be no visible gap above or below the text block.
 
 **Output:** `font-size`, `line-height`, `margin-top`, `padding-top`, `padding-bottom`, `margin-bottom` properties with the same unit as the grid height.
 
 ### plumber-set-defaults
-Set up and change default parameters to use.
+Sets up or changes default parameters to use.
 
 **Parameters:** Same as the main mixin
 
