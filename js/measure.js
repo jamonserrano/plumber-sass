@@ -1,4 +1,5 @@
 {	
+	// Send font request to Google Fonts
 	function onSubmit (e) {
 		e.preventDefault();
 		WebFont.load({
@@ -11,6 +12,7 @@
   		});
 	}
 
+	// Get font details from the form
 	function getFontString () {
 		name = fontNameInput.value;
 		weight = !fontWeightInput.value ? '400' : fontWeightInput.value;
@@ -18,6 +20,7 @@
 		return `${name}:${weight}${style}`;
 	}
 
+	// Set sample font
 	function onFontLoaded (e) {
 		console.log('font loaded', e);
 		Object.assign(letter.style, {
@@ -27,15 +30,12 @@
 		});
 	}
 
+	// Handle font error
 	function onFontError (e) {
 		console.log('font error', e);
 	}
 	// TODO don't submit form when unchanged
 	// TODO don't allow more than 10 requests / minute 
-
-	WebFontConfig = {
-		text: 'A'
-	};
 
 	const form = document.forms[0];
 	const fontNameInput = document.querySelector('.font-name');
