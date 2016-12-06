@@ -2,8 +2,7 @@
 pre[class*="language-"] {
 	@include plumber(
 		$font-size: 1.8,
-		$baseline: $code-baseline,
-		$leading-top: -1
+		$baseline: $code-baseline
 	);
 }
 
@@ -41,7 +40,7 @@ pre[class*="language-"] > code {
 	@include plumber-box(
 		$padding: 1
 	);
-	padding-left: 2rem;
+	padding-left: 16px;
 	border-left: 4px solid $color-accent;
 	// scrolling
 	overflow-x: auto;

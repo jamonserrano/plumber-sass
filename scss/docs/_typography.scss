@@ -10,6 +10,8 @@ $body-baseline: 0.113;
 $code-font: ('Inconsolata', monospace);
 $code-baseline: 0.166;
 
+$gh: 1rem;
+
 @include plumber-set-defaults(
 	$font-size: 2,
 	$baseline: $body-baseline,
@@ -36,8 +38,8 @@ h1, h2, h3 {
 h1 {
 	@include plumber(
 		$font-size: 4.8,
-		$leading-top: 4,
 		$line-height: 5,
+		$leading-top: 5,
 		$leading-bottom: 4,
 		$baseline: $header-baseline
 	);
@@ -45,19 +47,18 @@ h1 {
 
 h2 {
 	@include plumber(
-		$font-size: 3,
-		$leading-top: 4,
+		$font-size: 3.3,
 		$line-height: 4,
+		$leading-top: 6,
 		$baseline: $header-baseline
 	);
 }
 
 h3 {
 	@include plumber(
-		$font-size: 2.4,
-		$leading-top: 4,
-		$leading-bottom: 1,
+		$font-size: 2.5,
 		$line-height: 3,
+		$leading-top: 5,
 		$baseline: $header-baseline
 	);
 }
@@ -108,18 +109,23 @@ li {
 table {
 	$border-width: 1px;
 
+	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0;
 	table-layout: fixed;
 
-	col {
+	col.quarter {
 		width: 25%;
+	}
+
+	col.three-quarters {
+		width: 75%;
 	}
 
 	th, td {
 		text-align: left;
 		vertical-align: top;
-		padding: 0 0.5rem $gh;
+		padding: calc(#{$gh} - #{$border-width}) 0.5rem $gh;
 		border-bottom: $border-width solid $color-light;
 
 		&:first-child {
@@ -129,16 +135,24 @@ table {
 
 	th {
 		@extend strong;
+		border-color: $color-medium;
+	}
+
+	thead th {
 		// for some reason, border IS NOT calculated into th height
 		padding-top: $gh;
 	}
-
-	td {
-		// for some reason, border IS calculated into td height
-		padding-top: calc(#{$gh} - #{$border-width});
-	}
 }
 
+hr {
+	$ruler-height: 4px;
+	@include plumber-box(
+		$margin: 4 -1,
+		$border: 0px $ruler-height
+	);
+	border: none;
+	border-bottom: $ruler-height solid $color-accent;
+}
 
 // *** Inline elements ***
 

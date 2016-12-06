@@ -1,7 +1,3 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
 @import url("https://fonts.googleapis.com/css?family=Lora:700i|Lato:400,700|Inconsolata");
 html, body {
   margin: 0;
@@ -9,8 +5,8 @@ html, body {
 
 div, span,
 h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd,
-q, s, samp, small, strike, strong, table th, sub, sup, tt, var, b, u, i,
+pre, a, code, em, img,
+q, s, small, strike, strong, table th, sub, sup,
 dl, dt, dd, ol, ul, li,
 table, caption, tbody, tfoot, thead, tr, th, td,
 main, article, embed, figure, figcaption, footer, header, hgroup,
@@ -51,26 +47,26 @@ h1, h2, h3 {
 h1 {
   font-size: 4.8rem;
   line-height: 5rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
   padding-top: 0.6808rem;
   padding-bottom: 0.3192rem;
   margin-bottom: 4rem; }
 
 h2 {
-  font-size: 3rem;
+  font-size: 3.3rem;
   line-height: 4rem;
-  margin-top: 3rem;
-  padding-top: 0.863rem;
-  padding-bottom: 0.137rem;
+  margin-top: 5rem;
+  padding-top: 0.7493rem;
+  padding-bottom: 0.2507rem;
   margin-bottom: 2rem; }
 
 h3 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   line-height: 3rem;
-  margin-top: 3rem;
-  padding-top: 0.5904rem;
-  padding-bottom: 0.4096rem;
-  margin-bottom: 1rem; }
+  margin-top: 4rem;
+  padding-top: 0.5525rem;
+  padding-bottom: 0.4475rem;
+  margin-bottom: 2rem; }
 
 p {
   font-size: 2rem;
@@ -114,22 +110,33 @@ li {
   margin-bottom: 2rem; }
 
 table {
+  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
   table-layout: fixed; }
-  table col {
+  table col.quarter {
     width: 25%; }
+  table col.three-quarters {
+    width: 75%; }
   table th, table td {
     text-align: left;
     vertical-align: top;
-    padding: 0 0.5rem 1rem;
+    padding: calc(1rem - 1px) 0.5rem 1rem;
     border-bottom: 1px solid #c0c0c0; }
     table th:first-child, table td:first-child {
       padding-left: 0; }
   table th {
+    border-color: #606060; }
+  table thead th {
     padding-top: 1rem; }
-  table td {
-    padding-top: calc(1rem - 1px); }
+
+hr {
+  margin-top: calc(4rem - 0px);
+  padding-top: 0rem;
+  margin-bottom: calc(-1rem - 4px);
+  padding-bottom: 0rem;
+  border: none;
+  border-bottom: 4px solid #f2c94c; }
 
 strong, table th {
   font-weight: 700;
@@ -144,7 +151,7 @@ a {
 pre[class*="language-"] {
   font-size: 1.8rem;
   line-height: 3rem;
-  margin-top: -2rem;
+  margin-top: -1rem;
   padding-top: 0.8988rem;
   padding-bottom: 0.1012rem;
   margin-bottom: 2rem; }
@@ -179,7 +186,7 @@ pre[class*="language-"] > code {
   padding-top: 1rem;
   margin-bottom: calc(0rem - 0px);
   padding-bottom: 1rem;
-  padding-left: 2rem;
+  padding-left: 16px;
   border-left: 4px solid #f2c94c;
   overflow-x: auto;
   display: block; }

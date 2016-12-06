@@ -1,8 +1,7 @@
 $content-width: 70rem;
-$gh: 1rem;
 
 body {
-    //@include grid-background(rgba(255,0,0,0.2), $gh);
+    //@include grid-background(rgba(255,0,0,0.2), 10px);
     background-color: $color-background;
 }
 
