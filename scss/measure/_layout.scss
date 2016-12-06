@@ -1,9 +1,8 @@
-$instructions-height: 32rem;
-
 main {
     width: 100vw;
-    height: 100vh;
     background: $color-accent;
+    overflow-y: auto;
+    min-height: 100vh;
 }
 
 section {

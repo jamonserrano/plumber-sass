@@ -1,17 +1,11 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-@import url("https://fonts.googleapis.com/css?family=Lora:700i|Lato:400,700|Inconsolata");
-@import url("https://fonts.googleapis.com/css?family=Lora:400i|Inconsolata");
 html, body {
   margin: 0;
   padding: 0; }
 
 div, span,
 h1, h2, h3, h4, h5, h6, p,
-blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd,
-q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+pre, a, code, em, img,
+q, s, small, strike, strong, sub, sup,
 dl, dt, dd, ol, ul, li,
 table, caption, tbody, tfoot, thead, tr, th, td,
 main, article, embed, figure, figcaption, footer, header, hgroup,
@@ -20,40 +14,39 @@ input, textarea {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
   box-sizing: border-box; }
-
-html {
-  font-size: 8px; }
 
 main {
   width: 100vw;
-  height: 100vh;
-  background: #f2c94c; }
+  background: #f2c94c;
+  overflow-y: auto;
+  min-height: 100vh; }
 
 section {
   width: 100%; }
 
 .measure-area {
-  position: absolute;
-  left: 0;
-  bottom: 40rem;
-  overflow: hidden;
-  height: 1000px; }
+  /*position: absolute;
+    left: 0;
+    //right: 50%;
+    bottom: 260px;
+    overflow: visible;
+    height: 1000px;
+    width: 100%;*/
+  position: relative;
+  height: calc(100vh - 260px); }
 
 .letter {
   font-size: 1000px;
   line-height: 1000px;
-  color: #2a2a2a;
-  font-family: "Lora", serif;
+  color: #303030;
   font-weight: 400;
   font-style: italic;
-  position: relative;
+  position: absolute;
   z-index: 1;
   text-align: right;
-  width: 100%;
-  left: -50%;
+  right: 50%;
+  bottom: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always; }
@@ -61,12 +54,11 @@ section {
 .ruler {
   position: absolute;
   left: 0;
-  top: 844px;
+  bottom: 0;
   z-index: 0;
   width: 100%;
   height: 0px;
   border-top: 1px dashed #fcfcfc;
-  font-family: "Lora", serif;
   font-style: italic;
   font-weight: 400;
   color: #fcfcfc;
@@ -85,89 +77,117 @@ section {
   font-size: 32px;
   line-height: 49px;
   text-align: center; }
+  @media (max-width: 639px) {
+    .ruler-box {
+      left: calc(50% - (104px / 2)); } }
 
 .ruler-name {
   position: absolute;
   font-size: 21px;
-  top: -45px;
-  width: 100%;
-  text-align: center; }
+  top: -55px;
+  left: 50%;
+  text-align: center;
+  white-space: nowrap;
+  width: 50%; }
+  @media (max-width: 639px) {
+    .ruler-name {
+      left: 25%; } }
 
 .instructions {
-  background: #2a2a2a;
-  height: 32rem;
+  background: #303030;
+  min-height: 200px;
   position: absolute;
-  bottom: 0;
+  top: calc(100vh - 200px);
   left: 0;
-  padding: 5rem 20px 0;
-  color: #ccc;
+  padding: 20px;
+  color: #c0c0c0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
-  overflow: hidden; }
-  .instructions h1 {
-    font-family: "Lora", serif;
-    text-align: center;
-    font-size: 3rem;
-    line-height: 3rem;
-    margin-top: 0rem;
-    padding-top: 0.363rem;
-    padding-bottom: 0.637rem;
-    margin-bottom: 2rem; }
-  .instructions .steps {
-    display: flex;
-    justify-content: center;
-    align-content: flex-start;
-    flex-wrap: wrap; }
-  .instructions p {
-    font-family: "Lato", sans-serif;
-    font-size: 2rem;
-    line-height: 3rem;
-    margin-top: -1rem;
-    padding-top: 0.742rem;
-    padding-bottom: 0.258rem;
-    margin-bottom: 0rem;
-    width: 320px;
-    margin: 0 30px 1rem; }
-    @media (max-width: 1180px) {
-      .instructions p {
-        margin-left: auto;
-        margin-right: auto; } }
-    @media (max-width: 1100px) {
-      .instructions p {
-        width: 100%; } }
-  .instructions textarea {
-    -webkit-appearance: none;
-    background: transparent;
-    width: 320px;
-    border: 1px solid #606060;
-    resize: none;
-    height: 42px;
-    word-break: break-all;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: 1.75rem;
-    line-height: 2rem;
-    margin-top: 1rem;
-    padding-top: 0.32275rem;
-    padding-bottom: 0.67725rem;
-    margin-bottom: -1rem;
-    margin-top: 9px; }
-    @media (max-width: 1100px) {
-      .instructions textarea {
-        height: 24px;
-        font-size: 1.75rem;
-        line-height: 2rem;
-        margin-top: 0rem;
-        padding-top: 0.32275rem;
-        padding-bottom: 0.67725rem;
-        margin-bottom: -1rem;
-        position: relative;
-        top: 7px;
-        white-space: nowrap;
-        word-break: normal; } }
-  .instructions a {
-    text-decoration: none;
-    color: #f2c94c; }
-    .instructions a:hover {
-      text-decoration: underline; }
+  /*
+    h1 {
+        font-family: $header-font;
+        text-align: center;
+        @include plumber(
+            $font-size: 3,
+            $leading-top: 0,
+            $line-height: 3,
+            $leading-bottom: 3,
+            $baseline: $baseline-header
+        );
+    }
+
+    .steps {
+        display: flex;
+        justify-content: center;
+        align-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    p {
+        font-family: $body-font;
+        @include plumber(
+            $font-size: 2,
+            $leading-top: 0,
+            $line-height: 3,
+            $leading-bottom: 0,
+            $baseline: $header-baseline
+        );
+        width: 320px;
+        margin: 0 30px 1rem;
+
+        @media (max-width: 1180px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 1100px) {
+            width: 100%;
+        }
+    }
+
+    textarea {
+        -webkit-appearance: none;
+        background: transparent;
+        width: 320px;
+        border: 1px solid $color-medium;
+        resize: none;
+        height: 42px;
+        word-break: break-all;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        @include plumber(
+            $font-size: 1.75,
+            $leading-top: 1,
+            $line-height: 2,
+            $leading-bottom: 0,
+            $baseline: $body-baseline
+        );
+        // override top margin
+        margin-top: 9px;
+
+        @media (max-width: 1100px) {
+            height: 24px;
+            @include plumber(
+                $font-size: 1.75,
+                $leading-top: 0,
+                $line-height: 2,
+                $leading-bottom: 0,
+                $baseline: $body-baseline
+            );
+            position: relative;
+            top: 7px;
+            white-space: nowrap;
+            word-break: normal;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: $color-accent;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+*/ }

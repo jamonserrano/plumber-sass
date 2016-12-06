@@ -1,16 +1,16 @@
 .instructions {
     background: $color-dark;
-    height: $instructions-height;
+    min-height: 200px;
     position: absolute;
-    bottom: 0;
+    top: calc(100vh - 200px);
     left: 0;
-    padding: 5rem 20px 0;
+    padding: 20px;
     color: $color-light;
     @include font-smoothing;
-    overflow: hidden;
 
+/*
     h1 {
-        font-family: $font-header;
+        font-family: $header-font;
         text-align: center;
         @include plumber(
             $font-size: 3,
@@ -29,13 +29,13 @@
     }
 
     p {
-        font-family: $font-body;
+        font-family: $body-font;
         @include plumber(
             $font-size: 2,
             $leading-top: 0,
             $line-height: 3,
             $leading-bottom: 0,
-            $baseline: $baseline-header
+            $baseline: $header-baseline
         );
         width: 320px;
         margin: 0 30px 1rem;
@@ -65,7 +65,7 @@
             $leading-top: 1,
             $line-height: 2,
             $leading-bottom: 0,
-            $baseline: $baseline-body
+            $baseline: $body-baseline
         );
         // override top margin
         margin-top: 9px;
@@ -77,7 +77,7 @@
                 $leading-top: 0,
                 $line-height: 2,
                 $leading-bottom: 0,
-                $baseline: $baseline-body
+                $baseline: $body-baseline
             );
             position: relative;
             top: 7px;
@@ -94,4 +94,5 @@
             text-decoration: underline;
         }
     }
+*/
 }

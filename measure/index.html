@@ -11,21 +11,28 @@
         <section class="measure-area">
             <div class="letter"><span>A</span></div>
             <div class="ruler">
+                <div class="ruler-name">Roboto 400 Italic</div>
                 <div class="ruler-box">
-                    <div class="ruler-name">Lora Italic</div>
-                    <span>0.844</span>
+                    <span>0.000</span>
                 </div>
             </div>
         </section>
         <section class="instructions">
             <h1>This tool helps you measure the baseline position of a font to use with Plumber</h1>
             <div class="steps">
-                <p>1.&ensp;Look up the exact font you’d like to use on <a href="fonts.google.com" target="_blank">Google Fonts</a> and paste the embed code here:
-                    <textarea placeholder="e.g. <link href=&quot;https://fonts.googleapis.com/css?family=Roboto:400i&quot; rel=&quot;stylesheet&quot;>" res></textarea></p>
-                <p>2.&ensp;Use the up and down keys on your keyboard to move the dashed line until it just disappears under the base of the letter. Hold down the Shift key to step 10 pixels.</p>
-                <p>3.&ensp;Done! Use the number on the line for this font with Plumber. Don’t hesitate to  create a pull request on the baseline list with your measurement.</p>
+                <p>1.&ensp;Look up the font you’d like to use on <a href="fonts.google.com" target="_blank">Google Fonts</a> and enter its name, weight and style:</p>
+                <form>
+                    <input name="font-name" class="font-name" placeholder="E.g. Roboto" value="Roboto">
+                    <input name="font-weight" class="font-weight" placeholder="E.g. 400">
+                    <label><input type="checkbox" name="font-style" class="font-style" value="i">italic</label>
+                    <button type="submit">Load font</button>
+                <form>
+                <p>2.&ensp;Use the up and down keys on your keyboard to move the dashed line until it <em>just</em> disappears under the base of the letter (shift+arrow steps 10 pixels).</p>
+                <p>3.&ensp;Use the number on the line for this font with Plumber. Pull requests to the baseline table are welcome!</p>
             </div>
         </section>
 	</main>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script src="/js/measure.js"></script>
 </body>
 </html>
