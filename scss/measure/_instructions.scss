@@ -4,11 +4,12 @@
     position: absolute;
     top: calc(100vh - 200px);
     left: 0;
-    padding: 20px;
+    padding: 2rem;
     color: $color-light;
     @include font-smoothing;
+    z-index: 300;
 
-/*
+
     h1 {
         font-family: $header-font;
         text-align: center;
@@ -17,7 +18,7 @@
             $leading-top: 0,
             $line-height: 3,
             $leading-bottom: 3,
-            $baseline: $baseline-header
+            $baseline: $header-baseline
         );
     }
 
@@ -34,11 +35,10 @@
             $font-size: 2,
             $leading-top: 0,
             $line-height: 3,
-            $leading-bottom: 0,
+            $leading-bottom: 1,
             $baseline: $header-baseline
         );
         width: 320px;
-        margin: 0 30px 1rem;
 
         @media (max-width: 1180px) {
             margin-left: auto;
@@ -50,42 +50,6 @@
         }
     }
 
-    textarea {
-        -webkit-appearance: none;
-        background: transparent;
-        width: 320px;
-        border: 1px solid $color-medium;
-        resize: none;
-        height: 42px;
-        word-break: break-all;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        @include plumber(
-            $font-size: 1.75,
-            $leading-top: 1,
-            $line-height: 2,
-            $leading-bottom: 0,
-            $baseline: $body-baseline
-        );
-        // override top margin
-        margin-top: 9px;
-
-        @media (max-width: 1100px) {
-            height: 24px;
-            @include plumber(
-                $font-size: 1.75,
-                $leading-top: 0,
-                $line-height: 2,
-                $leading-bottom: 0,
-                $baseline: $body-baseline
-            );
-            position: relative;
-            top: 7px;
-            white-space: nowrap;
-            word-break: normal;
-        }
-    }
-
     a {
         text-decoration: none;
         color: $color-accent;
@@ -94,5 +58,10 @@
             text-decoration: underline;
         }
     }
-*/
+
+    input[type=text] {
+        width: 10rem;
+        height: 3rem;
+    }
+
 }

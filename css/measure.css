@@ -16,6 +16,9 @@ input, textarea {
   border: 0;
   box-sizing: border-box; }
 
+html {
+  font-size: 8px; }
+
 main {
   width: 100vw;
   background: #f2c94c;
@@ -26,13 +29,6 @@ section {
   width: 100%; }
 
 .measure-area {
-  /*position: absolute;
-    left: 0;
-    //right: 50%;
-    bottom: 260px;
-    overflow: visible;
-    height: 1000px;
-    width: 100%;*/
   position: relative;
   height: calc(100vh - 260px); }
 
@@ -49,49 +45,53 @@ section {
   bottom: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-smooth: always; }
+  font-smooth: always;
+  z-index: 1; }
 
 .ruler {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
   position: absolute;
   left: 0;
   bottom: 0;
   z-index: 0;
   width: 100%;
-  height: 0px;
-  border-top: 1px dashed #fcfcfc;
+  height: 49px;
   font-style: italic;
   font-weight: 400;
   color: #fcfcfc;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smooth: always; }
+  cursor: pointer;
+  transform: translateY(24px);
+  z-index: 100; }
+  .ruler hr {
+    border: none;
+    border-top: 1px dashed #fcfcfc;
+    margin-top: 24px; }
 
 .ruler-box {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  font-style: italic;
+  font-weight: 400;
+  color: #fcfcfc;
   position: absolute;
-  top: -26px;
+  bottom: 0;
   left: calc(75% - (104px / 2));
-  background: #f2c94c;
+  background-color: #f2c94c;
   border: 1px dashed #fcfcfc;
   width: 104px;
   height: 49px;
   font-size: 32px;
   line-height: 49px;
-  text-align: center; }
+  text-align: center;
+  cursor: text;
+  transform: translateY(24px);
+  z-index: 200; }
   @media (max-width: 639px) {
     .ruler-box {
       left: calc(50% - (104px / 2)); } }
-
-.ruler-name {
-  position: absolute;
-  font-size: 21px;
-  top: -55px;
-  left: 50%;
-  text-align: center;
-  white-space: nowrap;
-  width: 50%; }
-  @media (max-width: 639px) {
-    .ruler-name {
-      left: 25%; } }
 
 .instructions {
   background: #303030;
@@ -99,95 +99,47 @@ section {
   position: absolute;
   top: calc(100vh - 200px);
   left: 0;
-  padding: 20px;
+  padding: 2rem;
   color: #c0c0c0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
-  /*
-    h1 {
-        font-family: $header-font;
-        text-align: center;
-        @include plumber(
-            $font-size: 3,
-            $leading-top: 0,
-            $line-height: 3,
-            $leading-bottom: 3,
-            $baseline: $baseline-header
-        );
-    }
-
-    .steps {
-        display: flex;
-        justify-content: center;
-        align-content: flex-start;
-        flex-wrap: wrap;
-    }
-
-    p {
-        font-family: $body-font;
-        @include plumber(
-            $font-size: 2,
-            $leading-top: 0,
-            $line-height: 3,
-            $leading-bottom: 0,
-            $baseline: $header-baseline
-        );
-        width: 320px;
-        margin: 0 30px 1rem;
-
-        @media (max-width: 1180px) {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (max-width: 1100px) {
-            width: 100%;
-        }
-    }
-
-    textarea {
-        -webkit-appearance: none;
-        background: transparent;
-        width: 320px;
-        border: 1px solid $color-medium;
-        resize: none;
-        height: 42px;
-        word-break: break-all;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        @include plumber(
-            $font-size: 1.75,
-            $leading-top: 1,
-            $line-height: 2,
-            $leading-bottom: 0,
-            $baseline: $body-baseline
-        );
-        // override top margin
-        margin-top: 9px;
-
-        @media (max-width: 1100px) {
-            height: 24px;
-            @include plumber(
-                $font-size: 1.75,
-                $leading-top: 0,
-                $line-height: 2,
-                $leading-bottom: 0,
-                $baseline: $body-baseline
-            );
-            position: relative;
-            top: 7px;
-            white-space: nowrap;
-            word-break: normal;
-        }
-    }
-
-    a {
-        text-decoration: none;
-        color: $color-accent;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-*/ }
+  z-index: 300; }
+  .instructions h1 {
+    font-family: "Lora", serif;
+    text-align: center;
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-top: 0rem;
+    padding-top: 0.363rem;
+    padding-bottom: 0.637rem;
+    margin-bottom: 2rem; }
+  .instructions .steps {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap; }
+  .instructions p {
+    font-family: "Lato", sans-serif;
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-top: -1rem;
+    padding-top: 0.742rem;
+    padding-bottom: 0.258rem;
+    margin-bottom: 1rem;
+    width: 320px; }
+    @media (max-width: 1180px) {
+      .instructions p {
+        margin-left: auto;
+        margin-right: auto; } }
+    @media (max-width: 1100px) {
+      .instructions p {
+        width: 100%; } }
+  .instructions a {
+    text-decoration: none;
+    color: #f2c94c; }
+    .instructions a:hover {
+      text-decoration: underline; }
+  .instructions input[type=text] {
+    width: 10rem;
+    height: 3rem; }
