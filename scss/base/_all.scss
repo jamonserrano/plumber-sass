@@ -1,6 +1,7 @@
 @import "base/reset";
 @import "base/helpers";
-@import "base/common";
+@import "base/colors";
+@import "base/header";
 // === Plumber ===
 @import "node_modules/plumber-sass/plumber";
 @import "node_modules/plumber-box/plumber-box";

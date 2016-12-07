@@ -1,0 +1,29 @@
+.error {
+	height: calc(100vh - 200px);
+	position: absolute;
+	z-index: 150;
+	display: none;
+	background-color: $color-accent;
+	top: 0;
+	left: 0;
+
+	p {
+		@include font-smoothing;
+		font-family: $header-font;
+		font-weight: 700;
+		font-size: 3rem;
+		color: $color-dark;
+		position: absolute;
+		bottom: 40px;
+		left: 4rem;
+
+		@media (max-width: 1100px) {
+            bottom: 20px;
+			left: 2rem;
+        }
+	}
+}
+
+.show-error .error {
+    display: block;
+}

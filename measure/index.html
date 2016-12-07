@@ -6,8 +6,22 @@
 	<title>Plumber Measure Tool</title>
 	<link rel="stylesheet" href="../css/measure.css" type="text/css">
 </head>
-<body class="baseline-grid">
+<body class="show-intro">
+    <header>
+        <ul>
+            <li><a href="/plumber-sass/">Docs</a></li>
+            <li><a href="/plumber-sass/table/">Baselines</a></li>
+            <li><a class="active" href="/plumber-sass/measure/">Measure</a></li>
+            <li><a href="https://github.com/jamonserrano/plumber-sass" target="_blank">GitHub</a></li>
+        </ul>
+    </header>
 	<main>
+        <section class="intro">
+            <h1>Plumber measure tool</h1>
+        </section>
+        <section class="error">
+            <p>Could not load font. Are you sure you got the name right?</p>
+        </section>
         <section class="measure-area">
             <div class="letter"><span>A</span></div>
             <div class="ruler">
@@ -16,18 +30,18 @@
             </div>
         </section>
         <section class="instructions">
-            <!--<h1>This tool helps you measure the baseline position of a font</h1>-->
             <div class="steps">
-                <form>
-                    <p>1.&ensp; Load a font from <a href="https://fonts.google.com" target="_blank">Google Fonts</a>:
-                        <input type="text" name="font-name" class="font-name" placeholder="Roboto" value="Lora">
-                        <input type="text" name="font-weight" class="font-weight" placeholder="400" value="700">
-                        <label><input type="checkbox" name="font-style" class="font-style" value="i" checked>Italic</label>
-                        <button type="submit">Load</button>
-                    </p>
+                <form class="step">
+                    <p>1.&ensp;Load a font from <a href="https://fonts.google.com" target="_blank">Google Fonts</a>:</p>
+                        <div class="fields">
+                            <input type="text" name="font-name" class="font-name" placeholder="Open Sans">
+                            <input type="text" name="font-weight" class="font-weight" placeholder="400">
+                            <label><input type="checkbox" name="font-style" class="font-style" value="Italic">Italic</label>
+                            <button type="submit">Load</button>
+                        </div>
                 </form>
-                <p>2.&ensp;Drag the dashed ruler until it is just over the base of the letter (black &amp; white dash).</p>
-                <p>3.&ensp;Use the number on the line for this font with Plumber.</p>
+                <p class="step">2.&ensp;Drag the dashed ruler until it is just over the base of the letter (black &amp; white dash).</p>
+                <p class="step">3.&ensp;Use the number on the line for this font with Plumber.</p>
             </div>
         </section>
 	</main>

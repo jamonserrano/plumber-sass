@@ -17,6 +17,46 @@ input, textarea {
   border: 0;
   box-sizing: border-box; }
 
+header {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  height: 40px;
+  line-height: 40px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  font-size: 2rem;
+  padding: 0 30px;
+  text-transform: uppercase;
+  z-index: 1000; }
+  @media (max-width: 639px) {
+    header {
+      padding: 0 10px; } }
+  header ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; }
+  header li {
+    display: inline-block;
+    text-align: center; }
+    @media (max-width: 639px) {
+      header li {
+        flex-grow: 1; } }
+  header a {
+    text-decoration: none;
+    display: inline-block;
+    height: 40px;
+    padding: 0 7px; }
+    header a:hover, header a.active {
+      border-bottom-width: 1px;
+      border-bottom-style: solid; }
+  header img.github {
+    width: 30px;
+    height: 30px;
+    margin-top: 5px; }
+
 html {
   font-size: 8px; }
 
@@ -29,12 +69,78 @@ main {
 section {
   width: 100%; }
 
+header {
+  background: transparent;
+  color: #fcfcfc;
+  font-family: "Lato", sans-serif; }
+  header a {
+    color: inherit;
+    opacity: 0.6; }
+    header a:hover, header a.active {
+      opacity: 1; }
+    header a.active {
+      border-bottom: none; }
+
+.intro {
+  height: calc(100vh - 200px);
+  position: absolute;
+  z-index: 200;
+  display: none;
+  background-color: #f2c94c;
+  top: 0;
+  left: 0; }
+  .intro h1 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+    font-family: "Lora", serif;
+    font-weight: 700;
+    font-size: 5rem;
+    color: #303030;
+    position: absolute;
+    bottom: 40px;
+    left: 4rem; }
+    @media (max-width: 1100px) {
+      .intro h1 {
+        bottom: 20px;
+        left: 2rem; } }
+
+.show-intro .intro {
+  display: block; }
+
+.error {
+  height: calc(100vh - 200px);
+  position: absolute;
+  z-index: 150;
+  display: none;
+  background-color: #f2c94c;
+  top: 0;
+  left: 0; }
+  .error p {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+    font-family: "Lora", serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #303030;
+    position: absolute;
+    bottom: 40px;
+    left: 4rem; }
+    @media (max-width: 1100px) {
+      .error p {
+        bottom: 20px;
+        left: 2rem; } }
+
+.show-error .error {
+  display: block; }
+
 .measure-area {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
   position: relative;
-  height: calc(100vh - 260px); }
+  height: calc(100vh - 240px); }
   .measure-area .letter {
     font-size: 1000px;
     line-height: 1000px;
@@ -84,6 +190,9 @@ section {
       cursor: text; }
 
 .instructions {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
   background: #303030;
   min-height: 200px;
   position: absolute;
@@ -91,45 +200,76 @@ section {
   left: 0;
   padding: 2rem;
   color: #c0c0c0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smooth: always;
   z-index: 300; }
   .instructions h1 {
-    font-family: "Lora", serif;
-    text-align: center;
     font-size: 3rem;
     line-height: 3rem;
     margin-top: 0rem;
     padding-top: 0.363rem;
     padding-bottom: 0.637rem;
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    font-family: "Lora", serif;
+    text-align: center; }
   .instructions .steps {
     display: flex;
     justify-content: center;
     align-content: flex-start;
     flex-wrap: wrap; }
-  .instructions p {
+  .instructions .step {
     font-family: "Lato", sans-serif;
+    width: 320px;
+    margin: 50px 20px;
+    flex-grow: 1; }
+    @media (max-width: 1100px) {
+      .instructions .step {
+        width: 100%;
+        margin: 0; } }
+  .instructions p {
     font-size: 2rem;
     line-height: 3rem;
     margin-top: -1rem;
     padding-top: 0.742rem;
     padding-bottom: 0.258rem;
-    margin-bottom: 1rem;
-    width: 320px; }
-    @media (max-width: 1180px) {
-      .instructions p {
-        margin-left: auto;
-        margin-right: auto; } }
-    @media (max-width: 1100px) {
-      .instructions p {
-        width: 100%; } }
+    margin-bottom: 1rem; }
   .instructions a {
     text-decoration: none;
     color: #f2c94c; }
     .instructions a:hover {
       text-decoration: underline; }
-  .instructions input[type=text] {
-    width: 10rem;
+  .instructions .fields {
+    margin: -1rem 0 1rem; }
+  .instructions input[type=text],
+  .instructions input[type=number] {
+    height: 3rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #c0c0c0;
+    font-size: 2rem;
+    color: #fcfcfc;
+    margin-right: 1rem;
+    border-radius: 0; }
+    .instructions input[type=text].font-name,
+    .instructions input[type=number].font-name {
+      width: 15rem; }
+    .instructions input[type=text].font-weight,
+    .instructions input[type=number].font-weight {
+      width: 7rem; }
+    .instructions input[type=text]:placeholder-shown,
+    .instructions input[type=number]:placeholder-shown {
+      color: #606060; }
+  .instructions label {
+    font-size: 2rem;
+    margin-right: 1rem; }
+  .instructions input[type=checkbox] {
+    margin-right: 0.5rem;
+    vertical-align: bottom;
+    width: 3rem;
     height: 3rem; }
+  .instructions button {
+    height: 3rem;
+    font-family: "Lato", sans-serif;
+    font-size: 2rem;
+    background: #fcfcfc;
+    color: #303030;
+    font-weight: 700;
+    border: none; }

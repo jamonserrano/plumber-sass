@@ -16,7 +16,7 @@
 	function getFontString () {
 		fontName = fontNameInput.value;
 		fontWeight = !fontWeightInput.value ? '400' : fontWeightInput.value;
-		fontStyle = fontStyleInput.checked ? fontStyleInput.value : '';
+		fontStyle = fontStyleInput.checked ? 'i' : '';
 		return `${fontName}:${fontWeight}${fontStyle}`;
 	}
 
@@ -27,11 +27,15 @@
 			'font-weight': fontWeight,
 			'font-style': fontStyle ? 'italic' : 'normal'
 		});
+		bodyClass.remove("show-intro", "show-error");
 	}
 
 	// Handle font error
 	function onFontError (e) {
-		console.log('font error', e);
+		var fontStyleString = fontStyle ? 'Italic' : '';
+		error.textContent = `Could not load font ‘${fontName} ${fontWeight} ${fontStyleString}’. Are you sure you got the name right?`
+		bodyClass.remove("show-intro");
+		bodyClass.add("show-error");
 	}
 
 	// Handle dragging and dropping
@@ -55,12 +59,15 @@
 	var rulerBox = document.querySelector('.ruler-box');
 	var rulerName = document.querySelector('.ruler-name');
 	var measureArea = document.querySelector('.measure-area');
+	var rulerTop = Math.floor(ruler.offsetTop);
 	var draggable = new Draggabilly(ruler, {
 		containment: measureArea,
 		axis: 'y'
 	});
 
-	var rulerTop = Math.floor(ruler.offsetTop);
+	// miscellaneous
+	var bodyClass = document.body.classList;
+	var error = document.querySelector('.error > p');
 
 	draggable.on('dragMove', onDragMove);
 	draggable.on('dragEnd', onDragMove);

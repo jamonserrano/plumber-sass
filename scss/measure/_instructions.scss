@@ -1,4 +1,5 @@
 .instructions {
+    @include font-smoothing;
     background: $color-dark;
     min-height: 200px;
     position: absolute;
@@ -6,13 +7,10 @@
     left: 0;
     padding: 2rem;
     color: $color-light;
-    @include font-smoothing;
     z-index: 300;
 
 
     h1 {
-        font-family: $header-font;
-        text-align: center;
         @include plumber(
             $font-size: 3,
             $leading-top: 0,
@@ -20,6 +18,8 @@
             $leading-bottom: 3,
             $baseline: $header-baseline
         );
+        font-family: $header-font;
+        text-align: center;
     }
 
     .steps {
@@ -29,8 +29,18 @@
         flex-wrap: wrap;
     }
 
-    p {
+    .step {
         font-family: $body-font;
+        width: 320px;
+        margin: 50px 20px;
+        flex-grow: 1;
+        @media (max-width: 1100px) {
+            width: 100%;
+            margin: 0;
+        }
+    }
+
+    p {
         @include plumber(
             $font-size: 2,
             $leading-top: 0,
@@ -38,16 +48,6 @@
             $leading-bottom: 1,
             $baseline: $header-baseline
         );
-        width: 320px;
-
-        @media (max-width: 1180px) {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        @media (max-width: 1100px) {
-            width: 100%;
-        }
     }
 
     a {
@@ -59,9 +59,54 @@
         }
     }
 
-    input[type=text] {
-        width: 10rem;
+    .fields {
+        margin: -1rem 0 1rem;
+    }
+
+    input[type=text],
+    input[type=number] {
         height: 3rem;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid $color-light;
+        font-size: 2rem;
+        color: $color-background;
+        margin-right: 1rem;
+    
+        &.font-name {
+            width: 15rem;
+        }
+
+        &.font-weight {
+            width: 7rem;
+        }
+
+        &:placeholder-shown {
+            color: $color-medium;
+        }
+        border-radius: 0;
+    }
+
+    label {
+        font-size: 2rem;
+        margin-right: 1rem;
+    }
+
+    input[type=checkbox] {
+        margin-right: 0.5rem;
+        vertical-align: bottom;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    button {
+        height: 3rem;
+        font-family: $body-font;
+        font-size: 2rem;
+        background: $color-background;
+        color: $color-dark;
+        font-weight: 700;
+        border: none;
     }
 
 }

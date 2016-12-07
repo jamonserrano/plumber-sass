@@ -1,0 +1,29 @@
+.intro {
+	height: calc(100vh - 200px);
+	position: absolute;
+	z-index: 200;
+	display: none;
+	background-color: $color-accent;
+	top: 0;
+	left: 0;
+
+	h1 {
+		@include font-smoothing;
+		font-family: $header-font;
+		font-weight: 700;
+		font-size: 5rem;
+		color: $color-dark;
+		position: absolute;
+		bottom: 40px;
+		left: 4rem;
+
+		@media (max-width: 1100px) {
+            bottom: 20px;
+			left: 2rem;
+        }
+	}
+}
+
+.show-intro .intro {
+    display: block;
+}

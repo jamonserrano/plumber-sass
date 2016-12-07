@@ -1,0 +1,51 @@
+header {
+	@include font-smoothing;
+	height: 40px;
+	line-height: 40px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	font-size: 2rem;
+	padding: 0 30px;
+	text-transform: uppercase;
+	z-index: 1000;
+
+	@media (max-width: 639px) {
+		padding: 0 10px;
+	}
+
+	ul {
+		list-style: none;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	li {
+		display: inline-block;
+		text-align: center;
+
+		@media (max-width: 639px) {
+			flex-grow: 1;
+		}
+	}
+
+	a {
+		text-decoration: none;
+		display: inline-block;
+		height: 40px;
+		padding: 0 7px;
+
+		&:hover,
+		&.active {
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+	}
+
+	img.github {
+		width: 30px;
+		height: 30px;
+		margin-top: 5px;
+	}
+}

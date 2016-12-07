@@ -1,0 +1,21 @@
+header {
+	//background: $color-background;
+	background: transparent;
+	color: $color-background;
+	font-family: $body-font;
+
+	a {
+		color: inherit;
+		opacity: 0.6;
+
+		&:hover,
+		&.active {
+			opacity: 1;
+		}
+
+		&.active {
+			border-bottom: none;
+		}
+	}
+
+}
