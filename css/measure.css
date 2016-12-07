@@ -23,7 +23,7 @@ html {
 main {
   width: 100vw;
   background: #f2c94c;
-  overflow-y: auto;
+  overflow: hidden;
   min-height: 100vh; }
 
 section {
@@ -46,7 +46,8 @@ section {
     text-align: right;
     right: 50%;
     bottom: 24px;
-    z-index: 1; }
+    z-index: 1;
+    pointer-events: none; }
   .measure-area .ruler {
     position: absolute;
     left: 0;

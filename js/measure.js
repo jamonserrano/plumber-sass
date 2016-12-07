@@ -1,4 +1,4 @@
-{	
+(function () {	
 	// Send font request to Google Fonts
 	function onSubmit (e) {
 		e.preventDefault();
@@ -39,35 +39,35 @@
 	}
 
 	function onDragMove (e, pointer) {
-		const rulerPosition = ruler.offsetTop;
-		const rulerPositionPx = rulerPosition + 'px';
+		var rulerPosition = ruler.offsetTop;
+		var rulerPositionPx = rulerPosition + 'px';
 		rulerBox.style.top = rulerPositionPx;
-		const position = (rulerTop - rulerPosition) / 1000;
+		var position = (rulerTop - rulerPosition) / 1000;
 		rulerBox.textContent = position.toFixed(3);
 	}
 
 	// form
-	const form = document.forms[0];
-	const fontNameInput = document.querySelector('.font-name');
-	const fontWeightInput = document.querySelector('.font-weight');
-	const fontStyleInput = document.querySelector('.font-style');
-	const letter = document.querySelector('.letter');
-	let fontName, fontWeight, fontStyle;
+	var form = document.forms[0];
+	var fontNameInput = document.querySelector('.font-name');
+	var fontWeightInput = document.querySelector('.font-weight');
+	var fontStyleInput = document.querySelector('.font-style');
+	var letter = document.querySelector('.letter');
+	var fontName, fontWeight, fontStyle;
 	form.addEventListener('submit', onSubmit);
 
 	// ruler
-	const ruler = document.querySelector('.ruler');
-	const rulerBox = document.querySelector('.ruler-box');
-	const rulerName = document.querySelector('.ruler-name');
-	const measureArea = document.querySelector('.measure-area');
-	const draggable = new Draggabilly(ruler, {
+	var ruler = document.querySelector('.ruler');
+	var rulerBox = document.querySelector('.ruler-box');
+	var rulerName = document.querySelector('.ruler-name');
+	var measureArea = document.querySelector('.measure-area');
+	var draggable = new Draggabilly(ruler, {
 		containment: measureArea,
 		axis: 'y'
 	});
 
-	let rulerHeight = Math.floor(ruler.offsetHeight / 2);
-	let rulerTop = Math.floor(ruler.offsetTop);
+	var rulerHeight = Math.floor(ruler.offsetHeight / 2);
+	var rulerTop = Math.floor(ruler.offsetTop);
 
 	draggable.on('dragMove', onDragMove);
 	draggable.on('dragEnd', onDragMove);
-}
+}());

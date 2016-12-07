@@ -20,6 +20,7 @@
         right: 50%;
         bottom: $ruler-displacement;  
         z-index: 1;
+        pointer-events: none;
     }
 
     .ruler {
