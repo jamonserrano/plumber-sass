@@ -13,7 +13,7 @@
 		<h1 id="toc_0">Plumber</h1>
 		<!--<p><em>Real baseline grids with SASS</em></p>-->
 		<p>Create better looking documents and speed up CSS development by adding vertical rhythm to your page. Plumber positions every line of text on a gridline.</p>
-        
+
 		<section>
 			<h2 id="toc_1">Installation</h2>
 
@@ -93,7 +93,7 @@ li {
         </section>
             <section>
                 <h3 id="toc_6">Using multiple fonts</h3>
-                <p>When using multiple fonts or families, you can define a baseline for each one and use the optional <code>$baseline</code> parameter:</p>
+                <p>When using multiple fonts or families, you can set a baseline for each one and use the optional <code>$baseline</code> parameter:</p>
                 <pre><code class="language-scss">$quote-baseline: 0.151; // Georgia
 
 blockquote {
@@ -103,7 +103,7 @@ blockquote {
 
             <section>
                 <h3 id="toc_7">Responsive typography</h3>
-                <p>Plumber supports responsive typography. Just specify the grid height in rems or other relative units, and the font metrics will change along.</p>
+                <p>Plumber supports responsive typography. Just define the grid height in rems or other relative units, and the font metrics will change along.</p>
                 <pre><code class="language-scss">@include plumber-set-defaults(
     $grid-height: 1rem,
     $font-size: 2
@@ -145,7 +145,7 @@ html {
 
 			<section>
                 <h3 id="toc_11">Varying baseline among fonts in the same family</h3>
-                <p>Although some weights or styles in the same family can sit on different baselines, it’s generally fine to use the one for the regular font. If pixel perfection is important, define individual baselines for each font.</p>
+                <p>Although some weights or styles in the same family can sit on different baselines, it’s generally fine to use the one for the regular font. If pixel perfection is important, set individual baselines for each font.</p>
 			</section>
 
 			<section>
@@ -155,7 +155,7 @@ html {
 
 			<section>
                 <h3 id="toc_13">Collapsing margins</h3>
-                <p>Plumber’s use of collapsing margins makes it possible to specify the minimum distance between blocks of texts. If you don’t need this, you can set either <code>$leading-top</code> or <code>$leading-bottom</code> parameters to 0.</p>
+                <p>Plumber’s use of collapsing margins makes it possible to set the minimum distance between blocks of texts. If you don’t need this, you can set either <code>$leading-top</code> or <code>$leading-bottom</code> parameters to 0.</p>
 			</section>
 		</section>
 		<section>
