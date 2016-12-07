@@ -2,75 +2,69 @@
 
 
 .measure-area {
+    $ruler-height: 50px;
+    $ruler-displacement: 24px;
+    @include font-smoothing;
     position: relative;
     height: calc(100vh - 260px);
-}
 
-.letter {
-    font-size: 1000px;
-    line-height: 1000px;
-    color: $color-dark;
-    font-weight: 400;
-    font-style: italic;
-    position: absolute;
-    z-index: 1;
-    text-align: right;
-    right: 50%;
-    bottom: 0;
-    @include font-smoothing;
-    z-index: 1;
-}
-
-.ruler {
-    @include font-smoothing;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: 0;
-    width: 100%;
-    height: 49px;
-    //font-family: $header-font;
-    font-style: italic;
-    font-weight: 400;
-    color: $color-background;
-    cursor: pointer;
-    transform: translateY(24px);
-
-    hr {
-        border: none;
-        border-top: 1px dashed $color-background;
-        margin-top: 24px;
+    .letter {
+        font-size: 1000px;
+        line-height: 1000px;
+        color: $color-dark;
+        font-weight: 400;
+        font-style: italic;
+        position: absolute;
+        z-index: 1;
+        text-align: right;
+        right: 50%;
+        bottom: $ruler-displacement;  
+        z-index: 1;
     }
-    z-index: 100;
 
-}
+    .ruler {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: $ruler-height;
+        cursor: -webkit-grab;
+        cursor: -moz-grab;
+        cursor: grab;
+
+        &.is-dragging {
+            cursor: -webkit-grabbing;
+            cursor: -moz-grabbing;
+            cursor: grabbing;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dashed $color-background;
+            margin-top: $ruler-displacement;
+        }
+        z-index: 100;
+
+    }
 
 
-.ruler-box {
-    $width: 104px;
-    $height: 49px;
-    
-    @include font-smoothing;
-    
-    font-style: italic;
-    font-weight: 400;
-    color: $color-background;
-    position: absolute;
-    bottom: 0;
-    left: calc(75% - (#{$width} / 2));
-    background-color: $color-accent;
-    border: 1px dashed $color-background;
-    //border-radius: 50%;
-    width: $width;
-    height: $height;
-    font-size: 32px;
-    line-height: $height;
-    text-align: center;
-    cursor: text;
-    transform: translateY(24px);
-    z-index: 200;
-
-    @media (max-width: 639px) {
-        left: calc(50% - (#{$width} / 2));
+    .ruler-box {
+        $width: 100px;
+        font-family: $body-font;
+        font-weight: 400;
+        color: $color-background;
+        position: absolute;
+        bottom: 0;
+        right: 25%;
+        background-color: $color-accent;
+        border: 2px dashed $color-background;
+        width: $width;
+        height: $ruler-height;
+        font-size: 32px;
+        line-height: 44px;
+        text-align: center;
+        cursor: text;
+        //transform: translateY(24px);
+        z-index: 200;
     }
 }

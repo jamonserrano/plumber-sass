@@ -14,18 +14,18 @@
 
 	// Get font details from the form
 	function getFontString () {
-		name = fontNameInput.value;
-		weight = !fontWeightInput.value ? '400' : fontWeightInput.value;
-		style = fontStyleInput.checked ? fontStyleInput.value : '';
-		return `${name}:${weight}${style}`;
+		fontName = fontNameInput.value;
+		fontWeight = !fontWeightInput.value ? '400' : fontWeightInput.value;
+		fontStyle = fontStyleInput.checked ? fontStyleInput.value : '';
+		return `${fontName}:${fontWeight}${fontStyle}`;
 	}
 
 	// Set sample font
 	function onFontLoaded (e) {
 		Object.assign(letter.style, {
-			'font-family': name,
-			'font-weight': weight,
-			'font-style': style ? 'italic' : 'normal'
+			'font-family': fontName,
+			'font-weight': fontWeight,
+			'font-style': fontStyle ? 'italic' : 'normal'
 		});
 
 		ruler.style.top = rulerTop + 'px';
@@ -52,7 +52,7 @@
 	const fontWeightInput = document.querySelector('.font-weight');
 	const fontStyleInput = document.querySelector('.font-style');
 	const letter = document.querySelector('.letter');
-	let name, weight, style;
+	let fontName, fontWeight, fontStyle;
 	form.addEventListener('submit', onSubmit);
 
 	// ruler
