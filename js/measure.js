@@ -2,11 +2,16 @@
 	// Send font request to Google Fonts
 	function onSubmit (e) {
 		e.preventDefault();
+		var fontRequest = {
+			families: [getFontString()]
+		};
+		// Safari doesn't show partial fonts'
+		if (!window.safari) {
+			fontRequest.text = 'A';
+		}
+		
 		WebFont.load({
-    		google: {
-      			families: [getFontString()],
-				text: 'A'
-    		},
+    		google: fontRequest,
 			active: onFontLoaded,
 			inactive: onFontError
   		});
@@ -22,11 +27,15 @@
 
 	// Set sample font
 	function onFontLoaded (e) {
-		Object.assign(letter.style, {
+		/*Object.assign(letter.style, {
 			'font-family': fontName,
 			'font-weight': fontWeight,
 			'font-style': fontStyle ? 'italic' : 'normal'
-		});
+		});*/
+		var style = letter.style;
+		style.fontFamily = fontName;
+		style.fontWeight = fontWeight;
+		style.fontStyle = fontStyle ? 'italic' : 'normal';
 		bodyClass.remove("show-intro", "show-error");
 	}
 
@@ -71,4 +80,6 @@
 
 	draggable.on('dragMove', onDragMove);
 	draggable.on('dragEnd', onDragMove);
+
+	fontNameInput.focus();
 }());
