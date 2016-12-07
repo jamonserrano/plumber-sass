@@ -57,7 +57,8 @@ section {
     cursor: -webkit-grab;
     cursor: -moz-grab;
     cursor: grab;
-    z-index: 100; }
+    z-index: 100;
+    display: flex; }
     .measure-area .ruler.is-dragging {
       cursor: -webkit-grabbing;
       cursor: -moz-grabbing;
@@ -65,23 +66,22 @@ section {
     .measure-area .ruler hr {
       border: none;
       border-top: 2px dashed #fcfcfc;
-      margin-top: 24px; }
-  .measure-area .ruler-box {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    color: #fcfcfc;
-    position: absolute;
-    bottom: 0;
-    right: 25%;
-    background-color: #f2c94c;
-    border: 2px dashed #fcfcfc;
-    width: 100px;
-    height: 50px;
-    font-size: 32px;
-    line-height: 44px;
-    text-align: center;
-    cursor: text;
-    z-index: 200; }
+      margin-top: 24px;
+      width: 100%; }
+    .measure-area .ruler .ruler-box {
+      font-family: "Lato", sans-serif;
+      font-weight: 400;
+      color: #fcfcfc;
+      position: absolute;
+      bottom: 11px;
+      right: 25%;
+      background-color: #f2c94c;
+      width: 100px;
+      height: 28px;
+      font-size: 32px;
+      line-height: 28px;
+      text-align: center;
+      cursor: text; }
 
 .instructions {
   background: #303030;

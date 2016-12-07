@@ -32,6 +32,8 @@
         cursor: -webkit-grab;
         cursor: -moz-grab;
         cursor: grab;
+        z-index: 100;
+        display: flex;
 
         &.is-dragging {
             cursor: -webkit-grabbing;
@@ -43,29 +45,25 @@
             border: none;
             border-top: 2px dashed $color-background;
             margin-top: $ruler-displacement;
+            width: 100%;
         }
-        z-index: 100;
 
-    }
-
-
-    .ruler-box {
-        $width: 100px;
-        font-family: $body-font;
-        font-weight: 400;
-        color: $color-background;
-        position: absolute;
-        bottom: 0;
-        right: 25%;
-        background-color: $color-accent;
-        border: 2px dashed $color-background;
-        width: $width;
-        height: $ruler-height;
-        font-size: 32px;
-        line-height: 44px;
-        text-align: center;
-        cursor: text;
-        //transform: translateY(24px);
-        z-index: 200;
+        .ruler-box {
+            font-family: $body-font;
+            font-weight: 400;
+            color: $color-background;
+            position: absolute;
+            bottom: 11px;
+            right: 25%;
+            background-color: $color-accent;
+            //border: 2px dashed $color-background;
+            //border-width: 0 2px 0;
+            width: 100px;
+            height: 28px;
+            font-size: 32px;
+            line-height: 28px;
+            text-align: center;
+            cursor: text;
+        }
     }
 }

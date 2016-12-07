@@ -27,10 +27,6 @@
 			'font-weight': fontWeight,
 			'font-style': fontStyle ? 'italic' : 'normal'
 		});
-
-		ruler.style.top = rulerTop + 'px';
-		rulerBox.style.top = rulerTop + 'px';
-		rulerBox.textContent = '0.000';
 	}
 
 	// Handle font error
@@ -38,10 +34,9 @@
 		console.log('font error', e);
 	}
 
+	// Handle dragging and dropping
 	function onDragMove (e, pointer) {
 		var rulerPosition = ruler.offsetTop;
-		var rulerPositionPx = rulerPosition + 'px';
-		rulerBox.style.top = rulerPositionPx;
 		var position = (rulerTop - rulerPosition) / 1000;
 		rulerBox.textContent = position.toFixed(3);
 	}
@@ -65,7 +60,6 @@
 		axis: 'y'
 	});
 
-	var rulerHeight = Math.floor(ruler.offsetHeight / 2);
 	var rulerTop = Math.floor(ruler.offsetTop);
 
 	draggable.on('dragMove', onDragMove);
