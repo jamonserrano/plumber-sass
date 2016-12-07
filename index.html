@@ -13,7 +13,7 @@
 		<h1 id="toc_0">Plumber</h1>
 		<!--<p><em>Real baseline grids with SASS</em></p>-->
 		<p>Create better looking documents and speed up CSS development by adding vertical rhythm to your page. Plumber positions every line of text on a gridline.</p>
-
+        
 		<section>
 			<h2 id="toc_1">Installation</h2>
 
@@ -44,7 +44,7 @@
 			<h2 id="toc_5">Usage</h2>
             <p>1. Decide on the grid height you will use in the unit of your choice (pixels or rems are recommended).</p>
             <p>2. Look up the baseline of your font family <a href="table/">in the table</a> or use the <a href="measure/">measure tool</a>. For example the value for Helvetica Neue is 0.121.</p>
-            <p>3. Include the plumber mixin in your styles:</p>
+            <p>3. Include the plumber mixin in your styles – specify font size, line height, top and bottom leadings as multiples of the grid height:</p>
             <pre><code class="language-scss">h1 {
 	@include plumber(
 		$grid-height: 1rem,
@@ -66,7 +66,6 @@ p {
 		$leading-bottom: 1
 	);
 }</code></pre>
-            <p>Besides adjusting text to the baseline Plumber will ensure that each element has the specified amount of space (leading) above and below it.</p>
         <section>
             <h3 id="toc_6">Default settings</h3>
             <p>To avoid repetition set up default values before using the mixin:</p>
@@ -136,7 +135,7 @@ html {
 			<section>
                 <h3 id="toc_10">Precision</h3>
 
-                <p>Due to SASS's precision, rounding, and browser text engines it's entirely possible that the rendered text will not sit exactly on the baseline. This does not corrupt the grid as the different heights always add up to a whole gridline. Following these guidelines will get you closer to pixel perfection:</p>
+                <p>Due to SASS’s precision, rounding, and browser rendering it’s entirely possible that the text will not sit exactly on the baseline. Following these guidelines will get you closer to pixel perfection:</p>
                 <ul>
                     <li>Define grid height in pixels, or as multiples of the base font height</li>
                     <li>Use a grid height with many divisors.</li>
@@ -156,7 +155,7 @@ html {
 
 			<section>
                 <h3 id="toc_13">Collapsing margins</h3>
-                <p>Plumber's use of collapsing margins makes it possible to specify the minimum distance between blocks of texts. If you don't need this, you can set either of `$leading-top` or `$leading-bottom` parameters to 0.</p>
+                <p>Plumber’s use of collapsing margins makes it possible to specify the minimum distance between blocks of texts. If you don’t need this, you can set either <code>$leading-top</code> or <code>$leading-bottom</code> parameters to 0.</p>
 			</section>
 		</section>
 		<section>
