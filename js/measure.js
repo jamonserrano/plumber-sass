@@ -77,6 +77,10 @@
 	// miscellaneous
 	var bodyClass = document.body.classList;
 	var error = document.querySelector('.error > p');
+	// Fix Firefox rendering  
+	if (navigator.userAgent.indexOf('Firefox') > -1) {
+		rulerTop =  rulerTop + 1;
+	};
 
 	draggable.on('dragMove', onDragMove);
 	draggable.on('dragEnd', onDragMove);
