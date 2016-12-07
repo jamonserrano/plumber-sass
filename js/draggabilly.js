@@ -1244,7 +1244,7 @@ proto.dispatchEvent = function( type, event, args ) {
 
 // get x/y position from style
 proto._getPosition = function() {
-  var style = getComputedStyle( this.element );
+  var style = this.element.getBoundingClientRect();
   var x = this._getPositionCoord( style.left, 'width' );
   var y = this._getPositionCoord( style.top, 'height' );
   // clean up 'auto' or other non-integer values
@@ -1255,7 +1255,7 @@ proto._getPosition = function() {
 };
 
 proto._getPositionCoord = function( styleSide, measure ) {
-  if ( styleSide.indexOf('%') != -1 ) {
+  if ( String(styleSide).indexOf('%') != -1 ) {
     // convert percent into pixel for Safari, #75
     var parentSize = getSize( this.element.parentNode );
     // prevent not-in-DOM element throwing bug, #131
