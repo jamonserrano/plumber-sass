@@ -33,7 +33,7 @@
 	// Handle font error
 	function onFontError (e) {
 		var fontStyleString = fontStyle ? 'Italic' : '';
-		error.textContent = `Could not load font ‘${fontName} ${fontWeight} ${fontStyleString}’. Are you sure you got the name right?`
+		error.textContent = `Could not load font ‘${fontName} ${fontWeight} ${fontStyleString}’. Are you sure you got it right?`
 		bodyClass.remove("show-intro");
 		bodyClass.add("show-error");
 	}
