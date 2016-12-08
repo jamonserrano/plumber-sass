@@ -37,9 +37,9 @@ And include it from the bower_components folder of your project:
 ```
 
 ## Usage
-1\. Decide on the grid height you will use in the unit of your choice (pixels or rems are recommended.
+1\. Decide on the grid height you will use in the unit of your choice (pixels or rems are recommended).
 
-2\. Look up the baseline of your font family in the table or use the measure tool. For exapmle the value for Helvetica Neue is 0.121.
+2\. Look up the baseline of your font family [in the table](https://jamonserrano.github.io/plumber-sass/table/) or [use the measure tool](https://jamonserrano.github.io/plumber-sass/measure/). For exapmle the value for Helvetica Neue is 0.121.
 
 3\. Include the plumber mixin in your styles:
 
