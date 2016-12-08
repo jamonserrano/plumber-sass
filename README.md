@@ -1,7 +1,7 @@
 # Plumber
 _Real baseline grids with SASS_
 
-Create better looking documents and speed up CSS development by adding vertical rhythm to your page. Plumber positions every line of text on a gridline by adjusting paddings and margins.
+Create better looking documents and speed up CSS development by adding vertical rhythm to your page. Plumber positions every line of text on a gridline.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Install:
 ```sh
 $ npm install plumber-sass --save-dev
 ```
-And include it from the node_modules folder of your project:
+And include it in your project:
 
 ```scss
 @include node_modules/plumber-sass/plumber;
@@ -30,7 +30,7 @@ Install:
 ```sh
 $ bower install plumber-sass --save-dev
 ```
-And include it from the bower_components folder of your project:
+And include it in your project:
 
 ```scss
 @include bower_components/plumber-sass/plumber;
@@ -39,9 +39,9 @@ And include it from the bower_components folder of your project:
 ## Usage
 1\. Decide on the grid height you will use in the unit of your choice (pixels or rems are recommended).
 
-2\. Look up the baseline of your font family [in the table](https://jamonserrano.github.io/plumber-sass/table/) or [use the measure tool](https://jamonserrano.github.io/plumber-sass/measure/). For exapmle the value for Helvetica Neue is 0.121.
+2\. Look up the baseline of your font(-family) [in the table](https://jamonserrano.github.io/plumber-sass/table/) or [use the measure tool](https://jamonserrano.github.io/plumber-sass/measure/). For exapmle the value for Helvetica Neue is 0.121.
 
-3\. Include the plumber mixin in your styles:
+3\. Include the plumber mixin in your styles – specify font size, line height, top and bottom leadings as multiples of the grid height:
 
 ```scss
 h1 {
@@ -68,7 +68,7 @@ p {
 ```
 
 ### Default settings
-To avoid repeating yourself, you should set up default values for each parameter before using the mixin:
+To avoid repetition set up default values before using the mixin:
 
 ```scss
 @include plumber-set-defaults(
@@ -96,7 +96,7 @@ li {
 
 ### Using multiple fonts
 
-When using multiple fonts or families, you can define a baseline for each one and use the optional `$baseline` parameter:
+When using multiple fonts or families, you can set a baseline for each one and use the optional `$baseline` parameter:
 
 ```scss
 $quote-baseline: 0.151; // Georgia
@@ -110,7 +110,7 @@ blockquote {
 ```
 
 ### Responsive typography
-Plumber supports responsive typography. Just specify the grid height in rems or other relative units, and the font metrics will change along.
+Plumber supports responsive typography. Just define the grid height in rems or other relative units, and the font metrics will change along.
 
 ```scss
 @include plumber-set-defaults(
@@ -141,20 +141,20 @@ Leadings are measured from the top and bottom edges of the text block by default
 ## Considerations
 
 ### Precision
-Due to SASS's precision, rounding, and browser text engines it's entirely possible that the rendered text will not sit _exactly_ on the baseline. Following these guidelines will get you closer to pixel perfection:
+Due to SASS’s precision, rounding, and browser rendering it’s entirely possible that the text will not sit exactly on the baseline. Following these guidelines will get you closer to pixel perfection:
 
 * Define grid height in pixels, or as a multiple of the base font height.
 * Use a grid height with many divisors.
 * Use font sizes that produce whole numbers with the grid height.
 
 ### Varying baseline among fonts in the same family
-Although some weights or styles in the same family can sit on different baselines, it's generally fine to use the one for the regular font. If pixel perfection is important, define individual baselines for each font.
+Although some weights or styles in the same family can sit on different baselines, it’s generally fine to use the one for the regular font. If pixel perfection is important, set individual baselines for each font.
 
 ### Viewport-specific units
 While supported, specifying the grid height in vh, vw, vmin, vmax is discouraged because this usually yields fractional pixels that can seriously hamper precision.
 
 ### Collapsing margins
-Plumber's use of collapsing margins makes it possible to specify the minimum distance between blocks of texts. If you don't need this, you can set either of `$leading-top` or `$leading-bottom` parameters to 0.
+Plumber’s use of collapsing margins makes it possible to set the minimum distance between blocks of texts. If you don’t need this, you can set either `$leading-top` or `$leading-bottom` to 0.
 
 
 ## API
