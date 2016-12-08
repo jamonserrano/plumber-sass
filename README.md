@@ -1,5 +1,5 @@
 # Plumber
-_Real baseline grids with SASS_
+https://jamonserrano.github.io/plumber-sass
 
 Create better looking documents and speed up CSS development by adding vertical rhythm to your page. Plumber positions every line of text on a gridline.
 
