@@ -1,18 +1,21 @@
 $content-width: 70rem;
 
 body {
-    //@include grid-background(rgba(255,0,0,0.2), 10px);
     background-color: $color-background;
+
+    &.grid {
+        @include grid-background(fade-out($color-accent, 0.5), $gh);
+    }
 }
 
 main {
     width: 100%;
     max-width: $content-width;
-    margin: 0 auto;
+    margin: (5 * $gh) auto;
     padding: 0 40px;
+    overflow: hidden;
+
     @media (max-width: $content-width) {
         padding: 0 20px;
     }
-    overflow: hidden;
-    //background-color: $color-background;
 }

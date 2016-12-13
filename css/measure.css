@@ -188,8 +188,7 @@ header {
       height: 28px;
       font-size: 32px;
       line-height: 28px;
-      text-align: center;
-      cursor: text; }
+      text-align: center; }
 
 .instructions {
   -webkit-font-smoothing: antialiased;

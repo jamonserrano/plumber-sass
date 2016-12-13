@@ -10,7 +10,7 @@ $body-baseline: 0.113;
 $code-font: ('Inconsolata', monospace);
 $code-baseline: 0.166;
 
-$gh: 1rem;
+$gh: 10px;
 
 @include plumber-set-defaults(
 	$font-size: 2,
@@ -25,146 +25,148 @@ html {
     font-weight: 400;
 }
 
-// *** Headers ***
-h1, h2, h3 {
-	font-family: $header-font;
-	font-style: italic;
-	font-weight: 700;
-	color: $color-medium;
-	@include font-smoothing;
-}
-
-
-h1 {
-	@include plumber(
-		$font-size: 4.8,
-		$line-height: 5,
-		$leading-top: 5,
-		$leading-bottom: 4,
-		$baseline: $header-baseline
-	);
-}
-
-h2 {
-	@include plumber(
-		$font-size: 3.3,
-		$line-height: 4,
-		$leading-top: 6,
-		$baseline: $header-baseline
-	);
-}
-
-h3 {
-	@include plumber(
-		$font-size: 2.5,
-		$line-height: 3,
-		$leading-top: 5,
-		$baseline: $header-baseline
-	);
-}
-
-
-// *** Body text ***
-p {
-	@include plumber();
-}
-
-p.note {
-	font-size: $gh * 1.7;
-	@include plumber(
-		$font-size: 1.7,
-		$leading-top: -1
-	);
-	color: $color-medium;
-}
-
-
-
-// *** Lists
-
-ul {
-	@include plumber-box(
-		$margin: 2 3
-	);
-}
-
-li {
-	@include plumber(
-		$leading-bottom: 1
-	);
-	margin-left: 1em;
-}
-
-
-// *** Tables ***
-
-// As paddings cannot be set on any table elements we need to use a wrapper
-.table-wrapper {
-	@include plumber(
-		$leading-top: 1,
-		$font-size: 1.7
-	);
-}
-
-table {
-	$border-width: 1px;
-
-	width: 100%;
-	border-collapse: collapse;
-	border-spacing: 0;
-	table-layout: fixed;
-
-	col.quarter {
-		width: 25%;
+main {
+	// *** Headers ***
+	h1, h2, h3 {
+		font-family: $header-font;
+		font-style: italic;
+		font-weight: 700;
+		color: $color-medium;
+		@include font-smoothing;
 	}
 
-	col.three-quarters {
-		width: 75%;
+
+	h1 {
+		@include plumber(
+			$font-size: 4.8,
+			$line-height: 5,
+			$leading-top: 5,
+			$leading-bottom: 4,
+			$baseline: $header-baseline
+		);
 	}
 
-	th, td {
-		text-align: left;
-		vertical-align: top;
-		padding: calc(#{$gh} - #{$border-width}) 0.5rem $gh;
-		border-bottom: $border-width solid $color-light;
+	h2 {
+		@include plumber(
+			$font-size: 3.2,
+			$line-height: 4,
+			$leading-top: 6,
+			$baseline: $header-baseline
+		);
+	}
 
-		&:first-child {
-			padding-left: 0;
+	h3 {
+		@include plumber(
+			$font-size: 2.5,
+			$line-height: 3,
+			$leading-top: 5,
+			$baseline: $header-baseline
+		);
+	}
+
+
+	// *** Body text ***
+	p {
+		@include plumber();
+	}
+
+	p.note {
+		@include plumber(
+			$font-size: 1.6,
+			$leading-top: -1
+		);
+		color: $color-medium;
+	}
+
+
+
+	// *** Lists
+
+	ul {
+		@include plumber-box(
+			$margin: 2 3
+		);
+	}
+
+	li {
+		@include plumber(
+			$leading-bottom: 1
+		);
+		margin-left: 1em;
+	}
+
+
+	// *** Tables ***
+
+	// As paddings cannot be set on any table elements we need to use a wrapper
+	.table-wrapper {
+		@include plumber(
+			$leading-top: 1,
+			$font-size: 1.7
+		);
+	}
+
+	table {
+		$border-width: 1px;
+		margin-bottom: - $border-width;
+
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+		table-layout: fixed;
+
+		col.quarter {
+			width: 25%;
+		}
+
+		col.three-quarters {
+			width: 75%;
+		}
+
+		th, td {
+			text-align: left;
+			vertical-align: top;
+			padding: calc(#{$gh} - #{$border-width}) 0.5rem $gh;
+			border-bottom: $border-width solid $color-light;
+
+			&:first-child {
+				padding-left: 0;
+			}
+		}
+
+		th {
+			@extend strong;
+			border-color: $color-medium;
+		}
+
+		thead th {
+			// for some reason, border IS NOT calculated into th height
+			padding-top: $gh;
 		}
 	}
 
-	th {
-		@extend strong;
-		border-color: $color-medium;
+	hr {
+		$ruler-height: 4px;
+		@include plumber-box(
+			$margin: 4 -1,
+			$border: 0px $ruler-height
+		);
+		border: none;
+		border-bottom: $ruler-height solid $color-accent;
 	}
 
-	thead th {
-		// for some reason, border IS NOT calculated into th height
-		padding-top: $gh;
+	// *** Inline elements ***
+
+	strong {
+		font-weight: 700;
+		color: $color-medium;
 	}
-}
 
-hr {
-	$ruler-height: 4px;
-	@include plumber-box(
-		$margin: 4 -1,
-		$border: 0px $ruler-height
-	);
-	border: none;
-	border-bottom: $ruler-height solid $color-accent;
-}
+	span.note-sign {
+		color: $color-medium;
+	}
 
-// *** Inline elements ***
-
-strong {
-	font-weight: 700;
-	color: $color-medium;
-}
-
-span.note-sign {
-	color: $color-medium;
-}
-
-a {
-	color: $color-link;
+	a {
+		color: $color-link;
+	}
 }

@@ -12,7 +12,7 @@ header {
 	z-index: 1000;
 
 	@media (max-width: 639px) {
-		padding: 0 10px;
+		padding: 0 8px;
 	}
 
 	ul {
@@ -34,7 +34,11 @@ header {
 		text-decoration: none;
 		display: inline-block;
 		height: 40px;
-		padding: 0 7px;
+		padding: 0 20px;
+
+		@media (max-width: 639px) {
+			padding: 0 8px;
+		}
 
 		&:hover,
 		&.active {

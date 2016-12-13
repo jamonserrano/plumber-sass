@@ -8,7 +8,16 @@
 	<title>Plumber documentation</title>
 </head>
 
-<body>
+<body class="grid">
+    <header>
+        <ul>
+            <li><a class="active" href="/plumber-sass/">Plumber</a></li>
+            <li><a href="/plumber-sass/table/">Baselines</a></li>
+            <li><a href="/plumber-sass/measure/">Measure</a></li>
+            <li><a href="https://github.com/jamonserrano/plumber-sass" target="_blank">GitHub</a></li>
+        </ul>
+    </header>
+
 	<main>
 		<h1 id="toc_0">Plumber</h1>
 		<!--<p><em>Real baseline grids with SASS</em></p>-->
@@ -94,10 +103,12 @@ li {
             <section>
                 <h3 id="toc_6">Using multiple fonts</h3>
                 <p>When using multiple fonts or families, you can set a baseline for each one and use the optional <code>$baseline</code> parameter:</p>
-                <pre><code class="language-scss">$quote-baseline: 0.151; // Georgia
+                <pre><code class="language-scss">$quote-font: Georgia, serif;
+$quote-baseline: 0.151;
 
 blockquote {
     @include plumber($baseline: $quote-baseline);
+    font-family: $quote-font;
 }</code></pre>
             </section>
 

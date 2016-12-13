@@ -4,6 +4,7 @@ pre[class*="language-"] {
 		$font-size: 1.8,
 		$baseline: $code-baseline
 	);
+	min-height: (6 * $gh);
 }
 
 code {
