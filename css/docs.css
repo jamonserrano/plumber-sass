@@ -78,40 +78,40 @@ main h1 {
   font-size: 48px;
   line-height: 50px;
   margin-top: 40px;
-  padding-top: 6.808px;
-  padding-bottom: 3.192px;
+  padding-top: 6.75px;
+  padding-bottom: 3.25px;
   margin-bottom: 40px; }
 
 main h2 {
   font-size: 32px;
   line-height: 40px;
   margin-top: 50px;
-  padding-top: 7.872px;
-  padding-bottom: 2.128px;
+  padding-top: 7.75px;
+  padding-bottom: 2.25px;
   margin-bottom: 20px; }
 
 main h3 {
   font-size: 25px;
   line-height: 30px;
   margin-top: 40px;
-  padding-top: 5.525px;
-  padding-bottom: 4.475px;
+  padding-top: 5.5px;
+  padding-bottom: 4.5px;
   margin-bottom: 20px; }
 
 main p {
   font-size: 20px;
   line-height: 30px;
   margin-top: -10px;
-  padding-top: 7.26px;
-  padding-bottom: 2.74px;
+  padding-top: 7.25px;
+  padding-bottom: 2.75px;
   margin-bottom: 20px; }
 
 main p.note {
   font-size: 16px;
   line-height: 30px;
   margin-top: -20px;
-  padding-top: 8.808px;
-  padding-bottom: 1.192px;
+  padding-top: 8.75px;
+  padding-bottom: 1.25px;
   margin-bottom: 20px;
   color: #606060; }
 
@@ -125,8 +125,8 @@ main li {
   font-size: 20px;
   line-height: 30px;
   margin-top: -10px;
-  padding-top: 7.26px;
-  padding-bottom: 2.74px;
+  padding-top: 7.25px;
+  padding-bottom: 2.75px;
   margin-bottom: 10px;
   margin-left: 1em; }
 
@@ -134,8 +134,8 @@ main .table-wrapper {
   font-size: 17px;
   line-height: 30px;
   margin-top: 0px;
-  padding-top: 8.421px;
-  padding-bottom: 1.579px;
+  padding-top: 8.5px;
+  padding-bottom: 1.5px;
   margin-bottom: 20px; }
 
 main table {
@@ -206,8 +206,8 @@ pre[class*="language-"] {
   font-size: 18px;
   line-height: 30px;
   margin-top: -10px;
-  padding-top: 8.988px;
-  padding-bottom: 1.012px;
+  padding-top: 9px;
+  padding-bottom: 1px;
   margin-bottom: 20px;
   min-height: 60px; }
 

@@ -20,7 +20,7 @@ $gh: 10px;
 );
 
 html {
-    font-size: 10px;
+    font-size: $gh;
     font-family: $body-font;
     font-weight: 400;
 }
@@ -34,7 +34,6 @@ main {
 		color: $color-medium;
 		@include font-smoothing;
 	}
-
 
 	h1 {
 		@include plumber(
