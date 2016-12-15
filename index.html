@@ -102,7 +102,7 @@ li {
         </section>
             <section>
                 <h3 id="toc_6">Using multiple fonts</h3>
-                <p>When using multiple fonts or families, you can set a baseline for each one and use the optional <code>$baseline</code> parameter:</p>
+                <p>When using multiple font families, you can set a baseline for each one and use the optional <code>$baseline</code> parameter:</p>
                 <pre><code class="language-scss">$quote-font: Georgia, serif;
 $quote-baseline: 0.151;
 
@@ -114,7 +114,7 @@ blockquote {
 
             <section>
                 <h3 id="toc_7">Responsive typography</h3>
-                <p>Plumber supports responsive typography. Just define the grid height in rems or other relative units, and the font metrics will change along.</p>
+                <p>For responsive typography just define the grid height in rems or other relative units, and the font metrics will change along.</p>
                 <pre><code class="language-scss">@include plumber-set-defaults(
     $grid-height: 1rem,
     $font-size: 2
@@ -146,7 +146,7 @@ html {
 			<section>
                 <h3 id="toc_10">Precision</h3>
 
-                <p>Due to SASS’s precision, rounding, and browser rendering it’s entirely possible that the text will not sit exactly on the baseline. Following these guidelines will get you closer to pixel perfection:</p>
+                <p>Due to rounding and browser rendering it’s entirely possible that the text will not sit exactly on the baseline. Following these guidelines will get you closer to pixel perfection:</p>
                 <ul>
                     <li>Define grid height in pixels, or as multiples of the base font height</li>
                     <li>Use a grid height with many divisors.</li>
@@ -161,12 +161,12 @@ html {
 
 			<section>
                 <h3 id="toc_12">Viewport-specific units</h3>
-                <p>While supported, specifying the grid height in vh, vw, vmin, vmax is discouraged because this usually yields fractional pixels that can seriously hamper precision.</p>
+                <p>While supported, using vh, vw, vmin, vmax for the grid height can lead to catastrophic results.</p>
 			</section>
 
 			<section>
                 <h3 id="toc_13">Collapsing margins</h3>
-                <p>Plumber’s use of collapsing margins makes it possible to set the minimum distance between blocks of texts. If you don’t need this, you can set either <code>$leading-top</code> or <code>$leading-bottom</code> parameters to 0.</p>
+                <p>Plumber’s use of collapsing margins makes it possible to set the minimum distance between blocks of texts. If you don’t need this, you can set either <code>$leading-top</code> or <code>$leading-bottom</code> to 0.</p>
 			</section>
 		</section>
 		<section>
