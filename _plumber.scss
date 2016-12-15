@@ -16,6 +16,7 @@
 	@if not unitless($font-size) or $font-size <= 0 {
 		@error '$font-size parameter must be a positive unitless number, got #{$font-size} instead';
 	}
+
 	// line-height
 	@if not $line-height {
 		$line-height: -plumber-get-default(line-height);
@@ -23,6 +24,7 @@
 	@if not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
 		@error '$line-height parameter must be a positive unitless integer, got #{$line-height} instead';
 	}
+
 	// leading-top
 	@if not $leading-top {
 		$leading-top: -plumber-get-default(leading-top);
@@ -79,6 +81,10 @@
 		$leading-bottom: $leading-bottom - $corrected-baseline;
 	}
 
+	// *** CALCULATE FONT SIZE AND LINE HEIGHT
+	$font-size: $font-size * $grid-height;
+	$line-height: $line-height * $grid-height;
+
 	// *** CALCULATE MARGINS AND PADDINGS ***
 	$padding-top: null;
 	$margin-top: null;
@@ -87,31 +93,40 @@
 	
 	@if $baseline-difference < 0 {
 		// add top leading
-		$margin-top: $leading-top;
+		$margin-top: $leading-top * $grid-height;
 		// push the baseline down to the next gridline
-		$padding-top: - $baseline-difference;
+		$padding-top: - $baseline-difference * $grid-height;
 		// add the remaining distance to reach the next gridline
-		$padding-bottom: 1 + $baseline-difference;
+		$padding-bottom: (1 + $baseline-difference) * $grid-height;
 		// add bottom leading and remove the 1 excess grid height that comes from pushing down
-		$margin-bottom: $leading-bottom - 1;
+		$margin-bottom: ($leading-bottom - 1) * $grid-height;
 	} @else {
 		// add top leading and remove the 1 excess grid height that comes from pulling up
-		$margin-top: $leading-top - 1;
+		$margin-top: ($leading-top - 1) * $grid-height;
 		// pull the baseline up to the previous gridline
-		$padding-top: 1 - $baseline-difference;
+		$padding-top: (1 - $baseline-difference) * $grid-height;
 		// add the remaining distance to reach the next gridline
-		$padding-bottom: $baseline-difference;
+		$padding-bottom: $baseline-difference * $grid-height;
 		// add bottom leading
-		$margin-bottom: $leading-bottom;
+		$margin-bottom: $leading-bottom * $grid-height;
 	}
 	
+	// round pixel values to decrease browser inconsistencies
+	@if unit($grid-height) == "px" {
+		$line-height: -plumber-round($line-height);
+		$margin-top: -plumber-round($margin-top);
+		$padding-top: -plumber-round($padding-top);
+		$padding-bottom: -plumber-round($padding-bottom);
+		$margin-bottom: -plumber-round($margin-bottom);
+	}
+
 	// *** CSS OUTPUT ***
-	font-size: $font-size * $grid-height;
-	line-height: $line-height * $grid-height;
-	margin-top: $margin-top * $grid-height;
-	padding-top: $padding-top * $grid-height;
-	padding-bottom: $padding-bottom * $grid-height;
-	margin-bottom: $margin-bottom * $grid-height;
+	font-size: $font-size;
+	line-height: $line-height;
+	margin-top: $margin-top;
+	padding-top: $padding-top;
+	padding-bottom: $padding-bottom;
+	margin-bottom: $margin-bottom;
 }
 
 // *** DEFAULTS *** 
@@ -139,4 +154,10 @@ $-plumber-defaults: (
 // Check if a value is a non-negative integer
 @function -plumber-is-integer($value) {
 	@return (unitless($value) and $value == round($value));
+}
+
+// Round value to the nearest quarter pixel
+// This provides reasonable precision and prevents grid creep (by fractions adding up) in most browsers
+@function -plumber-round($value) {
+	@return round($value * 4) / 4;
 }
