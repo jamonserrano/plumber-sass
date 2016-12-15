@@ -39,7 +39,7 @@ And include it in your project:
 ## Usage
 1\. Decide on the grid height you will use in the unit of your choice (pixels or rems are recommended).
 
-2\. Look up the baseline of your font(-family) [in the table](https://jamonserrano.github.io/plumber-sass/table/) or [use the measure tool](https://jamonserrano.github.io/plumber-sass/measure/). For exapmle the value for Helvetica Neue is 0.121.
+2\. Look up the baseline of your font family [in the table](https://jamonserrano.github.io/plumber-sass/table/) or [use the measure tool](https://jamonserrano.github.io/plumber-sass/measure/). For exapmle the value for Helvetica Neue is 0.121.
 
 3\. Include the plumber mixin in your styles – specify font size, line height, top and bottom leadings as multiples of the grid height:
 
@@ -96,21 +96,21 @@ li {
 
 ### Using multiple fonts
 
-When using multiple fonts or families, you can set a baseline for each one and use the optional `$baseline` parameter:
+When using multiple font families, you can set a baseline for each one and use the optional `$baseline` parameter:
 
 ```scss
+$quote-font: Georgia, serif;
 $quote-baseline: 0.151; // Georgia
 
 blockquote {
-	@include plumber(
-		$baseline: $quote-baseline
-	);
+	@include plumber($baseline: $quote-baseline);
+	font-family: $quote-font;
 }
 
 ```
 
 ### Responsive typography
-Plumber supports responsive typography. Just define the grid height in rems or other relative units, and the font metrics will change along.
+For responsive typography just define the grid height in rems or other relative units, and the font metrics will change along.
 
 ```scss
 @include plumber-set-defaults(
@@ -133,15 +133,13 @@ html {
 Leadings are measured from the top and bottom edges of the text block by default. To measure them from the baseline, set `$use-baseline-origin: true` before using the mixin:
 
 ```scss
-@include plumber-set-defaults(
-	$use-baseline-origin: true
-);
+@include plumber-set-defaults($use-baseline-origin: true);
 ```
 
 ## Considerations
 
 ### Precision
-Due to SASS’s precision, rounding, and browser rendering it’s entirely possible that the text will not sit exactly on the baseline. Following these guidelines will get you closer to pixel perfection:
+Due to rounding and browser rendering it’s entirely possible that the text will not sit exactly on the baseline. Following these guidelines will get you closer to pixel perfection:
 
 * Define grid height in pixels, or as a multiple of the base font height.
 * Use a grid height with many divisors.
@@ -151,7 +149,7 @@ Due to SASS’s precision, rounding, and browser rendering it’s entirely possi
 Although some weights or styles in the same family can sit on different baselines, it’s generally fine to use the one for the regular font. If pixel perfection is important, set individual baselines for each font.
 
 ### Viewport-specific units
-While supported, specifying the grid height in vh, vw, vmin, vmax is discouraged because this usually yields fractional pixels that can seriously hamper precision.
+While supported, using vh, vw, vmin, vmax for the grid height can lead to catastrophic results.
 
 ### Collapsing margins
 Plumber’s use of collapsing margins makes it possible to set the minimum distance between blocks of texts. If you don’t need this, you can set either `$leading-top` or `$leading-bottom` to 0.
