@@ -27,13 +27,8 @@
 
 	// Set sample font
 	function onFontLoaded (e) {
-		/*Object.assign(letter.style, {
-			'font-family': fontName,
-			'font-weight': fontWeight,
-			'font-style': fontStyle ? 'italic' : 'normal'
-		});*/
 		var style = letter.style;
-		style.fontFamily = fontName;
+		style.fontFamily = '"' + fontName + '"';
 		style.fontWeight = fontWeight;
 		style.fontStyle = fontStyle ? 'italic' : 'normal';
 		bodyClass.remove("show-intro", "show-error");
