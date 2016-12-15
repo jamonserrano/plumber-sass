@@ -131,6 +131,10 @@ main {
 			&:first-child {
 				padding-left: 0;
 			}
+
+			.numeral {
+				text-align: right;
+			}
 		}
 
 		th {
@@ -141,6 +145,25 @@ main {
 		thead th {
 			// for some reason, border IS NOT calculated into th height
 			padding-top: $gh;
+		}
+	}
+
+	table.compact {
+		margin-top: 0.5 * $gh;
+		border: none;
+
+		th, td, thead th {
+			border: none;
+			padding: (0.5 * $gh) (2 * $gh) (0.5 * $gh);
+			font-weight: 400;
+		}
+
+		tr:nth-child(odd) {
+			background-color: fade-out($color-light, 0.75);
+		}
+
+		tr:hover {
+			background-color: fade-out($color-accent, 0.75); 
 		}
 	}
 
@@ -158,7 +181,6 @@ main {
 
 	strong {
 		font-weight: 700;
-		color: $color-medium;
 	}
 
 	span.note-sign {

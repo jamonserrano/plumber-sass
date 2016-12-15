@@ -155,10 +155,24 @@ main table {
     border-bottom: 1px solid #c0c0c0; }
     main table th:first-child, main table td:first-child {
       padding-left: 0; }
+    main table th .numeral, main table td .numeral {
+      text-align: right; }
   main table th {
     border-color: #606060; }
   main table thead th {
     padding-top: 10px; }
+
+main table.compact {
+  margin-top: 5px;
+  border: none; }
+  main table.compact th, main table.compact td, main table.compact thead th {
+    border: none;
+    padding: 5px 20px 5px;
+    font-weight: 400; }
+  main table.compact tr:nth-child(odd) {
+    background-color: rgba(192, 192, 192, 0.25); }
+  main table.compact tr:hover {
+    background-color: rgba(242, 201, 76, 0.25); }
 
 main hr {
   margin-top: calc(40px - 0px);
@@ -169,8 +183,7 @@ main hr {
   border-bottom: 4px solid #f2c94c; }
 
 main strong, main table th {
-  font-weight: 700;
-  color: #606060; }
+  font-weight: 700; }
 
 main span.note-sign {
   color: #606060; }
