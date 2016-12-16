@@ -1,10 +1,16 @@
 header {
 	font-family: $body-font;
 	font-size: 16px;
-	background: $color-background;
+	background: $color-dark;
+	height: 44px;
+	border-bottom: 4px solid $color-accent;
 
 	a {
-		color: $color-dark;
-		border-bottom-color: $color-accent;
+		color: $color-background;
+
+		&.active {
+			color: $color-accent;
+		}
 	}
+
 }

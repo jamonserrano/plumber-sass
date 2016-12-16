@@ -23,7 +23,7 @@ header {
   font-smooth: always;
   height: 40px;
   line-height: 40px;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -52,9 +52,6 @@ header {
     @media (max-width: 639px) {
       header a {
         padding: 0 8px; } }
-    header a:hover, header a.active {
-      border-bottom-width: 1px;
-      border-bottom-style: solid; }
   header img.github {
     width: 30px;
     height: 30px;
@@ -210,10 +207,13 @@ main {
 header {
   font-family: "Lato", sans-serif;
   font-size: 16px;
-  background: #fcfcfc; }
+  background: #303030;
+  height: 44px;
+  border-bottom: 4px solid #f2c94c; }
   header a {
-    color: #303030;
-    border-bottom-color: #f2c94c; }
+    color: #fcfcfc; }
+    header a.active {
+      color: #f2c94c; }
 
 pre[class*="language-"] {
   font-size: 18px;

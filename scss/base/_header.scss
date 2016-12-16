@@ -2,7 +2,7 @@ header {
 	@include font-smoothing;
 	height: 40px;
 	line-height: 40px;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -38,12 +38,6 @@ header {
 
 		@media (max-width: 639px) {
 			padding: 0 8px;
-		}
-
-		&:hover,
-		&.active {
-			border-bottom-width: 1px;
-			border-bottom-style: solid;
 		}
 	}
 

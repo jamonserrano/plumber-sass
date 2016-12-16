@@ -3,6 +3,7 @@ header {
 	background: transparent;
 	color: $color-background;
 	font-family: $body-font;
+	position: absolute;
 
 	a {
 		color: inherit;
@@ -13,8 +14,9 @@ header {
 			opacity: 1;
 		}
 
-		&.active {
-			border-bottom: none;
+		&:hover {
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
 		}
 	}
 

@@ -23,7 +23,7 @@ header {
   font-smooth: always;
   height: 40px;
   line-height: 40px;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -52,9 +52,6 @@ header {
     @media (max-width: 639px) {
       header a {
         padding: 0 8px; } }
-    header a:hover, header a.active {
-      border-bottom-width: 1px;
-      border-bottom-style: solid; }
   header img.github {
     width: 30px;
     height: 30px;
@@ -75,14 +72,16 @@ section {
 header {
   background: transparent;
   color: #fcfcfc;
-  font-family: "Lato", sans-serif; }
+  font-family: "Lato", sans-serif;
+  position: absolute; }
   header a {
     color: inherit;
     opacity: 0.7; }
     header a:hover, header a.active {
       opacity: 1; }
-    header a.active {
-      border-bottom: none; }
+    header a:hover {
+      border-bottom-width: 1px;
+      border-bottom-style: solid; }
 
 .panel {
   height: calc(100vh - 200px);
