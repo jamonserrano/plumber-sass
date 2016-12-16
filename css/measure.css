@@ -33,7 +33,7 @@ header {
   z-index: 1000; }
   @media (max-width: 639px) {
     header {
-      padding: 0 10px; } }
+      padding: 0 8px; } }
   header ul {
     list-style: none;
     display: flex;
@@ -48,7 +48,10 @@ header {
     text-decoration: none;
     display: inline-block;
     height: 40px;
-    padding: 0 7px; }
+    padding: 0 20px; }
+    @media (max-width: 639px) {
+      header a {
+        padding: 0 8px; } }
     header a:hover, header a.active {
       border-bottom-width: 1px;
       border-bottom-style: solid; }
