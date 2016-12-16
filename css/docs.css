@@ -212,8 +212,27 @@ header {
   border-bottom: 4px solid #f2c94c; }
   header a {
     color: #fcfcfc; }
-    header a.active {
+    header a.active, header a:hover {
       color: #f2c94c; }
+  header .toggle-grid {
+    width: 36px;
+    height: 36px;
+    border-radius: 24px;
+    position: absolute;
+    right: 10px;
+    top: 54px;
+    background-color: #f2c94c;
+    color: #606060;
+    text-align: center;
+    font-size: 12px;
+    line-height: 36px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    header .toggle-grid:hover {
+      color: #303030; }
 
 pre[class*="language-"] {
   font-size: 18px;
