@@ -84,35 +84,7 @@ header {
     header a.active {
       border-bottom: none; }
 
-.intro {
-  height: calc(100vh - 200px);
-  position: absolute;
-  z-index: 200;
-  display: none;
-  background-color: #f2c94c;
-  top: 0;
-  left: 0; }
-  .intro h1 {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-smooth: always;
-    font-family: "Lora", serif;
-    font-weight: 700;
-    font-size: 6rem;
-    color: #303030;
-    position: absolute;
-    bottom: 40px;
-    left: 4rem;
-    font-style: italic; }
-    @media (max-width: 1100px) {
-      .intro h1 {
-        bottom: 20px;
-        left: 2rem; } }
-
-.show-intro .intro {
-  display: block; }
-
-.error {
+.panel {
   height: calc(100vh - 200px);
   position: absolute;
   z-index: 150;
@@ -120,23 +92,28 @@ header {
   background-color: #f2c94c;
   top: 0;
   left: 0; }
-  .error p {
+  .panel h1, .panel p {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-smooth: always;
     font-family: "Lora", serif;
     font-weight: 700;
-    font-size: 3rem;
     color: #303030;
     position: absolute;
     bottom: 40px;
     left: 4rem;
     font-style: italic; }
     @media (max-width: 1100px) {
-      .error p {
+      .panel h1, .panel p {
         bottom: 20px;
         left: 2rem; } }
+  .panel h1 {
+    font-size: 6rem; }
+  .panel p {
+    font-size: 3rem; }
 
+.show-intro .intro,
+.show-loading .loading,
 .show-error .error {
   display: block; }
 

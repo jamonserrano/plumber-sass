@@ -12,6 +12,7 @@
 		
 		WebFont.load({
     		google: fontRequest,
+			loading: onFontLoading,
 			active: onFontLoaded,
 			inactive: onFontError
   		});
@@ -25,20 +26,25 @@
 		return `${fontName}:${fontWeight}${fontStyle}`;
 	}
 
+	function onFontLoading (e) {
+		bodyClass.remove("show-intro", "show-error");
+		bodyClass.add("show-loading");
+	}
+
 	// Set sample font
 	function onFontLoaded (e) {
 		var style = letter.style;
 		style.fontFamily = '"' + fontName + '"';
 		style.fontWeight = fontWeight;
 		style.fontStyle = fontStyle ? 'italic' : 'normal';
-		bodyClass.remove("show-intro", "show-error");
+		bodyClass.remove("show-intro", "show-loading", "show-error");
 	}
 
 	// Handle font error
 	function onFontError (e) {
-		var fontStyleString = fontStyle ? 'Italic' : '';
-		error.textContent = `Could not load font ‘${fontName} ${fontWeight} ${fontStyleString}’. Are you sure you got it right?`
-		bodyClass.remove("show-intro");
+		var fontStyleString = fontStyle ? ' Italic' : '';
+		error.textContent = `Could not load font ‘${fontName} ${fontWeight}${fontStyleString}’. Are you sure you got it right?`
+		bodyClass.remove("show-intro", "show-loading");
 		bodyClass.add("show-error");
 	}
 
