@@ -75,13 +75,9 @@ header {
   font-family: "Lato", sans-serif;
   position: absolute; }
   header a {
-    color: inherit;
-    opacity: 0.7; }
+    color: inherit; }
     header a:hover, header a.active {
-      opacity: 1; }
-    header a:hover {
-      border-bottom-width: 1px;
-      border-bottom-style: solid; }
+      color: #606060; }
 
 .panel {
   height: calc(100vh - 200px);

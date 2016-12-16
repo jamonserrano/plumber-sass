@@ -7,16 +7,10 @@ header {
 
 	a {
 		color: inherit;
-		opacity: 0.7;
 
 		&:hover,
 		&.active {
-			opacity: 1;
-		}
-
-		&:hover {
-			border-bottom-width: 1px;
-			border-bottom-style: solid;
+			color: $color-medium;
 		}
 	}
 
