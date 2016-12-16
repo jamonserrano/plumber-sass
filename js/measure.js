@@ -85,6 +85,4 @@
 
 	draggable.on('dragMove', onDragMove);
 	draggable.on('dragEnd', onDragMove);
-
-	fontNameInput.focus();
 }());
