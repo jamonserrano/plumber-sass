@@ -1,0 +1,9 @@
+img {
+	&.leading-origin {
+		width: 320px;
+		height: 280px;
+		display: block;
+		margin-top: 3 * $gh;
+		margin-bottom: 2 * $gh;
+	} 
+}

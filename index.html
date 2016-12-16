@@ -18,13 +18,18 @@
             <li><a href="measure/">Measure</a></li>
             <li><a href="https://github.com/jamonserrano/plumber-sass" target="_blank">GitHub</a></li>
         </ul>
-        <div class="toggle-grid">Grid</div>
     </header>
+
+    <div class="toggle-grid">Grid</div>
 
 	<main>
 		<h1 id="toc_0">Plumber</h1>
 		<!--<p><em>Real baseline grids with SASS</em></p>-->
 		<p>Create better looking documents and speed up CSS development by adding vertical rhythm to your page. Plumber positions every line of text on a gridline.</p>
+
+        <section>
+            <h2>How does it work?</h2>
+        </section>
 
 		<section>
 			<h2 id="toc_1">Installation</h2>
@@ -140,6 +145,8 @@ html {
                 <p>Leadings are measured from the top and bottom edges of the text block by default. To measure them from the baseline, set <code>$use-baseline-origin: true</code> before using the mixin:</p>
 
                 <pre><code class="language-scss">@include plumber-set-defaults($use-baseline-origin: true);</code></pre>
+                <img class="leading-origin" src="img/leading-origin.png" srcset="img/leading-origin-2x.png 2x" alt="Leading origin settings">
+                <p class="note">Leading calculation – left: default, right: baseline origin.</>
             </section>
         </section>
 
@@ -189,7 +196,7 @@ html {
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Description</th>
+                                <th>Descrip&shy;tion</th>
                                 <th>Type</th>
                                 <th>Default value</th>
                             </tr>
@@ -250,8 +257,8 @@ html {
 
 			<section>
                 <h3 id="toc_16">plumber-set-defaults</h3>
-                <p>Sets up or changes default parameters to use.</p>
-                <p><strong>Parameters:</strong> same as the main mixin</p>
+                <p>Sets up or changes default parameters.</p>
+                <p><strong>Parameters:</strong> same as the main mixin.</p>
 			</section>
 
 		</section>
