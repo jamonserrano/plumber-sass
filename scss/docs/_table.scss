@@ -1,0 +1,71 @@
+// *** Tables ***
+
+// As paddings cannot be set on any table elements we need to use a wrapper
+.table-wrapper {
+	@include plumber(
+		$leading-top: 1,
+		$font-size: 1.7
+	);
+}
+
+table {
+	$border-width: 1px;
+	margin-bottom: - $border-width;
+
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+
+	col.quarter {
+		width: 25%;
+	}
+
+	col.three-quarters {
+		width: 75%;
+	}
+
+	th, td {
+		text-align: left;
+		vertical-align: top;
+		padding: calc(#{$gh} - #{$border-width}) 0.5rem $gh;
+		border-bottom: $border-width solid $color-light;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		.numeral {
+			text-align: right;
+		}
+	}
+
+	th {
+		@extend strong;
+		border-color: $color-medium;
+	}
+
+	thead th {
+		// for some reason, border IS NOT calculated into th height
+		padding-top: $gh;
+	}
+}
+
+table.compact {
+	margin-top: 0.5 * $gh;
+	border: none;
+
+	th, td, thead th {
+		border: none;
+		padding: (0.5 * $gh) (2 * $gh) (0.5 * $gh);
+		font-weight: 400;
+	}
+
+	tr:nth-child(odd) {
+		background-color: fade-out($color-light, 0.75);
+	}
+
+	tr:hover {
+		background-color: fade-out($color-accent, 0.75); 
+	}
+}
