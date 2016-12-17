@@ -180,9 +180,9 @@ table.compact {
     padding: 5px 20px 5px;
     font-weight: 400; }
   table.compact tr:nth-child(odd) {
-    background-color: rgba(192, 192, 192, 0.25); }
+    background-color: #f4f4f4; }
   table.compact tr:hover {
-    background-color: rgba(242, 201, 76, 0.25); }
+    background-color: #f2c94c; }
 
 body {
   background-color: #fcfcfc; }

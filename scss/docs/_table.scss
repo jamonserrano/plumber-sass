@@ -62,10 +62,10 @@ table.compact {
 	}
 
 	tr:nth-child(odd) {
-		background-color: fade-out($color-light, 0.75);
+		background-color: $color-code-background;
 	}
 
 	tr:hover {
-		background-color: fade-out($color-accent, 0.75); 
+		background-color: $color-accent;
 	}
 }
