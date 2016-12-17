@@ -1,9 +1,17 @@
-img {
-	&.leading-origin {
-		width: 320px;
-		height: 280px;
+figure {
+	img {
 		display: block;
 		margin-top: 3 * $gh;
 		margin-bottom: 2 * $gh;
-	} 
+		width: 320px;
+
+		&.leading-origin,
+		&.terms {
+			height: 280px;
+		} 
+
+		&.font-anatomy {
+			height: 100px;
+		}
+	}
 }

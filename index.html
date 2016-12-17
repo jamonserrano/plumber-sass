@@ -65,9 +65,13 @@
 
 		<section>
 			<h2 id="toc_5">Usage</h2>
-            <p>1. Decide on the grid height you will use in the unit of your choice (pixels or rems are recommended).</p>
-            <p>2. Look up the baseline of your font family <a href="table/">in the table</a> or use the <a href="measure/">measure tool</a>. For example the value for Helvetica Neue is 0.121.</p>
-            <p>3. Include the plumber mixin in your styles – specify font size, line height, top and bottom leadings as multiples of the grid height:</p>
+            <p>1. Decide on the vertical grid height you will use in the unit of your choice (pixels or rems are recommended).</p>
+            <p>2. Look up the baseline ratio of your font family <a href="table/">in the table</a> or use the <a href="measure/">measure tool</a>. For example the value for Helvetica Neue is 0.121.</p>
+            <figure>
+                <img class="font-anatomy" src="img/font-anatomy.png" srcset="img/font-anatomy-2x.png 2x" alt="Font anatomy">
+                <figcaption>Baseline ratio = baseline height / font size</figcaption>
+            </figure>
+            <p>3. Include the plumber mixin in your styles – specify font size as a fraction, line height, top and bottom leadings as multiples of the grid height:</p>
             <pre><code class="language-scss">h1 {
 	@include plumber(
 		$grid-height: 1rem,
@@ -89,6 +93,11 @@ p {
 		$leading-bottom: 1
 	);
 }</code></pre>
+            <figure>
+                <img class="terms" src="img/terms.png" srcset="img/terms-2x.png" alt="Plumber terms">
+                <figcaption>Plumber parameters, visualized</figcaption>
+            </figure>
+
         <section>
             <h3 id="toc_6">Default settings</h3>
             <p>To avoid repetition set up default values before using the mixin:</p>
@@ -151,8 +160,10 @@ html {
                 <p>Leadings are measured from the top and bottom edges of the text block by default. To measure them from the baseline, set <code>$use-baseline-origin: true</code> before using the mixin:</p>
 
                 <pre><code class="language-scss">@include plumber-set-defaults($use-baseline-origin: true);</code></pre>
-                <img class="leading-origin" src="img/leading-origin.png" srcset="img/leading-origin-2x.png 2x" alt="Leading origin settings">
-                <p class="note">Leading calculation – left: default, right: baseline origin.</>
+                <figure>
+                    <img class="leading-origin" src="img/leading-origin.png" srcset="img/leading-origin-2x.png 2x" alt="Leading origin settings">
+                    <figcaption>Left: default calculation, right: baseline origin.</figcaption>
+                </figure>
             </section>
         </section>
 

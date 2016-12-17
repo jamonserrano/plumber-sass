@@ -6,7 +6,7 @@ html, body {
 div, span,
 h1, h2, h3, h4, h5, h6, p,
 pre, a, code, em, img,
-q, s, small, strike, strong, main table th, sub, sup,
+q, s, small, strike, strong, table th, sub, sup,
 dl, dt, dd, ol, ul, li,
 table, caption, tbody, tfoot, thead, tr, th, td,
 main, article, embed, figure, figcaption, footer, header, hgroup,
@@ -103,13 +103,17 @@ main p {
   padding-bottom: 2.75px;
   margin-bottom: 20px; }
 
-main p.note {
+main p.note,
+main figcaption {
   font-size: 16px;
   line-height: 30px;
   margin-top: -20px;
   padding-top: 8.75px;
   padding-bottom: 1.25px;
   margin-bottom: 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
   color: #606060; }
 
 main ul {
@@ -127,59 +131,7 @@ main li {
   margin-bottom: 10px;
   margin-left: 1em; }
 
-main .table-wrapper {
-  font-size: 17px;
-  line-height: 30px;
-  margin-top: 0px;
-  padding-top: 8.5px;
-  padding-bottom: 1.5px;
-  margin-bottom: 20px; }
-
-main table {
-  margin-bottom: -1px;
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  table-layout: fixed; }
-  main table col.quarter {
-    width: 25%; }
-  main table col.three-quarters {
-    width: 75%; }
-  main table th, main table td {
-    text-align: left;
-    vertical-align: top;
-    padding: calc(10px - 1px) 0.5rem 10px;
-    border-bottom: 1px solid #c0c0c0; }
-    main table th:first-child, main table td:first-child {
-      padding-left: 0; }
-    main table th .numeral, main table td .numeral {
-      text-align: right; }
-  main table th {
-    border-color: #606060; }
-  main table thead th {
-    padding-top: 10px; }
-
-main table.compact {
-  margin-top: 5px;
-  border: none; }
-  main table.compact th, main table.compact td, main table.compact thead th {
-    border: none;
-    padding: 5px 20px 5px;
-    font-weight: 400; }
-  main table.compact tr:nth-child(odd) {
-    background-color: rgba(192, 192, 192, 0.25); }
-  main table.compact tr:hover {
-    background-color: rgba(242, 201, 76, 0.25); }
-
-main hr {
-  margin-top: calc(40px - 0px);
-  padding-top: 0px;
-  margin-bottom: calc(-10px - 4px);
-  padding-bottom: 0px;
-  border: none;
-  border-bottom: 4px solid #f2c94c; }
-
-main strong, main table th {
+main strong, main table th, table main th {
   font-weight: 700; }
 
 main span.note-sign {
@@ -187,6 +139,50 @@ main span.note-sign {
 
 main a {
   color: #2d9cdb; }
+
+.table-wrapper {
+  font-size: 17px;
+  line-height: 30px;
+  margin-top: 0px;
+  padding-top: 8.5px;
+  padding-bottom: 1.5px;
+  margin-bottom: 20px; }
+
+table {
+  margin-bottom: -1px;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed; }
+  table col.quarter {
+    width: 25%; }
+  table col.three-quarters {
+    width: 75%; }
+  table th, table td {
+    text-align: left;
+    vertical-align: top;
+    padding: calc(10px - 1px) 0.5rem 10px;
+    border-bottom: 1px solid #c0c0c0; }
+    table th:first-child, table td:first-child {
+      padding-left: 0; }
+    table th .numeral, table td .numeral {
+      text-align: right; }
+  table th {
+    border-color: #606060; }
+  table thead th {
+    padding-top: 10px; }
+
+table.compact {
+  margin-top: 5px;
+  border: none; }
+  table.compact th, table.compact td, table.compact thead th {
+    border: none;
+    padding: 5px 20px 5px;
+    font-weight: 400; }
+  table.compact tr:nth-child(odd) {
+    background-color: rgba(192, 192, 192, 0.25); }
+  table.compact tr:hover {
+    background-color: rgba(242, 201, 76, 0.25); }
 
 body {
   background-color: #fcfcfc; }
@@ -215,6 +211,16 @@ header {
     header a.active, header a:hover {
       color: #f2c94c; }
 
+figure img {
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 320px; }
+  figure img.leading-origin, figure img.terms {
+    height: 280px; }
+  figure img.font-anatomy {
+    height: 100px; }
+
 .toggle-grid {
   width: 36px;
   height: 36px;
@@ -240,13 +246,6 @@ header {
       bottom: 10px; } }
   .toggle-grid:hover {
     color: #303030; }
-
-img.leading-origin {
-  width: 320px;
-  height: 280px;
-  display: block;
-  margin-top: 30px;
-  margin-bottom: 20px; }
 
 pre[class*="language-"] {
   font-size: 18px;
