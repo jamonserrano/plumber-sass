@@ -1,7 +1,13 @@
 # Plumber
 https://jamonserrano.github.io/plumber-sass
 
-Create better looking documents and speed up CSS development by adding vertical rhythm to your page. Plumber positions every line of text on a gridline.
+Create better looking documents and speed up CSS development by adding vertical rhythm to your page.
+
+## What is it?
+
+Using a baseline grid on the web is not easy. For every font family and font size you have to measure where the letters sit so you can shift the text to the nearest gridline. After this, you have to precariously add margins and paddings to keep the vertical rhythm.
+
+Plumber provides a single SASS mixin that does all the hard work for you.
 
 ## Installation
 
@@ -37,11 +43,11 @@ And include it in your project:
 ```
 
 ## Usage
-1\. Decide on the grid height you will use in the unit of your choice (pixels or rems are recommended).
+1\. Decide on the vertical grid height you will use in the unit of your choice (pixels or rems are recommended).
 
-2\. Look up the baseline of your font family [in the table](https://jamonserrano.github.io/plumber-sass/table/) or [use the measure tool](https://jamonserrano.github.io/plumber-sass/measure/). For example the value for Helvetica Neue is 0.121.
+2\. Look up the baseline ratio of your font family [in the table](https://jamonserrano.github.io/plumber-sass/table/) or [use the measure tool](https://jamonserrano.github.io/plumber-sass/measure/). For example the value for Helvetica Neue is 0.121.
 
-3\. Include the plumber mixin in your styles – specify font size, line height, top and bottom leadings as multiples of the grid height:
+3\. Include the plumber mixin in your styles – specify font size as a fraction, line height, top and bottom leadings as multiples of the grid height:
 
 ```scss
 h1 {
@@ -96,11 +102,11 @@ li {
 
 ### Using multiple fonts
 
-When using multiple font families, you can set a baseline for each one and use the optional `$baseline` parameter:
+When using multiple font families, you can set a baseline for each and use the optional `$baseline` parameter:
 
 ```scss
 $quote-font: Georgia, serif;
-$quote-baseline: 0.151; // Georgia
+$quote-baseline: 0.151;
 
 blockquote {
 	@include plumber($baseline: $quote-baseline);
@@ -110,7 +116,7 @@ blockquote {
 ```
 
 ### Responsive typography
-For responsive typography just define the grid height in rems or other relative units, and the font metrics will change along.
+For responsive typography just define the grid height in rems or other relative units, and metrics will change along.
 
 ```scss
 @include plumber-set-defaults(
@@ -165,24 +171,24 @@ The main mixin.
 
 Name | Description | Type | Default value
 ---- | ----------- | ---- | -------------
-$baseline | Override the default baseline | Fraction between 0 and 1 | —
-$font-size | Font size as a fraction of the grid height | Positive number | 2
-$grid-height | Override the default grid height | Any unit | 1rem
+$baseline | Baseline ratio | Fraction between 0 and 1 | —
+$font-size | Font size as a fraction of grid height | Positive number | 2
+$grid-height | Grid height | Any unit | 1rem
 $leading-top | Top leading* as a multiple of grid height | Integer | 0**
 $leading-bottom | Bottom leading* as a multiple of grid height | Integer | 0**
 $line-height | Line height as a multiple of grid height| Positive integer | 3
 $use-baseline-origin | Set the origin of leadings to the baseline | Boolean | false
 
-> * Leadings are measured from either the baseline or the edges of the text block, depending on the `$plumber-leadings-from-baseline` setting.
+> \* Leadings are measured from either the baseline or the edges of the text block, depending on the `$plumber-leadings-from-baseline` setting.
 > 
-> ** The default value is always calculated so there will be no visible gap above or below the text block.
+> \*\* The default value is always calculated so there will be no visible gap above or below the text block.
 
 **Output:** `font-size`, `line-height`, `margin-top`, `padding-top`, `padding-bottom`, `margin-bottom` properties with the same unit as the grid height.
 
 ### plumber-set-defaults
 Sets up or changes default parameters to use.
 
-**Parameters:** Same as the main mixin
+**Parameters:** Same as the main mixin.
 
 ## License
 MIT License
