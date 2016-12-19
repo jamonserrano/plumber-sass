@@ -163,7 +163,8 @@ header {
       bottom: 11px;
       right: 25%;
       background-color: #f2c94c;
-      width: 100px;
+      width: auto;
+      padding: 0 2px;
       height: 28px;
       font-size: 32px;
       line-height: 28px;
