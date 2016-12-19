@@ -1,14 +1,10 @@
 $instructions-height: 240px;
 
-html, body {
-    overflow: hidden;
-}
-
 main {
     width: 100vw;
     background: $color-accent;
     overflow: hidden;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 section {

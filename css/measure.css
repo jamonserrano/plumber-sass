@@ -64,14 +64,11 @@ header {
 html {
   font-size: 8px; }
 
-html, body {
-  overflow: hidden; }
-
 main {
   width: 100vw;
   background: #f2c94c;
   overflow: hidden;
-  min-height: 100vh; }
+  height: 100vh; }
 
 section {
   width: 100%; }
