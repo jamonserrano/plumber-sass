@@ -6,11 +6,9 @@
   "scripts": {
     "build-docs": "node-sass --include-path scss scss/docs.scss css/docs.css",
     "build-measure": "node-sass --include-path scss scss/measure.scss css/measure.css",
-    "build-demo": "node-sass --include-path scss scss/demo.scss css/demo.css",
-    "build": "npm run build-docs && npm run build-tools && npm run build-demo",
+    "build": "npm run build-docs && npm run build-measure",
     "watch-docs": "npm run build-docs -- --watch",
     "watch-measure": "npm run build-measure -- --watch",
-    "watch-demo": "npm run build-demo -- --watch",
     "watch": "npm build -- --watch"
   },
   "repository": {
