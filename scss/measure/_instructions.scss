@@ -8,6 +8,7 @@
     padding: 2rem;
     color: $color-light;
     z-index: 300;
+    overflow: hidden;
 
 
     h1 {
@@ -67,8 +68,7 @@
         }
     }
 
-    input[type=text],
-    input[type=number] {
+    input[type=text] {
         height: 3rem;
         background: transparent;
         border: none;
@@ -121,5 +121,12 @@
         width: 8rem;
         border-radius: 1px;
     }
+}
 
+@media (max-width: 359px) {
+    .instructions {
+        input[type=text], select, button {
+            margin-right: 1rem;
+        }
+    }
 }

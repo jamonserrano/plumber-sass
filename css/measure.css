@@ -179,7 +179,8 @@ header {
   left: 0;
   padding: 2rem;
   color: #c0c0c0;
-  z-index: 300; }
+  z-index: 300;
+  overflow: hidden; }
   .instructions h1 {
     font-size: 3rem;
     line-height: 3rem;
@@ -219,8 +220,7 @@ header {
     margin: -1rem 0 1rem; }
     .instructions .fields:last-child {
       margin-top: 2rem; }
-  .instructions input[type=text],
-  .instructions input[type=number] {
+  .instructions input[type=text] {
     height: 3rem;
     background: transparent;
     border: none;
@@ -229,14 +229,11 @@ header {
     color: #fcfcfc;
     margin-right: 2rem;
     border-radius: 0; }
-    .instructions input[type=text].font-name,
-    .instructions input[type=number].font-name {
+    .instructions input[type=text].font-name {
       width: 16rem; }
-    .instructions input[type=text].font-weight,
-    .instructions input[type=number].font-weight {
+    .instructions input[type=text].font-weight {
       width: 8rem; }
-    .instructions input[type=text]:placeholder-shown,
-    .instructions input[type=number]:placeholder-shown {
+    .instructions input[type=text]:placeholder-shown {
       color: #606060; }
   .instructions label {
     font-size: 2rem; }
@@ -261,3 +258,7 @@ header {
     border: none;
     width: 8rem;
     border-radius: 1px; }
+
+@media (max-width: 359px) {
+  .instructions input[type=text], .instructions select, .instructions button {
+    margin-right: 1rem; } }
