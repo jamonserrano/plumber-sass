@@ -7,7 +7,7 @@
     "build-docs": "node-sass --include-path scss scss/docs.scss css/docs.css",
     "build-measure": "node-sass --include-path scss scss/measure.scss css/measure.css",
     "watch-docs": "npm run build-docs -- --watch",
-    "watch-measure": "npm run build-measure -- --watch",
+    "watch-measure": "npm run build-measure -- --watch"
   },
   "repository": {
     "type": "git",
