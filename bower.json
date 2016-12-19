@@ -1,6 +1,6 @@
 {
   "name": "plumber-sass",
-  "description": "Real baseline grids with SASS",
+  "description": "Easy baseline grids with SASS",
   "main": "_plumber.scss",
   "authors": [
     "Viktor Honti"
