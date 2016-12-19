@@ -27,17 +27,21 @@ header {
   left: 0;
   top: 0;
   width: 100%;
-  font-size: 2rem;
+  font-size: 16px;
   padding: 0 30px;
   text-transform: uppercase;
   z-index: 1000; }
   @media (max-width: 639px) {
     header {
-      padding: 0 8px; } }
+      font-size: 14px;
+      padding: 0 6px; } }
   header ul {
     list-style: none;
     display: flex;
     justify-content: flex-end; }
+    @media (max-width: 639px) {
+      header ul {
+        justify-content: center; } }
   header li {
     display: inline-block;
     text-align: center; }
@@ -51,7 +55,7 @@ header {
     padding: 0 20px; }
     @media (max-width: 639px) {
       header a {
-        padding: 0 8px; } }
+        padding: 0 6px; } }
   header img.github {
     width: 30px;
     height: 30px;
@@ -202,7 +206,6 @@ main {
 
 header {
   font-family: "Lato", sans-serif;
-  font-size: 16px;
   background: #303030;
   height: 44px;
   border-bottom: 4px solid #f2c94c; }
