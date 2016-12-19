@@ -225,18 +225,18 @@ figure img {
     height: 100px; }
 
 .toggle-grid {
-  width: 36px;
-  height: 36px;
-  border-radius: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 14px;
   position: fixed;
   right: 20px;
   bottom: 20px;
   background-color: #f2c94c;
   color: #606060;
   text-align: center;
-  font-size: 12px;
   text-transform: uppercase;
-  line-height: 36px;
+  line-height: 48px;
   cursor: pointer;
   -webkit-backface-visibility: hidden;
   -webkit-user-select: none;
@@ -246,7 +246,11 @@ figure img {
   @media (max-width: 639px) {
     .toggle-grid {
       right: 10px;
-      bottom: 10px; } }
+      bottom: 10px;
+      width: 36px;
+      height: 36px;
+      font-size: 12px;
+      line-height: 36px; } }
   .toggle-grid:hover {
     color: #303030; }
 

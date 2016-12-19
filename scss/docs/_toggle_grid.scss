@@ -1,16 +1,16 @@
 	.toggle-grid {
-		width: 36px;
-		height: 36px;
-		border-radius: 24px;
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		font-size: 14px;
 		position: fixed;
 		right: 20px;
 		bottom: 20px;
 		background-color: $color-accent;
 		color: $color-medium;
 		text-align: center;
-		font-size: 12px;
 		text-transform: uppercase;
-		line-height: 36px;
+		line-height: 48px;
 		cursor: pointer;
 		-webkit-backface-visibility: hidden;
 
@@ -22,6 +22,10 @@
 		@media (max-width: 639px) {
 			right: 10px;
 			bottom: 10px;
+			width: 36px;
+			height: 36px;
+			font-size: 12px;
+			line-height: 36px;
 		}
 
 
