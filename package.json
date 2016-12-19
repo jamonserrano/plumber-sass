@@ -1,6 +1,6 @@
 {
   "name": "plumber-sass",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Easy baseline grids with SASS",
   "main": "_plumber.scss",
   "repository": {
