@@ -5,7 +5,7 @@ Create better looking documents and speed up CSS development by adding vertical 
 
 ## What is it?
 
-Using a baseline grid on the web is not easy. For every font family and font size you have to measure where the letters sit so you can shift the text to the nearest gridline. After this, you have to precariously add margins and paddings to keep the vertical rhythm.
+Using a baseline grid on the web is not easy. For every font family and size you have to measure where the letters sit so you can shift the text to the nearest gridline. After this, you have to precariously add margins and paddings to keep the vertical rhythm.
 
 Plumber provides a single SASS mixin that does all the hard work for you.
 
