@@ -206,6 +206,9 @@ header {
       .instructions .step {
         width: 100%;
         margin: 0; } }
+    @media (max-width: 359px) {
+      .instructions .step {
+        margin-top: -4px; } }
   .instructions p {
     font-size: 2rem;
     line-height: 3rem;
@@ -222,6 +225,9 @@ header {
     margin: -1rem 0 1rem; }
     .instructions .fields:last-child {
       margin-top: 2rem; }
+      @media (max-width: 360px) {
+        .instructions .fields:last-child {
+          margin-top: 1rem; } }
   .instructions input[type=text] {
     height: 3rem;
     background: transparent;

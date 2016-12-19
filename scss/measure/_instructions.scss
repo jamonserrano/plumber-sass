@@ -39,6 +39,10 @@
             width: 100%;
             margin: 0;
         }
+
+        @media (max-width: 359px) {
+            margin-top: -4px;
+        }
     }
 
     p {
@@ -65,7 +69,11 @@
 
         &:last-child {
             margin-top: 2rem;
+            @media (max-width: 360px) {
+                margin-top: 1rem
+            }
         }
+
     }
 
     input[type=text] {
