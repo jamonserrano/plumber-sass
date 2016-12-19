@@ -1,9 +1,9 @@
 .instructions {
     @include font-smoothing;
     background: $color-dark;
-    min-height: 200px;
+    height: $instructions-height;
     position: absolute;
-    top: calc(100vh - 200px);
+    top: calc(100vh - #{$instructions-height});
     left: 0;
     padding: 2rem;
     color: $color-light;
@@ -61,6 +61,10 @@
 
     .fields {
         margin: -1rem 0 1rem;
+
+        &:last-child {
+            margin-top: 2rem;
+        }
     }
 
     input[type=text],
@@ -71,14 +75,14 @@
         border-bottom: 1px solid $color-light;
         font-size: 2rem;
         color: $color-background;
-        margin-right: 1rem;
+        margin-right: 2rem;
     
         &.font-name {
-            width: 15rem;
+            width: 16rem;
         }
 
         &.font-weight {
-            width: 7rem;
+            width: 8rem;
         }
 
         &:placeholder-shown {
@@ -89,7 +93,6 @@
 
     label {
         font-size: 2rem;
-        margin-right: 1rem;
     }
 
     input[type=checkbox] {
@@ -97,6 +100,14 @@
         vertical-align: bottom;
         width: 3rem;
         height: 3rem;
+    }
+
+    select {
+        margin-right: 2rem;
+        height: 3rem;
+        width: 16rem;
+        font-family: $body-font;
+        font-size: 2rem;
     }
 
     button {
@@ -107,6 +118,8 @@
         color: $color-dark;
         font-weight: 700;
         border: none;
+        width: 8rem;
+        border-radius: 1px;
     }
 
 }

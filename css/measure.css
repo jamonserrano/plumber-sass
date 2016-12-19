@@ -60,6 +60,9 @@ header {
 html {
   font-size: 8px; }
 
+html, body {
+  overflow: hidden; }
+
 main {
   width: 100vw;
   background: #f2c94c;
@@ -80,7 +83,7 @@ header {
       color: #606060; }
 
 .panel {
-  height: calc(100vh - 200px);
+  height: calc(100vh - 240px);
   position: absolute;
   z-index: 150;
   display: none;
@@ -170,9 +173,9 @@ header {
   -moz-osx-font-smoothing: grayscale;
   font-smooth: always;
   background: #303030;
-  min-height: 200px;
+  height: 240px;
   position: absolute;
-  top: calc(100vh - 200px);
+  top: calc(100vh - 240px);
   left: 0;
   padding: 2rem;
   color: #c0c0c0;
@@ -214,6 +217,8 @@ header {
       text-decoration: underline; }
   .instructions .fields {
     margin: -1rem 0 1rem; }
+    .instructions .fields:last-child {
+      margin-top: 2rem; }
   .instructions input[type=text],
   .instructions input[type=number] {
     height: 3rem;
@@ -222,25 +227,30 @@ header {
     border-bottom: 1px solid #c0c0c0;
     font-size: 2rem;
     color: #fcfcfc;
-    margin-right: 1rem;
+    margin-right: 2rem;
     border-radius: 0; }
     .instructions input[type=text].font-name,
     .instructions input[type=number].font-name {
-      width: 15rem; }
+      width: 16rem; }
     .instructions input[type=text].font-weight,
     .instructions input[type=number].font-weight {
-      width: 7rem; }
+      width: 8rem; }
     .instructions input[type=text]:placeholder-shown,
     .instructions input[type=number]:placeholder-shown {
       color: #606060; }
   .instructions label {
-    font-size: 2rem;
-    margin-right: 1rem; }
+    font-size: 2rem; }
   .instructions input[type=checkbox] {
     margin-right: 0.5rem;
     vertical-align: bottom;
     width: 3rem;
     height: 3rem; }
+  .instructions select {
+    margin-right: 2rem;
+    height: 3rem;
+    width: 16rem;
+    font-family: "Lato", sans-serif;
+    font-size: 2rem; }
   .instructions button {
     height: 3rem;
     font-family: "Lato", sans-serif;
@@ -248,4 +258,6 @@ header {
     background: #fcfcfc;
     color: #303030;
     font-weight: 700;
-    border: none; }
+    border: none;
+    width: 8rem;
+    border-radius: 1px; }

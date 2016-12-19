@@ -6,7 +6,7 @@
     $ruler-displacement: 24px;
     @include font-smoothing;
     position: relative;
-    height: calc(100vh - 240px);
+    height: calc(100vh - #{$instructions-height});
 
     .letter {
         font-size: 1000px;

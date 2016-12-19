@@ -2,6 +2,25 @@
 	// Send font request to Google Fonts
 	function onSubmit (e) {
 		e.preventDefault();
+		parseForm();
+		
+		var source = fontSourceInput.value;
+		if (source === "local") {
+			loadLocalFont();
+		} else if (source === "google") {
+			loadGoogleFont()
+		}
+	}
+
+	// Load a local font
+	function loadLocalFont () {
+		showLoading();
+		setNewFont();
+		setTimeout(checkFontLoaded, 500);
+	}
+
+	// Load a font from Google Fonts
+	function loadGoogleFont () {
 		var fontRequest = {
 			families: [getFontString()]
 		};
@@ -12,36 +31,61 @@
 		
 		WebFont.load({
     		google: fontRequest,
-			loading: onFontLoading,
-			active: onFontLoaded,
-			inactive: onFontError
+			loading: showLoading,
+			active: onGoogleFontLoaded,
+			inactive: showError
   		});
+
+	}
+
+	// Get font name, weight, and style
+	function parseForm () {
+		fontName = fontNameInput.value;
+		fontWeight = !fontWeightInput.value ? '400' : fontWeightInput.value;
+		fontStyle = fontStyleInput.checked ? 'i' : '';
 	}
 
 	// Get font details from the form
 	function getFontString () {
-		fontName = fontNameInput.value;
-		fontWeight = !fontWeightInput.value ? '400' : fontWeightInput.value;
-		fontStyle = fontStyleInput.checked ? 'i' : '';
 		return `${fontName}:${fontWeight}${fontStyle}`;
 	}
 
-	function onFontLoading (e) {
+	// Show loading screen
+	function showLoading () {
 		bodyClass.remove("show-intro", "show-error");
 		bodyClass.add("show-loading");
 	}
 
-	// Set sample font
-	function onFontLoaded (e) {
+	// Set and show google font
+	function onGoogleFontLoaded () {
+		setNewFont();
+		showFont();
+	}
+
+	// Set new font
+	function setNewFont () {
 		var style = letter.style;
-		style.fontFamily = '"' + fontName + '"';
+		style.fontFamily = '"' + fontName + '", "AdobeBlank"';
 		style.fontWeight = fontWeight;
 		style.fontStyle = fontStyle ? 'italic' : 'normal';
+	}
+
+	// Check if the local font has been loaded
+	function checkFontLoaded () {
+		if (letter.getBoundingClientRect().width > 0) {
+			showFont();
+		} else {
+			showError();
+		}
+	}
+
+	// Show the new font
+	function showFont () {
 		bodyClass.remove("show-intro", "show-loading", "show-error");
 	}
 
 	// Handle font error
-	function onFontError (e) {
+	function showError (e) {
 		var fontStyleString = fontStyle ? ' Italic' : '';
 		error.textContent = `Could not load font ‘${fontName} ${fontWeight}${fontStyleString}’. Are you sure you got it right?`
 		bodyClass.remove("show-intro", "show-loading");
@@ -55,14 +99,16 @@
 		rulerBox.textContent = position.toFixed(3);
 	}
 
+	// placeholders
+	var fontName, fontWeight, fontStyle;
+
 	// form
 	var form = document.forms[0];
 	var fontNameInput = document.querySelector('.font-name');
 	var fontWeightInput = document.querySelector('.font-weight');
 	var fontStyleInput = document.querySelector('.font-style');
+	var fontSourceInput = document.querySelector('.font-source');
 	var letter = document.querySelector('.letter');
-	var fontName, fontWeight, fontStyle;
-	form.addEventListener('submit', onSubmit);
 
 	// ruler
 	var ruler = document.querySelector('.ruler');
@@ -82,6 +128,8 @@
 	if (navigator.userAgent.indexOf('Firefox') > -1) {
 		rulerTop =  rulerTop + 1;
 	};
+
+	form.addEventListener('submit', onSubmit);
 
 	draggable.on('dragMove', onDragMove);
 	draggable.on('dragEnd', onDragMove);

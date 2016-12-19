@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../fonts/adobe-blank.css" type="text/css">
 	<link rel="stylesheet" href="../css/measure.css" type="text/css">
     <link rel="icon" sizes="192x192" href="../img/favicon.png">
     <link rel="apple-touch-icon" href="../img/favicon.png">
@@ -37,16 +38,22 @@
         <section class="instructions">
             <div class="steps">
                 <form class="step">
-                    <p>1.&ensp;Load a font from <a href="https://fonts.google.com" target="_blank">Google Fonts</a>:</p>
-                        <div class="fields">
-                            <input type="text" name="font-name" class="font-name" placeholder="Font Name">
-                            <input type="text" name="font-weight" class="font-weight" placeholder="Weight">
-                            <label><input type="checkbox" name="font-style" class="font-style" value="Italic">Italic</label>
-                            <button type="submit">Load</button>
-                        </div>
+                    <p>1.&ensp;Load a local or <a href="https://fonts.google.com" target="_blank">Google</a> font:</p>
+                    <div class="fields">
+                        <input type="text" name="font-name" class="font-name" placeholder="Font Name">
+                        <input type="text" name="font-weight" class="font-weight" placeholder="Weight">
+                        <label><input type="checkbox" name="font-style" class="font-style" value="Italic">Italic</label>
+                    </div>
+                    <div class="fields">
+                        <select class="font-source">
+                            <option value="local" selected>Local font</option>
+                            <option value="google">Google Fonts</option>
+                        </select>
+                        <button type="submit">Load</button>
+                    </div>
                 </form>
                 <p class="step">2.&ensp;Drag the ruler until it is just above the base of the letter (you see black and white dash).</p>
-                <p class="step">3.&ensp;Use the number on the line for this font with Plumber.</p>
+                <p class="step">3.&ensp;The number on the ruler is the baseline for Plumber.</p>
             </div>
         </section>
 	</main>

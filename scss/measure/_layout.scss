@@ -1,3 +1,9 @@
+$instructions-height: 240px;
+
+html, body {
+    overflow: hidden;
+}
+
 main {
     width: 100vw;
     background: $color-accent;
