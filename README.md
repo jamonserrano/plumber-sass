@@ -73,6 +73,8 @@ p {
 }
 ```
 
+> For a real-world example [take a look at the code](https://github.com/jamonserrano/plumber-sass/blob/gh-pages/scss/docs/_typography.scss) of the documentation page.
+
 ### Default settings
 To avoid repetition set up default values before using the mixin:
 
