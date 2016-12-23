@@ -15,7 +15,7 @@ Plumber provides a single SASS mixin that does all the hard work for you.
 Download and extract [the latest release](https://api.github.com/repos/jamonserrano/plumber-sass/zipball), move `_plumber.scss` into the vendor folder of your project and include it:
 
 ```sass
-@import vendor/plumber;
+@import "vendor/plumber";
 ```
 
 ### NPM
@@ -27,7 +27,7 @@ $ npm install plumber-sass --save-dev
 And import it in your project:
 
 ```scss
-@import node_modules/plumber-sass/plumber;
+@import "node_modules/plumber-sass/plumber";
 ```
 
 ### Bower
@@ -39,7 +39,7 @@ $ bower install plumber-sass --save-dev
 And import it in your project:
 
 ```scss
-@import bower_components/plumber-sass/plumber;
+@import "bower_components/plumber-sass/plumber";
 ```
 
 ## Usage
