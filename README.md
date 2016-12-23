@@ -14,7 +14,7 @@ Plumber provides a single SASS mixin that does all the hard work for you.
 ### Manual
 Download and extract [the latest release](https://api.github.com/repos/jamonserrano/plumber-sass/zipball), move `_plumber.scss` into the vendor folder of your project and include it:
 
-```sass
+```scss
 @import "vendor/plumber";
 ```
 
