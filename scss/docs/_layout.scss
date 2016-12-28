@@ -15,7 +15,7 @@ main {
     padding: 0 40px;
     overflow: hidden;
 
-    @media (max-width: $content-width) {
+    @media all and (max-width: $content-width) {
         padding: 0 20px;
     }
 }

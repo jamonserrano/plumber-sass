@@ -17,7 +17,7 @@
 		left: 4rem;
 		font-style: italic;
 		
-		@media (max-width: 1100px) {
+		@media all and (max-width: 1100px) {
             bottom: 20px;
 			left: 2rem;
         }

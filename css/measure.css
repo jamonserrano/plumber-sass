@@ -31,7 +31,7 @@ header {
   padding: 0 30px;
   text-transform: uppercase;
   z-index: 1000; }
-  @media (max-width: 639px) {
+  @media all and (max-width: 639px) {
     header {
       font-size: 14px;
       padding: 0 6px; } }
@@ -39,13 +39,13 @@ header {
     list-style: none;
     display: flex;
     justify-content: flex-end; }
-    @media (max-width: 639px) {
+    @media all and (max-width: 639px) {
       header ul {
         justify-content: center; } }
   header li {
     display: inline-block;
     text-align: center; }
-    @media (max-width: 639px) {
+    @media all and (max-width: 639px) {
       header li {
         flex-grow: 1; } }
   header a {
@@ -53,7 +53,7 @@ header {
     display: inline-block;
     height: 40px;
     padding: 0 20px; }
-    @media (max-width: 639px) {
+    @media all and (max-width: 639px) {
       header a {
         padding: 0 6px; } }
   header img.github {
@@ -102,7 +102,7 @@ header {
     bottom: 40px;
     left: 4rem;
     font-style: italic; }
-    @media (max-width: 1100px) {
+    @media all and (max-width: 1100px) {
       .panel h1, .panel p {
         bottom: 20px;
         left: 2rem; } }
@@ -202,11 +202,11 @@ header {
     width: 320px;
     margin: 50px 20px;
     flex-grow: 1; }
-    @media (max-width: 1100px) {
+    @media all and (max-width: 1100px) {
       .instructions .step {
         width: 100%;
         margin: 0; } }
-    @media (max-width: 359px) {
+    @media all and (max-width: 359px) {
       .instructions .step {
         margin-top: -4px; } }
   .instructions p {
@@ -225,7 +225,7 @@ header {
     margin: -1rem 0 1rem; }
     .instructions .fields:last-child {
       margin-top: 2rem; }
-      @media (max-width: 360px) {
+      @media all and (max-width: 360px) {
         .instructions .fields:last-child {
           margin-top: 1rem; } }
   .instructions input[type=text] {
@@ -267,6 +267,6 @@ header {
     width: 8rem;
     border-radius: 1px; }
 
-@media (max-width: 359px) {
+@media all and (max-width: 359px) {
   .instructions input[type=text], .instructions select, .instructions button {
     margin-right: 1rem; } }
