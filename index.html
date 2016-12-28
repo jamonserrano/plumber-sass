@@ -104,31 +104,31 @@ p {
                 <figcaption>Plumber parameters, visualized</figcaption>
             </figure>-->
 
-        <section>
-            <h3 id="toc_6">Default settings</h3>
-            <p>To avoid repetition set up default values before using the mixin:</p>
-            <pre><code class="language-scss">@include plumber-set-defaults(
-	$grid-height: 1rem,
-	$baseline: 0.121,
-	$font-size: 2,
-	$line-height: 3,
-	$leading-top: 0,
-	$leading-bottom: 1
-);
+            <section>
+                <h3 id="toc_6">Default settings</h3>
+                <p>To avoid repetition set up default values before using the mixin:</p>
+                <pre><code class="language-scss">@include plumber-set-defaults(
+        $grid-height: 1rem,
+        $baseline: 0.121,
+        $font-size: 2,
+        $line-height: 3,
+        $leading-top: 0,
+        $leading-bottom: 1
+    );
 
-p {
-	// using only default values
-	@include plumber();
-}
+    p {
+        // using only default values
+        @include plumber();
+    }
 
-li {
-	// override leadings
-	@include plumber(
-		leading-top: 1,
-		leading-bottom: 2
-	);
-}</code></pre>
-        </section>
+    li {
+        // override leadings
+        @include plumber(
+            leading-top: 1,
+            leading-bottom: 2
+        );
+    }</code></pre>
+            </section>
             <section>
                 <h3 id="toc_6">Using multiple fonts</h3>
                 <p>When using multiple font families, you can set a baseline for each and use the optional <code>$baseline</code> parameter:</p>
@@ -140,7 +140,6 @@ blockquote {
     font-family: $quote-font;
 }</code></pre>
             </section>
-
             <section>
                 <h3 id="toc_7">Responsive typography</h3>
                 <p>For responsive typography just define the grid height in rems or other relative units, and metrics will change along.</p>
