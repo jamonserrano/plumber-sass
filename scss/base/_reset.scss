@@ -17,3 +17,8 @@ input, textarea {
 	border: 0;
 	box-sizing: border-box;
 }
+
+// IE 11
+main {
+	display: block;
+}
