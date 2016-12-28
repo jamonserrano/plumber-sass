@@ -29,6 +29,8 @@
 			<p>This table contains the baseline ratios for some of the most popular fonts found on desktop, Google Fonts and Typekit.
 				Use these numbers as the <code>$baseline</code> parameter of the Plumber mixin.
 				If you don't see your chosen font family here, <a href="../measure/">use the measure tool</a>.</p>
+				<p class="note">If you have access to the OpenType metrics of the font you can calculate a more precise baseline ratio with the following formula:<br>
+                <code>(-hhea.Descender - ((hhea.Ascender - hhea.Descender - UnitsPerEm) / 2)) / UnitsPerEm</code></p>
 		</section>
 		<section>
 			<div class="table-wrapper">
