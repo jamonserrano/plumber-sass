@@ -17,6 +17,9 @@ input, textarea {
   border: 0;
   box-sizing: border-box; }
 
+main {
+  display: block; }
+
 header {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
