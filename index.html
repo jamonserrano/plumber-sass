@@ -71,7 +71,7 @@ $ yarn add plumber-sass --dev</code></pre>
 		<section>
 			<h2 id="toc_5">Usage</h2>
             <p>1. Decide on the vertical grid height you will use in the unit of your choice (pixels or rems are recommended).</p>
-            <p>2. Look up the baseline ratio of your font family <a href="baselines/">in the table</a> or use the <a href="measure/">measure tool</a>. For example the value for Helvetica Neue is 0.121.</p>
+            <p>2. Look up the baseline ratio of your font family <a href="baselines/">in the table</a>, use the <a href="measure/">measure tool</a> or <a href="#precision">calculate it</a>. For example the value for Helvetica Neue is 0.121.</p>
             <figure>
                 <img class="font-anatomy" src="img/font-anatomy.png" srcset="img/font-anatomy-2x.png 2x" alt="Font anatomy">
                 <figcaption>The baseline ratio is the position of the baseline within the em box (measured from the bottom).</figcaption>
@@ -176,7 +176,7 @@ html {
 			<h2 id="toc_9">Considerations</h2>
 
 			<section>
-                <h3 id="toc_10">Precision</h3>
+                <h3 id="precision">Precision</h3>
 
                 <p>Due to rounding and browser rendering it’s entirely possible that the text will not sit exactly on the baseline. Following these guidelines will get you closer to pixel perfection:</p>
                 <ul>
@@ -184,8 +184,8 @@ html {
                     <li>Use a grid height with many divisors.</li>
                     <li>Use font sizes that produce whole numbers with the grid height.</li>
                 </ul>
-                <p class="note">If you have access to the OpenType metrics of the font you can calculate a more precise baseline ratio with the following formula:<br>
-                <code>(-hhea.Descender - ((hhea.Ascender - hhea.Descender - UnitsPerEm) / 2)) / UnitsPerEm</code></p>
+                <p>If you have access to the OpenType metrics of the font you can calculate a more precise baseline ratio with the following formula:<br>
+                <code>(UnitsPerEm − hhea.Ascender − hhea.Descender) / (2 × UnitsPerEm)</code></p>
 			</section>
 
 			<section>
