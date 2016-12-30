@@ -1,5 +1,5 @@
 @mixin grid-background($color: rgba(0,0,0,0.2), $grid-height: $gh) {
-    background-image: linear-gradient(to top, $color 0, transparent 1px);
+    background-image: linear-gradient(to top, $color 0, $color 1px, transparent 1px);
     background-size: 100% $grid-height;
 }
 
