@@ -17,12 +17,20 @@ table {
 	border-spacing: 0;
 	table-layout: fixed;
 
-	col.quarter {
+	col.narrow {
 		width: 25%;
+
+		@media all and (max-width: 640px) {
+			width: 40%;
+		}
 	}
 
-	col.three-quarters {
+	col.wide {
 		width: 75%;
+		
+		@media all and (max-width: 640px) {
+			width: 60%;
+		}
 	}
 
 	th, td {
@@ -35,9 +43,9 @@ table {
 			padding-left: 0;
 		}
 
-		.numeral {
-			text-align: right;
-		}
+		// &.numeral {
+		// 	text-align: right;
+		// }
 	}
 
 	th {
