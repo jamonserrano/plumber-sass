@@ -190,8 +190,8 @@ header {
     font-size: 3rem;
     line-height: 3rem;
     margin-top: 0rem;
-    padding-top: 0.363rem;
-    padding-bottom: 0.637rem;
+    padding-top: 0.36255rem;
+    padding-bottom: 0.63745rem;
     margin-bottom: 2rem;
     font-family: "Lora", serif;
     text-align: center; }
@@ -216,8 +216,8 @@ header {
     font-size: 2rem;
     line-height: 3rem;
     margin-top: -1rem;
-    padding-top: 0.742rem;
-    padding-bottom: 0.258rem;
+    padding-top: 0.7417rem;
+    padding-bottom: 0.2583rem;
     margin-bottom: 1rem; }
   .instructions a {
     text-decoration: none;
