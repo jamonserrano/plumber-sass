@@ -39,7 +39,7 @@
             margin: 0;
         }
 
-        @media all and (max-width: 359px) {
+        @media all and (max-width: 360px) {
             margin-top: -4px;
         }
     }
@@ -130,7 +130,7 @@
     }
 }
 
-@media all and (max-width: 359px) {
+@media all and (max-width: 360px) {
     .instructions {
         input[type=text], select, button {
             margin-right: 1rem;
