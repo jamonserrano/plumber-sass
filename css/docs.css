@@ -23,7 +23,6 @@ main {
 header {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-smooth: always;
   height: 40px;
   line-height: 40px;
   position: fixed;
@@ -75,8 +74,7 @@ main h1, main h2, main h3 {
   font-weight: 700;
   color: #606060;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-smooth: always; }
+  -moz-osx-font-smoothing: grayscale; }
 
 main h1 {
   font-size: 48px;
@@ -120,7 +118,6 @@ main figcaption {
   margin-bottom: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-smooth: always;
   color: #606060; }
 
 main ul {

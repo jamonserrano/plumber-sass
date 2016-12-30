@@ -23,7 +23,6 @@ main {
 header {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-smooth: always;
   height: 40px;
   line-height: 40px;
   position: fixed;
@@ -97,7 +96,6 @@ header {
   .panel h1, .panel p {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-smooth: always;
     font-family: "Lora", serif;
     font-weight: 700;
     color: #303030;
@@ -122,7 +120,6 @@ header {
 .measure-area {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-smooth: always;
   position: relative;
   height: calc(100vh - 240px); }
   .measure-area .letter {
@@ -176,7 +173,6 @@ header {
 .instructions {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-smooth: always;
   background: #303030;
   height: 240px;
   position: absolute;
