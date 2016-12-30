@@ -209,7 +209,7 @@ header {
       .instructions .step {
         width: 100%;
         margin: 0; } }
-    @media all and (max-width: 359px) {
+    @media all and (max-width: 360px) {
       .instructions .step {
         margin-top: -4px; } }
   .instructions p {
@@ -270,6 +270,6 @@ header {
     width: 8rem;
     border-radius: 1px; }
 
-@media all and (max-width: 359px) {
+@media all and (max-width: 360px) {
   .instructions input[type=text], .instructions select, .instructions button {
     margin-right: 1rem; } }
