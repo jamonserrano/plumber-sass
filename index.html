@@ -25,16 +25,11 @@
 
 	<main>
 		<h1 id="toc_0">Plumber</h1>
-		<!--<p><em>Real baseline grids with SASS</em></p>-->
 		<p>Create better looking documents and speed up CSS development by adding vertical rhythm to your page.</p>
 
         <section>
             <h2>What is it?</h2>
-            <p>
-                Using a baseline grid on the web is not easy. 
-                For every font family and size you have to measure where the letters sit so you can shift the text to the nearest gridline.
-                After this, you have to precariously add margins and paddings to keep the vertical rhythm.
-            </p>
+            <p>Using a baseline grid on the web is not easy. For every font family and size you have to measure where the letters sit so you can shift the text to the nearest gridline. After this, you have to precariously add margins and paddings to keep the vertical rhythm.</p>
             <p>Plumber provides a single <abbr>SASS</abbr> mixin that does all the hard work for you.</p>
         </section>
 
@@ -71,32 +66,32 @@ $ yarn add plumber-sass --dev</code></pre>
 		<section>
 			<h2 id="toc_5">Usage</h2>
             <p>1. Decide on the vertical grid height you will use in the unit of your choice (pixels or rems are recommended).</p>
-            <p>2. Look up the baseline ratio of your font family <a href="baselines/">in the table</a>, use the <a href="measure/">measure tool</a> or <a href="#precision">calculate it</a>. For example the value for Helvetica Neue is 0.121.</p>
+            <p>2. Look up the baseline ratio of your font family <a href="baselines/">in the table</a>, use the <a href="measure/">measure tool</a> or <a href="#precision">calculate it</a>. For example the value for Roboto is 0.158203.</p>
             <figure>
                 <img class="font-anatomy" src="img/font-anatomy.png" srcset="img/font-anatomy-2x.png 2x" alt="Font anatomy">
                 <figcaption>The baseline ratio is the position of the baseline within the em box (measured from the bottom).</figcaption>
             </figure>
             <p>3. Include the plumber mixin in your styles – specify font size as a fraction, line height, top and bottom leadings as multiples of the grid height:</p>
-            <pre><code class="language-scss">h1 {
+            <pre><code class="language-scss">p {
 	@include plumber(
 		$grid-height: 1rem,
-		$baseline: 0.121,
-		$font-size: 4.5,
-		$line-height: 6,
-		$leading-top: 9,
-		$leading-bottom: 3
-	);
-}
-
-p {
-	@include plumber(
-		$grid-height: 1rem,
-		$baseline: 0.121,
+		$baseline: 0.158203,
 		$font-size: 2,
 		$line-height: 3,
-		$leading-top: 0,
-		$leading-bottom: 1
+		$leading-top: 1,
+		$leading-bottom: 2
 	);
+    font-family: Roboto, sans-serif;
+}</code></pre>
+            <p>This will output the following CSS:</p>
+            <pre><code class="language-css">p {
+    font-size: 2rem;
+    line-height: 3rem;
+    margin-top: 0;
+    padding-top: 0.81641rem;
+    padding-bottom: 0.18359rem;
+    margin-bottom: 2rem;
+    font-family: Roboto, sans-serif;
 }</code></pre>
             <p class="note">For a real-world example <a href="https://github.com/jamonserrano/plumber-sass/blob/gh-pages/scss/docs/_typography.scss" target="blank">take a look at the code</a> of this very page.</p>
             <!--<figure>
@@ -108,32 +103,40 @@ p {
                 <h3 id="toc_6">Default settings</h3>
                 <p>To avoid repetition set up default values before using the mixin:</p>
                 <pre><code class="language-scss">@include plumber-set-defaults(
-        $grid-height: 1rem,
-        $baseline: 0.121,
-        $font-size: 2,
-        $line-height: 3,
-        $leading-top: 0,
-        $leading-bottom: 1
+    $grid-height: 1rem,
+    $baseline: 0.158203,
+    $font-size: 2,
+    $line-height: 3,
+    $leading-top: 1,
+    $leading-bottom: 2
+);
+
+p {
+    // using only default values
+    @include plumber();
+}
+
+li {
+    // override leadings
+    @include plumber(
+        leading-top: 0,
+        leading-bottom: 1
     );
-
-    p {
-        // using only default values
-        @include plumber();
-    }
-
-    li {
-        // override leadings
-        @include plumber(
-            leading-top: 1,
-            leading-bottom: 2
-        );
-    }</code></pre>
+}</code></pre>
             </section>
             <section>
                 <h3 id="toc_6">Using multiple fonts</h3>
-                <p>When using multiple font families, you can set a baseline for each and use the optional <code>$baseline</code> parameter:</p>
-                <pre><code class="language-scss">$quote-font: Georgia, serif;
-$quote-baseline: 0.151;
+                <p>When using multiple font families just use separate <code>$baseline</code> parameters:</p>
+                <pre><code class="language-scss">$body-font: Roboto, sans-serif;
+$body-baseline: 0.158203;
+
+$quote-font: Georgia, serif;
+$quote-baseline: 0.151123;
+
+p {
+    @include plumber($baseline: $body-baseline);
+    font-family: $body-font;
+}
 
 blockquote {
     @include plumber($baseline: $quote-baseline);
@@ -142,7 +145,7 @@ blockquote {
             </section>
             <section>
                 <h3 id="toc_7">Responsive typography</h3>
-                <p>For responsive typography just define the grid height in rems or other relative units, and metrics will change along.</p>
+                <p>For responsive typography define the grid height in rems or other relative units, and metrics will change along:</p>
                 <pre><code class="language-scss">@include plumber-set-defaults(
     $grid-height: 1rem,
     $font-size: 2
