@@ -18,11 +18,15 @@ Download and extract [the latest release](https://api.github.com/repos/jamonserr
 @import "vendor/plumber";
 ```
 
-### NPM
+### NPM / Yarn
 Install:
 
 ```sh
+# NPM
 $ npm install plumber-sass --save-dev
+
+#Yarn
+$ yarn add plumber-sass --dev
 ```
 And import it in your project:
 
@@ -45,31 +49,35 @@ And import it in your project:
 ## Usage
 1\. Decide on the vertical grid height you will use in the unit of your choice (pixels or rems are recommended).
 
-2\. Look up the baseline ratio of your font family [in the table](https://jamonserrano.github.io/plumber-sass/baselines/) or [use the measure tool](https://jamonserrano.github.io/plumber-sass/measure/). For example the value for Helvetica Neue is 0.121.
+2\. Look up the baseline ratio of your font family [in the table](https://jamonserrano.github.io/plumber-sass/baselines/) or [use the measure tool](https://jamonserrano.github.io/plumber-sass/measure/). For example the value for Roboto is 0.158203.
 
 3\. Include the plumber mixin in your styles – specify font size as a fraction, line height, top and bottom leadings as multiples of the grid height:
 
 ```scss
-h1 {
-	@include plumber(
-		$grid-height: 1rem,
-		$baseline: 0.121,
-		$font-size: 4.5,
-		$line-height: 6,
-		$leading-top: 9,
-		$leading-bottom: 3
-	);
-}
-
 p {
 	@include plumber(
 		$grid-height: 1rem,
-		$baseline: 0.121,
+		$baseline: 0.158203,
 		$font-size: 2,
 		$line-height: 3,
-		$leading-top: 0,
-		$leading-bottom: 1
+		$leading-top: 1,
+		$leading-bottom: 2
 	);
+	font-family: Roboto, sans-serif;
+}
+```
+
+This will output the following CSS:
+
+```css
+p {
+	font-size: 2rem;
+	line-height: 3rem;
+	margin-top: 0;
+	padding-top: 0.81641rem;
+	padding-bottom: 0.18359rem;
+	margin-bottom: 2rem;
+	font-family: Roboto, sans-serif;
 }
 ```
 
@@ -81,11 +89,11 @@ To avoid repetition set up default values before using the mixin:
 ```scss
 @include plumber-set-defaults(
 	$grid-height: 1rem,
-	$baseline: 0.121,
+	$baseline: 0.158203,
 	$font-size: 2,
 	$line-height: 3,
-	$leading-top: 0,
-	$leading-bottom: 1
+	$leading-top: 1,
+	$leading-bottom: 2
 );
 
 p {
@@ -96,29 +104,36 @@ p {
 li {
 	// override leadings
 	@include plumber(
-		leading-top: 1,
-		leading-bottom: 2
+		leading-top: 0,
+		leading-bottom: 1
 	);
 }
 ```
 
 ### Using multiple fonts
 
-When using multiple font families, you can set a baseline for each and use the optional `$baseline` parameter:
+When using multiple font families just add different `$baseline` parameters:
 
 ```scss
+$body-font: Roboto, sans-serif;
+$body-baseline: 0.158203;
+
 $quote-font: Georgia, serif;
-$quote-baseline: 0.151;
+$quote-baseline: 0.151123;
+
+p {
+	@include plumber($baseline: $body-baseline);
+	font-family: $body-font;
+}
 
 blockquote {
 	@include plumber($baseline: $quote-baseline);
 	font-family: $quote-font;
 }
-
 ```
 
 ### Responsive typography
-For responsive typography just define the grid height in rems or other relative units, and metrics will change along.
+For responsive typography define the grid height in rems or other relative units, and metrics will change along.
 
 ```scss
 @include plumber-set-defaults(
@@ -152,6 +167,8 @@ Due to rounding and browser rendering it’s entirely possible that the text wil
 * Define grid height in pixels, or as a multiple of the base font height.
 * Use a grid height with many divisors.
 * Use font sizes that produce whole numbers with the grid height.
+
+If you have access to the OpenType metrics of the font you can calculate a more precise baseline ratio with the following formula: `(UnitsPerEm − hhea.Ascender − hhea.Descender) / (2 × UnitsPerEm)`
 
 ### Varying baseline among fonts in the same family
 Although some weights or styles in the same family can sit on different baselines, it’s generally fine to use the one for the regular font. If pixel perfection is important, set individual baselines for each font.
