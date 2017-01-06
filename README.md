@@ -58,7 +58,7 @@ p {
 	@include plumber(
 		$grid-height: 1rem,
 		$baseline: 0.158203,
-		$font-size: 2,
+		$font-size: 1.75,
 		$line-height: 3,
 		$leading-top: 1,
 		$leading-bottom: 2
@@ -71,7 +71,7 @@ This will output the following CSS:
 
 ```css
 p {
-	font-size: 2rem;
+	font-size: 1.75rem;
 	line-height: 3rem;
 	margin-top: 0;
 	padding-top: 0.81641rem;
@@ -90,7 +90,7 @@ To avoid repetition set up default values before using the mixin:
 @include plumber-set-defaults(
 	$grid-height: 1rem,
 	$baseline: 0.158203,
-	$font-size: 2,
+	$font-size: 1.75,
 	$line-height: 3,
 	$leading-top: 1,
 	$leading-bottom: 2
@@ -138,16 +138,16 @@ For responsive typography define the grid height in rems or other relative units
 ```scss
 @include plumber-set-defaults(
 	$grid-height: 1rem,
-	$font-size: 2
+	$font-size: 1.75
 );
 
 html {
 	font-size: 8px;
-	// grid height => 8px, font size => 16px
+	// grid height => 8px, font size => 14px
 	
 	@media screen and (min-width: 641px) {
 		font-size: 12px;
-		// grid-height => 12px, font size => 24px
+		// grid-height => 12px, font size => 21px
 	}
 }
 ```
