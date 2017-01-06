@@ -76,7 +76,7 @@ $ yarn add plumber-sass --dev</code></pre>
 	@include plumber(
 		$grid-height: 1rem,
 		$baseline: 0.158203,
-		$font-size: 2,
+		$font-size: 1.75,
 		$line-height: 3,
 		$leading-top: 1,
 		$leading-bottom: 2
@@ -85,7 +85,7 @@ $ yarn add plumber-sass --dev</code></pre>
 }</code></pre>
             <p>This will output the following CSS:</p>
             <pre><code class="language-css">p {
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 3rem;
     margin-top: 0;
     padding-top: 0.81641rem;
@@ -105,7 +105,7 @@ $ yarn add plumber-sass --dev</code></pre>
                 <pre><code class="language-scss">@include plumber-set-defaults(
     $grid-height: 1rem,
     $baseline: 0.158203,
-    $font-size: 2,
+    $font-size: 1.75,
     $line-height: 3,
     $leading-top: 1,
     $leading-bottom: 2
@@ -148,16 +148,16 @@ blockquote {
                 <p>For responsive typography define the grid height in rems or other relative units, and metrics will change along:</p>
                 <pre><code class="language-scss">@include plumber-set-defaults(
     $grid-height: 1rem,
-    $font-size: 2
+    $font-size: 1.75
 );
 
 html {
     font-size: 8px;
-    // grid height => 8px, font size => 16px
+    // grid height => 8px, font size => 14px
     
     @media (min-width: 641px) {
         font-size: 12px;
-        // grid-height => 12px, font size => 24px
+        // grid-height => 12px, font size => 21px
     }
 }</code></pre>
             </section>
