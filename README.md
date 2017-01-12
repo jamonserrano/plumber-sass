@@ -104,8 +104,8 @@ p {
 li {
 	// override leadings
 	@include plumber(
-		leading-top: 0,
-		leading-bottom: 1
+		$leading-top: 0,
+		$leading-bottom: 1
 	);
 }
 ```
