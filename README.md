@@ -3,6 +3,8 @@ https://jamonserrano.github.io/plumber-sass
 
 Create better looking documents and speed up CSS development by adding vertical rhythm to your page.
 
+> Looking for the postcss plugin? Go to https://github.com/jamonserrano/postcss-plumber.
+
 ## What is it?
 
 Using a baseline grid on the web is not easy. For every font family and size you have to measure where the letters sit so you can shift the text to the nearest gridline. After this, you have to precariously add margins and paddings to keep the vertical rhythm.
@@ -190,17 +192,19 @@ The main mixin.
 
 Name | Description | Type | Default value
 ---- | ----------- | ---- | -------------
-$baseline | Baseline ratio | Fraction between 0 and 1 | —
+$baseline | Baseline ratio | Fraction between 0 and 1 | —*
 $font-size | Font size as a fraction of grid height | Positive number | 2
 $grid-height | Grid height | Any unit | 1rem
-$leading-top | Top leading* as a multiple of grid height | Integer | 0**
-$leading-bottom | Bottom leading* as a multiple of grid height | Integer | 0**
+$leading-top | Top leading<sup>†</sup> as a multiple of grid height | Integer | 0<sup>‡</sup>
+$leading-bottom | Bottom leading<sup>†</sup> as a multiple of grid height | Integer | 0<sup>‡</sup>
 $line-height | Line height as a multiple of grid height| Positive integer | 3
 $use-baseline-origin | Set the origin of leadings to the baseline | Boolean | false
 
-> \* Leadings are measured from either the baseline or the edges of the text block, depending on the `$plumber-leadings-from-baseline` setting.
+> \* Baseline must be provided either in the defaults or in the mixin parameters.
+>
+> † Leadings are measured from either the baseline or the edges of the text block, depending on the `$use-baseline-origin` setting.
 > 
-> \*\* The default value is always calculated so there will be no visible gap above or below the text block.
+> ‡ The default value is always calculated so there will be no visible gap above or below the text block.
 
 **Output:** `font-size`, `line-height`, `margin-top`, `padding-top`, `padding-bottom`, `margin-bottom` properties with the same unit as the grid height.
 
