@@ -26,11 +26,11 @@
 	<main>
 		<h1 id="toc_0">Plumber</h1>
 		<p>Create better looking documents and speed up CSS development by adding vertical rhythm to your page.</p>
-
         <section>
             <h2>What is it?</h2>
             <p>Using a baseline grid on the web is not easy. For every font family and size you have to measure where the letters sit so you can shift the text to the nearest gridline. After this, you have to precariously add margins and paddings to keep the vertical rhythm.</p>
             <p>Plumber provides a single <abbr>SASS</abbr> mixin that does all the hard work for you.</p>
+            <p class="note">Looking for the postcss plugin? Go to <a href="https://github.com/jamonserrano/postcss-plumber">https://github.com/jamonserrano/postcss-plumber</a>
         </section>
 
 		<section>
@@ -228,7 +228,7 @@ html {
                                 <td>$baseline</td>
                                 <td>Baseline ratio</td>
                                 <td>Fraction between 0 and 1</td>
-                                <td>—</td>
+                                <td>—<span class="note-sign"><sup>†</sup></span></td>
                             </tr>
                             <tr>
                                 <td>$font-size</td>
@@ -245,15 +245,15 @@ html {
                             <tr>
                                 <td>$leading-top</em>
                                 </td>
-                                <td>Top leading<span class="note-sign">*</span> as a multiple of grid height</td>
+                                <td>Top leading<span class="note-sign"><sup>†</sup></span> as a multiple of grid height</td>
                                 <td>Integer</td>
-                                <td>0<span class="note-sign">**</span></td>
+                                <td>0<span class="note-sign"><sup>‡</sup></span></td>
                             </tr>
                             <tr>
                                 <td>$leading-bottom</td>
-                                <td>Bottom leading<span class="note-sign">*</span> as a multiple of grid height</td>
+                                <td>Bottom leading<span class="note-sign"><sup>†</sup></span> as a multiple of grid height</td>
                                 <td>Integer</td>
-                                <td>0<span class="note-sign">**</span></td>
+                                <td>0<span class="note-sign"><sup>‡</sup></span></td>
                             </tr>
                             <tr>
                                 <td>$line-height</td>
@@ -270,8 +270,9 @@ html {
                         </tbody>
                     </table>
                 </div>
-                <p class="note">* Leadings are measured from either the baseline or the edges of the text block, depending on the <code>$plumber-leadings-from-baseline</code> setting.<br>
-                ** The default value is always calculated so there will be no visible gap above or below the text block.
+                <p class="note">* A baseline must be provided either in the defaults or in the mixin parameters.<br>
+                <sup>†</sup> Leadings are measured from either the baseline or the edges of the text block, depending on the <code>$use-baseline-origin</code> setting.<br>
+                <sup>‡</sup> The default value is always calculated so there will be no visible gap above or below the text block.
                 </p>
                 <p><strong>Output:</strong> <code>font-size</code>, <code>line-height</code>, <code>margin-top</code>, <code>padding-top</code>, <code>padding-bottom</code>, <code>margin-bottom</code> properties with the same unit as the grid height.</p>
 			</section>
