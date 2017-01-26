@@ -76,8 +76,8 @@ p {
 	font-size: 1.75rem;
 	line-height: 3rem;
 	margin-top: 0;
-	padding-top: 0.81641rem;
-	padding-bottom: 0.18359rem;
+	padding-top: 0.901855rem;
+	padding-bottom: 0.098145rem;
 	margin-bottom: 2rem;
 	font-family: Roboto, sans-serif;
 }
