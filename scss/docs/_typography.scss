@@ -109,4 +109,12 @@ main {
 	a {
 		color: $color-link;
 	}
+
+	// sup messes up the line height
+	sup {
+		vertical-align: top;
+		font-size: 0.75em;
+		position: relative;
+		top: -0.25em;
+	}
 }

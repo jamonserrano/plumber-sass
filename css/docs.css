@@ -121,10 +121,12 @@ main figcaption {
   color: #606060; }
 
 main ul {
-  margin-top: calc(20px);
-  padding-top: 0px;
-  margin-bottom: calc(30px);
-  padding-bottom: 0px; }
+  margin-top: 20px;
+  padding-top: calc(0px - 0px);
+  border-top-width: 0px;
+  margin-bottom: 30px;
+  padding-bottom: calc(0px - 0px);
+  border-bottom-width: 0px; }
 
 main li {
   font-size: 20px;
@@ -143,6 +145,12 @@ main span.note-sign {
 
 main a {
   color: #2d9cdb; }
+
+main sup {
+  vertical-align: top;
+  font-size: 0.75em;
+  position: relative;
+  top: -0.25em; }
 
 .table-wrapper {
   font-size: 17px;
@@ -293,10 +301,12 @@ code::selection, code ::selection {
   background: #b3d4fc; }
 
 pre[class*="language-"] > code {
-  margin-top: calc(0px);
-  padding-top: 10px;
-  margin-bottom: calc(0px);
-  padding-bottom: 10px;
+  margin-top: 0px;
+  padding-top: calc(10px - 0px);
+  border-top-width: 0px;
+  margin-bottom: 0px;
+  padding-bottom: calc(10px - 0px);
+  border-bottom-width: 0px;
   padding-left: 16px;
   border-left: 4px solid #c0c0c0;
   overflow-x: auto;
