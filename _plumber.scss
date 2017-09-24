@@ -14,7 +14,7 @@
 ) {
 	// *** VALIDATE PARAMETERS ***
 	// font-size
-	@if not $font-size {
+	@if test($font-size == null) {
 		$font-size: -plumber-get-default(font-size);
 	}
 	@if not unitless($font-size) or $font-size <= 0 {
@@ -22,7 +22,7 @@
 	}
 
 	// line-height
-	@if not $line-height {
+	@if test($line-height == null) {
 		$line-height: -plumber-get-default(line-height);
 	}
 	@if not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
@@ -30,7 +30,7 @@
 	}
 
 	// leading-top
-	@if not $leading-top {
+	@if test($leading-top == null) {
 		$leading-top: -plumber-get-default(leading-top);
 	}
 	@if not -plumber-is-integer($leading-top) {
@@ -38,7 +38,7 @@
 	}
 
 	// leading-bottom
-	@if not $leading-bottom {
+	@if test($leading-bottom == null) {
 		$leading-bottom: -plumber-get-default(leading-bottom);
 	}
 	@if not -plumber-is-integer($leading-bottom) {
@@ -46,7 +46,7 @@
 	}
 
 	// grid-height
-	@if not $grid-height {
+	@if test($grid-height == null) {
 		$grid-height: -plumber-get-default(grid-height);
 	}
 	@if unitless($grid-height) or $grid-height < 0 {
@@ -54,17 +54,15 @@
 	}
 
 	// baseline
-	@if not $baseline {
+	@if test($baseline == null) {
 		$baseline: -plumber-get-default(baseline);
 	}
-	@if not $baseline {
-		@error '$baseline must be passed as a parameter or defined in defaults';
-	} @else if not (unitless($baseline) and $baseline >= 0 and $baseline < 1) {
+	@if not (unitless($baseline) and $baseline >= 0 and $baseline < 1) {
 		@error '$baseline parameter must be a unitless fraction between 0 and 1, got #{$baseline} instead';
 	}
 
 	// use-baseline-origin
-	@if not $use-baseline-origin {
+	@if test($use-baseline-origin == null) {
 		$use-baseline-origin: -plumber-get-default(use-baseline-origin);
 	}
 	@if type-of($use-baseline-origin) != bool {
