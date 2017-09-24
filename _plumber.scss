@@ -14,59 +14,59 @@
 ) {
 	// *** VALIDATE PARAMETERS ***
 	// font-size
-	@if test($font-size == null) {
+	@if $font-size == null {
 		$font-size: -plumber-get-default(font-size);
 	}
-	@if not unitless($font-size) or $font-size <= 0 {
-		@error '$font-size parameter must be a positive unitless number, got #{$font-size} instead';
+	@if $font-size == null or not unitless($font-size) or $font-size <= 0 {
+		@error '$font-size parameter must be a positive unitless number, got #{$font-size or 'null'} instead';
 	}
 
 	// line-height
-	@if test($line-height == null) {
+	@if $line-height == null {
 		$line-height: -plumber-get-default(line-height);
 	}
-	@if not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
-		@error '$line-height parameter must be a positive unitless integer, got #{$line-height} instead';
+	@if $line-height == null or not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
+		@error '$line-height parameter must be a positive unitless integer, got #{$line-height or 'null'} instead';
 	}
 
 	// leading-top
-	@if test($leading-top == null) {
+	@if $leading-top == null {
 		$leading-top: -plumber-get-default(leading-top);
 	}
-	@if not -plumber-is-integer($leading-top) {
-		@error '$leading-top parameter must be a non-negative integer, got #{$leading-top} instead.';
+	@if $leading-top == null or not -plumber-is-integer($leading-top) {
+		@error '$leading-top parameter must be a non-negative integer, got #{$leading-top or 'null'} instead.';
 	}
 
 	// leading-bottom
-	@if test($leading-bottom == null) {
+	@if $leading-bottom == null {
 		$leading-bottom: -plumber-get-default(leading-bottom);
 	}
-	@if not -plumber-is-integer($leading-bottom) {
-		@error '$leading-bottom parameter must be a non-negative integer, got #{$leading-bottom} instead';
+	@if $leading-bottom == null or not -plumber-is-integer($leading-bottom) {
+		@error '$leading-bottom parameter must be a non-negative integer, got #{$leading-bottom or 'null'} instead';
 	}
 
 	// grid-height
-	@if test($grid-height == null) {
+	@if $grid-height == null {
 		$grid-height: -plumber-get-default(grid-height);
 	}
-	@if unitless($grid-height) or $grid-height < 0 {
-		@error '$grid-height parameter must be a positive unit, got #{$grid-height} instead';
+	@if $grid-height == null or unitless($grid-height) or $grid-height < 0 {
+		@error '$grid-height parameter must be a positive unit, got #{$grid-height or 'null'} instead';
 	}
 
 	// baseline
-	@if test($baseline == null) {
+	@if $baseline == null {
 		$baseline: -plumber-get-default(baseline);
 	}
-	@if not (unitless($baseline) and $baseline >= 0 and $baseline < 1) {
-		@error '$baseline parameter must be a unitless fraction between 0 and 1, got #{$baseline} instead';
+	@if $baseline == null or not (unitless($baseline) and $baseline >= 0 and $baseline < 1) {
+		@error '$baseline parameter must be a unitless fraction between 0 and 1, got #{$baseline or 'null'} instead';
 	}
 
 	// use-baseline-origin
-	@if test($use-baseline-origin == null) {
+	@if $use-baseline-origin == null {
 		$use-baseline-origin: -plumber-get-default(use-baseline-origin);
 	}
 	@if type-of($use-baseline-origin) != bool {
-		@error '$use-baseline-origin parameter must be Boolean, got #{$use-baseline-origin} instead';
+		@error '$use-baseline-origin parameter must be Boolean, got #{$use-baseline-origin or 'null'} instead';
 	}
 
 	// *** CALCULATE BASELINE CORRECTION ***
@@ -131,11 +131,9 @@
 	margin-bottom: $margin-bottom;
 }
 
-$-plumber-defaults: ($use-baseline-origin: false);
-
 // Merge provided settings into the defaults map 
 @mixin plumber-set-defaults($defaults...) {
-	$-plumber-defaults: map-merge($-plumber-defaults, keywords($defaults)) !global;
+	$-plumber-defaults: map-merge((use-baseline-origin: false), keywords($defaults)) !global;
 }
 
 // Get a default value 
@@ -146,6 +144,10 @@ $-plumber-defaults: ($use-baseline-origin: false);
 // Check if a value is a non-negative integer
 @function -plumber-is-integer($value) {
 	@return (unitless($value) and $value == round($value));
+}
+
+@function -plumber-is-null($value) {
+	@return $value == null;
 }
 
 // Round value to the nearest quarter pixel
