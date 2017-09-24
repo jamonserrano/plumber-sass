@@ -27,7 +27,7 @@
 	@if -plumber-is-null($line-height) {
 		$line-height: -plumber-get-default(line-height);
 	}
-	@if -plumber-is-null($line-height) or not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
+	@if -plumber-is-null($line-height) or not -plumber-is-integer($line-height) or $line-height < 1 {
 		@error '$line-height parameter must be a positive unitless integer, got #{$line-height or 'null'} instead';
 	}
 
@@ -36,7 +36,7 @@
 		$margin-top: -plumber-get-default(margin-top);
 	}
 	@if -plumber-is-null($margin-top) or not -plumber-is-integer($margin-top) {
-		@error '$margin-top parameter must be a non-negative integer, got #{$margin-top or 'null'} instead';
+		@error '$margin-top parameter must be an integer, got #{$margin-top or 'null'} instead';
 	}
 
 	// margin-bottom
@@ -44,7 +44,7 @@
 		$margin-bottom: -plumber-get-default(margin-bottom);
 	}
 	@if -plumber-is-null($margin-bottom) or not -plumber-is-integer($margin-bottom) {
-		@error '$margin-bottom parameter must be a non-negative integer, got #{$margin-bottom or 'null'} instead';
+		@error '$margin-bottom parameter must be an integer, got #{$margin-bottom or 'null'} instead';
 	}
 
 	// padding-top
