@@ -131,17 +131,7 @@
 	margin-bottom: $margin-bottom;
 }
 
-// *** DEFAULTS *** 
-// Do not change it here, use the plumber-set-defaults mixin instead!
-$-plumber-defaults: (
-	font-size: 2,
-	line-height: 3,
-	leading-top: 0,
-	leading-bottom: 0,
-	grid-height: 1rem,
-	baseline: null,
-	use-baseline-origin: false,
-) !default;
+$-plumber-defaults: ($use-baseline-origin: false);
 
 // Merge provided settings into the defaults map 
 @mixin plumber-set-defaults($defaults...) {
