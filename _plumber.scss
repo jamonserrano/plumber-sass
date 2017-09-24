@@ -8,6 +8,8 @@
 	$line-height: null,
 	$margin-top: null,
 	$margin-bottom: null,
+	$padding-top: null,
+	$padding-bottom: null,
 	$grid-height: null,
 	$baseline: null,
 	$use-baseline-origin: null
@@ -43,6 +45,22 @@
 	}
 	@if -plumber-is-null($margin-bottom) or not -plumber-is-integer($margin-bottom) {
 		@error '$margin-bottom parameter must be a non-negative integer, got #{$margin-bottom or 'null'} instead';
+	}
+
+	// padding-top
+	@if -plumber-is-null($padding-top) {
+		$padding-top: -plumber-get-default(padding-top);
+	}
+	@if -plumber-is-null($padding-top) or not -plumber-is-integer($padding-top) or $padding-top < 0 {
+		@error '$margin-top parameter must be a non-negative integer, got #{$padding-top or 'null'} instead';
+	}
+
+	// padding-bottom
+	@if -plumber-is-null($padding-bottom) {
+		$padding-bottom: -plumber-get-default(padding-bottom);
+	}
+	@if -plumber-is-null($padding-bottom) or not -plumber-is-integer($padding-bottom) or $padding-bottom < 0 {
+		@error '$padding-bottom parameter must be a non-negative integer, got #{$padding-bottom or 'null'} instead';
 	}
 
 	// grid-height
@@ -88,25 +106,22 @@
 	$line-height: $line-height * $grid-height;
 
 	// *** CALCULATE MARGINS AND PADDINGS ***
-	$padding-top: null;
-	$padding-bottom: null;
-	
 	@if $baseline-difference < 0 {
 		// add top leading
 		$margin-top: $margin-top * $grid-height;
 		// push the baseline down to the next gridline
-		$padding-top: - $baseline-difference * $grid-height;
+		$padding-top: ($padding-top - $baseline-difference) * $grid-height;
 		// add the remaining distance to reach the next gridline
-		$padding-bottom: (1 + $baseline-difference) * $grid-height;
+		$padding-bottom: ($padding-bottom + 1 + $baseline-difference) * $grid-height;
 		// add bottom leading and remove the 1 excess grid height that comes from pushing down
 		$margin-bottom: ($margin-bottom - 1) * $grid-height;
 	} @else {
 		// add top leading and remove the 1 excess grid height that comes from pulling up
 		$margin-top: ($margin-top - 1) * $grid-height;
 		// pull the baseline up to the previous gridline
-		$padding-top: (1 - $baseline-difference) * $grid-height;
+		$padding-top: ($padding-top + 1 - $baseline-difference) * $grid-height;
 		// add the remaining distance to reach the next gridline
-		$padding-bottom: $baseline-difference * $grid-height;
+		$padding-bottom: ($padding-bottom + $baseline-difference) * $grid-height;
 		// add bottom leading
 		$margin-bottom: $margin-bottom * $grid-height;
 	}
@@ -132,6 +147,8 @@
 $-plumber-defaults: (
 	margin-top: 0,
 	margin-bottom: 0,
+	padding-top: 0,
+	padding-bottom: 0,
 	use-baseline-origin: false
 );
 
