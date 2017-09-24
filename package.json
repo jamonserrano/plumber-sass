@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jamonserrano/plumber-sass/issues"
   },
-  "homepage": "https://jamonserrano.github.io/plumber-sass"
+  "homepage": "https://jamonserrano.github.io/plumber-sass",
+  "devDependencies": {
+    "node-sass": "^4.5.3"
+  }
 }
