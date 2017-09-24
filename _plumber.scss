@@ -14,55 +14,55 @@
 ) {
 	// *** VALIDATE PARAMETERS ***
 	// font-size
-	@if $font-size == null {
+	@if -plumber-is-null($font-size) {
 		$font-size: -plumber-get-default(font-size);
 	}
-	@if $font-size == null or not unitless($font-size) or $font-size <= 0 {
+	@if -plumber-is-null($font-size) or not unitless($font-size) or $font-size <= 0 {
 		@error '$font-size parameter must be a positive unitless number, got #{$font-size or 'null'} instead';
 	}
 
 	// line-height
-	@if $line-height == null {
+	@if -plumber-is-null($line-height) {
 		$line-height: -plumber-get-default(line-height);
 	}
-	@if $line-height == null or not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
+	@if -plumber-is-null($line-height) or not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
 		@error '$line-height parameter must be a positive unitless integer, got #{$line-height or 'null'} instead';
 	}
 
 	// leading-top
-	@if $leading-top == null {
+	@if -plumber-is-null($leading-top) {
 		$leading-top: -plumber-get-default(leading-top);
 	}
-	@if $leading-top == null or not -plumber-is-integer($leading-top) {
+	@if -plumber-is-null($leading-top) or not -plumber-is-integer($leading-top) {
 		@error '$leading-top parameter must be a non-negative integer, got #{$leading-top or 'null'} instead.';
 	}
 
 	// leading-bottom
-	@if $leading-bottom == null {
+	@if -plumber-is-null($leading-bottom) {
 		$leading-bottom: -plumber-get-default(leading-bottom);
 	}
-	@if $leading-bottom == null or not -plumber-is-integer($leading-bottom) {
+	@if -plumber-is-null($leading-bottom) or not -plumber-is-integer($leading-bottom) {
 		@error '$leading-bottom parameter must be a non-negative integer, got #{$leading-bottom or 'null'} instead';
 	}
 
 	// grid-height
-	@if $grid-height == null {
+	@if -plumber-is-null($grid-height) {
 		$grid-height: -plumber-get-default(grid-height);
 	}
-	@if $grid-height == null or unitless($grid-height) or $grid-height < 0 {
+	@if -plumber-is-null($grid-height) or unitless($grid-height) or $grid-height < 0 {
 		@error '$grid-height parameter must be a positive unit, got #{$grid-height or 'null'} instead';
 	}
 
 	// baseline
-	@if $baseline == null {
+	@if -plumber-is-null($baseline) {
 		$baseline: -plumber-get-default(baseline);
 	}
-	@if $baseline == null or not (unitless($baseline) and $baseline >= 0 and $baseline < 1) {
+	@if -plumber-is-null($baseline) or not (unitless($baseline) and $baseline >= 0 and $baseline < 1) {
 		@error '$baseline parameter must be a unitless fraction between 0 and 1, got #{$baseline or 'null'} instead';
 	}
 
 	// use-baseline-origin
-	@if $use-baseline-origin == null {
+	@if -plumber-is-null($use-baseline-origin) {
 		$use-baseline-origin: -plumber-get-default(use-baseline-origin);
 	}
 	@if type-of($use-baseline-origin) != bool {
