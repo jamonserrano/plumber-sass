@@ -6,8 +6,8 @@
 @mixin plumber(
 	$font-size: null,
 	$line-height: null,
-	$leading-top: null,
-	$leading-bottom: null,
+	$margin-top: null,
+	$margin-bottom: null,
 	$grid-height: null,
 	$baseline: null,
 	$use-baseline-origin: null
@@ -29,20 +29,20 @@
 		@error '$line-height parameter must be a positive unitless integer, got #{$line-height or 'null'} instead';
 	}
 
-	// leading-top
-	@if -plumber-is-null($leading-top) {
-		$leading-top: -plumber-get-default(leading-top);
+	// margin-top
+	@if -plumber-is-null($margin-top) {
+		$margin-top: -plumber-get-default(margin-top);
 	}
-	@if -plumber-is-null($leading-top) or not -plumber-is-integer($leading-top) {
-		@error '$leading-top parameter must be a non-negative integer, got #{$leading-top or 'null'} instead.';
+	@if -plumber-is-null($margin-top) or not -plumber-is-integer($margin-top) {
+		@error '$margin-top parameter must be a non-negative integer, got #{$margin-top or 'null'} instead';
 	}
 
-	// leading-bottom
-	@if -plumber-is-null($leading-bottom) {
-		$leading-bottom: -plumber-get-default(leading-bottom);
+	// margin-bottom
+	@if -plumber-is-null($margin-bottom) {
+		$margin-bottom: -plumber-get-default(margin-bottom);
 	}
-	@if -plumber-is-null($leading-bottom) or not -plumber-is-integer($leading-bottom) {
-		@error '$leading-bottom parameter must be a non-negative integer, got #{$leading-bottom or 'null'} instead';
+	@if -plumber-is-null($margin-bottom) or not -plumber-is-integer($margin-bottom) {
+		@error '$margin-bottom parameter must be a non-negative integer, got #{$margin-bottom or 'null'} instead';
 	}
 
 	// grid-height
@@ -79,8 +79,8 @@
 	
 	// if baseline origin is used for leadings substract the distance of the baseline from the edges
 	@if $use-baseline-origin == true {
-		$leading-top: $leading-top - ($line-height - $corrected-baseline);
-		$leading-bottom: $leading-bottom - $corrected-baseline;
+		$margin-top: $margin-top - ($line-height - $corrected-baseline);
+		$margin-bottom: $margin-bottom - $corrected-baseline;
 	}
 
 	// *** CALCULATE FONT SIZE AND LINE HEIGHT
@@ -89,28 +89,26 @@
 
 	// *** CALCULATE MARGINS AND PADDINGS ***
 	$padding-top: null;
-	$margin-top: null;
-	$margin-bottom: null;
 	$padding-bottom: null;
 	
 	@if $baseline-difference < 0 {
 		// add top leading
-		$margin-top: $leading-top * $grid-height;
+		$margin-top: $margin-top * $grid-height;
 		// push the baseline down to the next gridline
 		$padding-top: - $baseline-difference * $grid-height;
 		// add the remaining distance to reach the next gridline
 		$padding-bottom: (1 + $baseline-difference) * $grid-height;
 		// add bottom leading and remove the 1 excess grid height that comes from pushing down
-		$margin-bottom: ($leading-bottom - 1) * $grid-height;
+		$margin-bottom: ($margin-bottom - 1) * $grid-height;
 	} @else {
 		// add top leading and remove the 1 excess grid height that comes from pulling up
-		$margin-top: ($leading-top - 1) * $grid-height;
+		$margin-top: ($margin-top - 1) * $grid-height;
 		// pull the baseline up to the previous gridline
 		$padding-top: (1 - $baseline-difference) * $grid-height;
 		// add the remaining distance to reach the next gridline
 		$padding-bottom: $baseline-difference * $grid-height;
 		// add bottom leading
-		$margin-bottom: $leading-bottom * $grid-height;
+		$margin-bottom: $margin-bottom * $grid-height;
 	}
 	
 	// round pixel values to decrease browser inconsistencies
@@ -131,9 +129,15 @@
 	margin-bottom: $margin-bottom;
 }
 
+$-plumber-defaults: (
+	margin-top: 0,
+	margin-bottom: 0,
+	use-baseline-origin: false
+);
+
 // Merge provided settings into the defaults map 
 @mixin plumber-set-defaults($defaults...) {
-	$-plumber-defaults: map-merge((use-baseline-origin: false), keywords($defaults)) !global;
+	$-plumber-defaults: map-merge($-plumber-defaults, keywords($defaults)) !global;
 }
 
 // Get a default value 
