@@ -1,6 +1,6 @@
 // PLUMBER - Easy baseline grids with SASS
 // https://jamonserrano.github.io/plumber-sass
-// Copyright 2016 Viktor Honti
+// Copyright 2017 Viktor Honti
 // MIT License
 
 @mixin plumber(
@@ -15,74 +15,47 @@
 	$use-baseline-origin: null
 ) {
 	// *** VALIDATE PARAMETERS ***
-	// font-size
-	@if not($font-size) {
-		$font-size: -plumber-get-default(font-size);
-	}
+	@if not($font-size) { $font-size: -plumber-get-default(font-size); }
 	@if not($font-size and unitless($font-size) and $font-size > 0) {
 		@error '$font-size parameter must be a positive unitless number, got #{$font-size or 'null'} instead';
 	}
 
-	// line-height
-	@if not($line-height) {
-		$line-height: -plumber-get-default(line-height);
-	}
+	@if not($line-height) { $line-height: -plumber-get-default(line-height); }
 	@if not($line-height and -plumber-is-integer($line-height) and $line-height >= 1) {
 		@error '$line-height parameter must be a positive unitless integer, got #{$line-height or 'null'} instead';
 	}
 
-	// margin-top
-	@if not($margin-top) {
-		$margin-top: -plumber-get-default(margin-top);
-	}
+	@if not($margin-top) { $margin-top: -plumber-get-default(margin-top); }
 	@if not($margin-top and -plumber-is-integer($margin-top)) {
 		@error '$margin-top parameter must be an integer, got #{$margin-top or 'null'} instead';
 	}
 
-	// margin-bottom
-	@if not($margin-bottom) {
-		$margin-bottom: -plumber-get-default(margin-bottom);
-	}
+	@if not($margin-bottom) { $margin-bottom: -plumber-get-default(margin-bottom); }
 	@if not($margin-bottom and -plumber-is-integer($margin-bottom)) {
 		@error '$margin-bottom parameter must be an integer, got #{$margin-bottom or 'null'} instead';
 	}
 
-	// padding-top
-	@if not($padding-top) {
-		$padding-top: -plumber-get-default(padding-top);
-	}
+	@if not($padding-top) { $padding-top: -plumber-get-default(padding-top); }
 	@if not($padding-top and -plumber-is-integer($padding-top) and $padding-top >= 0) {
 		@error '$margin-top parameter must be a non-negative integer, got #{$padding-top or 'null'} instead';
 	}
 
-	// padding-bottom
-	@if not($padding-bottom) {
-		$padding-bottom: -plumber-get-default(padding-bottom);
-	}
+	@if not($padding-bottom) { $padding-bottom: -plumber-get-default(padding-bottom); }
 	@if not($padding-bottom and -plumber-is-integer($padding-bottom) and $padding-bottom >= 0) {
 		@error '$padding-bottom parameter must be a non-negative integer, got #{$padding-bottom or 'null'} instead';
 	}
 
-	// grid-height
-	@if not($grid-height) {
-		$grid-height: -plumber-get-default(grid-height);
-	}
+	@if not($grid-height) { $grid-height: -plumber-get-default(grid-height); }
 	@if not($grid-height and $grid-height >= 0) or unitless($grid-height) {
 		@error '$grid-height parameter must be a positive unit, got #{$grid-height or 'null'} instead';
 	}
 
-	// baseline
-	@if not($baseline) {
-		$baseline: -plumber-get-default(baseline);
-	}
+	@if not($baseline) { $baseline: -plumber-get-default(baseline); }
 	@if not($baseline and unitless($baseline) and $baseline >= 0 and $baseline < 1) {
 		@error '$baseline parameter must be a unitless fraction between 0 and 1, got #{$baseline or 'null'} instead';
 	}
 
-	// use-baseline-origin
-	@if not($use-baseline-origin) {
-		$use-baseline-origin: -plumber-get-default(use-baseline-origin);
-	}
+	@if not($use-baseline-origin) { $use-baseline-origin: -plumber-get-default(use-baseline-origin); }
 	@if not($use-baseline-orrigin and type-of($use-baseline-origin) == bool) {
 		@error '$use-baseline-origin parameter must be Boolean, got #{$use-baseline-origin or 'null'} instead';
 	}
