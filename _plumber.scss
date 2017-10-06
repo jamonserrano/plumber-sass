@@ -127,7 +127,24 @@ $-plumber-defaults: (
 
 // Merge provided settings into the defaults map 
 @mixin plumber-set-defaults($defaults...) {
-	$-plumber-defaults: map-merge($-plumber-defaults, keywords($defaults)) !global;
+	$-plumber-defaults: map-merge($-plumber-defaults, -plumber-expand-shorthand-properties(keywords($defaults))) !global;
+}
+
+// Expand shorthand properties
+@function -plumber-expand-shorthand-properties($map) {
+	$map: map-merge($map, ());
+	@each $key in margin, padding {
+		$value: map-get($map, $key);
+		$values: null;
+		@if $value {
+			@if length($value) == 1 { $values: (#{$key}-top: $value, #{$key}-bottom: $value); }
+			@else if length($value) == 2 { $values: (#{$key}-top: nth($value, 1), #{$key}-bottom: nth($value, 2)); }
+			@else { @error '$#{$key} default parameter can contain one or two values, got \'#{$value}\' instead'; }
+			$map: map-merge(map-remove($map, $key), $values);
+		}
+	}
+
+	@return $map;
 }
 
 // Get a default value 
