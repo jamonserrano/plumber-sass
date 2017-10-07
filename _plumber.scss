@@ -4,9 +4,10 @@
 // MIT License
 
 @mixin plumber($params...) {
+	// Get parameter map with expanded shorthand properties
 	$params: -plumber-expand-shorthand-properties($params);
 	
-	// *** VALIDATE PARAMETERS ***
+	// Validate parameters
 	$font-size: -plumber-get-parameter($params, font-size);
 	@if not(-plumber-is-unitless($font-size) and $font-size > 0) {
 		@error '$font-size parameter must be a positive number, got #{$font-size or 'null'} instead';
@@ -52,7 +53,7 @@
 		@error '$use-baseline-origin parameter must be boolean, got #{$use-baseline-origin or 'null'} instead';
 	}
 
-	// *** CALCULATE BASELINE CORRECTION ***
+	// Calculate baseline correction
 	// the distance of the original baseline from the bottom
 	$baseline-from-bottom: ($line-height - $font-size) / 2 + ($font-size * $baseline);
 	// the corrected baseline will be on the nearest gridline
@@ -66,11 +67,11 @@
 		$margin-bottom: $margin-bottom - $corrected-baseline;
 	}
 
-	// *** CALCULATE FONT SIZE AND LINE HEIGHT
+	// Calculate font size and line hight
 	$font-size: $font-size * $grid-height;
 	$line-height: $line-height * $grid-height;
 
-	// *** CALCULATE MARGINS AND PADDINGS ***
+	// Calculate margins and paddings
 	@if $baseline-difference < 0 {
 		// add top leading
 		$margin-top: $margin-top * $grid-height;
@@ -100,13 +101,13 @@
 		$margin-bottom: -plumber-round($margin-bottom);
 	}
 
-	// *** CSS OUTPUT ***
+	// Output CSS
 	font-size: $font-size;
 	line-height: $line-height;
 	margin-top: $margin-top;
+	margin-bottom: $margin-bottom;
 	padding-top: $padding-top;
 	padding-bottom: $padding-bottom;
-	margin-bottom: $margin-bottom;
 }
 
 // Built-in defaults
@@ -123,7 +124,7 @@ $-plumber-defaults: (
 	$-plumber-defaults: map-merge($-plumber-defaults, -plumber-expand-shorthand-properties($defaults)) !global;
 }
 
-// Expand shorthand properties
+// Convert parameter list to a map and replace shorthand properties (margin, padding) with ...-top and ...-bottom properties
 @function -plumber-expand-shorthand-properties($map) {
 	$map: keywords($map);
 	@each $key in margin, padding {
@@ -139,7 +140,7 @@ $-plumber-defaults: (
 	@return $map;
 }
 
-// Get a default value 
+// Get a value from either the provided map or from the defaults
 @function -plumber-get-parameter($params, $key) {
 	@return map-get(if(map-has-key($params, $key), $params, $-plumber-defaults), $key);
 }
@@ -154,8 +155,7 @@ $-plumber-defaults: (
 	@return $value and unitless($value);
 }
 
-// Round value to the nearest quarter pixel
-// This provides reasonable precision and prevents grid creep (by fractions adding up) in most browsers
+// Round value to the nearest quarter pixel providing reasonable precision and preventing grid creep in most browsers
 @function -plumber-round($value) {
 	@return round($value * 4) / 4;
 }
