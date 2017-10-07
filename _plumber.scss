@@ -13,7 +13,7 @@
 	}
 
 	$line-height: -plumber-get-parameter($params, line-height);
-	@if not(-plumber-is-integer($line-height) and $line-height >= 1) {
+	@if not(-plumber-is-integer($line-height) and $line-height > 0) {
 		@error '$line-height parameter must be a positive integer, got #{$line-height or 'null'} instead';
 	}
 
