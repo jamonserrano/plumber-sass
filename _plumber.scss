@@ -152,7 +152,7 @@ $-plumber-defaults: (
 
 // Check if a value exists and is unitless
 @function -plumber-is-unitless($value) {
-	@return $value and unitless($value);
+	@return $value == 0 or unitless($value);
 }
 
 // Round value to the nearest quarter pixel providing reasonable precision and preventing grid creep in most browsers
