@@ -58,9 +58,9 @@
 		@error '$baseline parameter must be a fraction between 0 and 1, got #{$baseline or 'null'} instead';
 	}
 
-	$use-baseline-origin: -plumber-get-parameter($params, use-baseline-origin);
-	@if not(type-of($use-baseline-origin) == bool) {
-		@error '$use-baseline-origin parameter must be boolean, got #{$use-baseline-origin or 'null'} instead';
+	$origin: -plumber-get-parameter($params, origin);
+	@if not($origin == content-box or $origin == baseline) {
+		@error '$origin parameter must be content-box or baseline, got #{$origin or 'null'} instead';
 	}
 
 	// Warn if a border is set without padding
@@ -81,7 +81,7 @@
 	$baseline-difference: $corrected-baseline - $baseline-from-bottom;
 	
 	// if baseline origin is used for leadings substract the distance of the baseline from the edges
-	@if $use-baseline-origin == true {
+	@if $origin == baseline {
 		$margin-top: $margin-top - ($line-height - $corrected-baseline);
 		$margin-bottom: $margin-bottom - $corrected-baseline;
 	}
@@ -148,7 +148,7 @@ $-plumber-defaults: (
 	padding-bottom: 0,
 	border-top: 0,
 	border-bottom: 0,
-	use-baseline-origin: false
+	origin: content-box
 );
 
 // Merge provided settings into the defaults map 
