@@ -92,22 +92,22 @@
 
 	// Calculate margins and paddings
 	@if $baseline-difference < 0 {
-		// add top leading
+		// add top margin
 		$margin-top: $margin-top * $grid-height;
-		// push the baseline down to the next gridline
+		// add top padding and push the baseline down to the next gridline
 		$padding-top: ($padding-top - $baseline-difference) * $grid-height;
-		// add the remaining distance to reach the next gridline
+		// add the remaining distance to the bottom padding to reach the next gridline
 		$padding-bottom: ($padding-bottom + 1 + $baseline-difference) * $grid-height;
-		// add bottom leading and remove the 1 excess grid height that comes from pushing down
+		// add bottom margin and remove the 1 excess grid height that comes from pushing down the baseline
 		$margin-bottom: ($margin-bottom - 1) * $grid-height;
 	} @else {
-		// add top leading and remove the 1 excess grid height that comes from pulling up
+		// add top margin and remove the 1 excess grid height that comes from pulling up the baseline
 		$margin-top: ($margin-top - 1) * $grid-height;
-		// pull the baseline up to the previous gridline
+		// add top padding and pull the baseline up to the previous gridline
 		$padding-top: ($padding-top + 1 - $baseline-difference) * $grid-height;
-		// add the remaining distance to reach the next gridline
+		// add the remaining distance to the bottom padding to reach the next gridline
 		$padding-bottom: ($padding-bottom + $baseline-difference) * $grid-height;
-		// add bottom leading
+		// add bottom margin
 		$margin-bottom: $margin-bottom * $grid-height;
 	}
 	
@@ -129,18 +129,20 @@
 		border-top: $border-top;
 		padding-top: calc(#{$padding-top} - #{$border-top});
 	} @else {
-	padding-top: $padding-top;
+		padding-top: $padding-top;
 	}
 
 	@if border-bottom {
 		padding-bottom: calc(#{$padding-bottom} - #{border-bottom});
 		border-bottom: $border-bottom;
 	} @else {
-	padding-bottom: $padding-bottom;
-}
+		padding-bottom: $padding-bottom;
+	}
 
 	margin-bottom: $margin-bottom;
 }
+
+// Default parameters
 $-plumber-defaults: (
 	margin-top: 0,
 	margin-bottom: 0,
@@ -156,7 +158,7 @@ $-plumber-defaults: (
 	$-plumber-defaults: map-merge($-plumber-defaults, -plumber-expand-shorthand-properties($defaults)) !global;
 }
 
-// Convert parameter list to a map and replace shorthand properties (margin, padding) with ...-top and ...-bottom properties
+// Convert parameter list to a map and replace shorthand properties (margin, padding, border) with ...-top and ...-bottom properties
 @function -plumber-expand-shorthand-properties($map) {
 	$map: keywords($map);
 	@each $key in margin, padding, border {
@@ -196,7 +198,7 @@ $-plumber-defaults: (
 	@return $value == 0 or unitless($value);
 }
 
-// Round value to the nearest quarter pixel providing reasonable precision and preventing grid creep in most browsers
+// Round value to the nearest quarter pixel to provide reasonable precision and to prevent grid creep
 @function -plumber-round($value) {
 	@return round($value * 4) / 4;
 }
