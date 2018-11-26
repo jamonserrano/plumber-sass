@@ -38,6 +38,16 @@
 		@error '$padding-bottom parameter must be a non-negative integer, got #{$padding-bottom or 'null'} instead';
 	}
 
+	$border-top: -plumber-get-parameter($params, border-top);
+	@if $border-top < 0 or -plumber-is-unitless($border-top) {
+		@error '$border-top parameter must be a non-negative unit, got #{$border-top or 'null'} instead';
+	}
+
+	$border-bottom: -plumber-get-parameter($params, border-bottom);
+	@if $border-bottom < 0 or -plumber-is-unitless($border-bottom) {
+		@error '$border-bottom parameter must be a non-negative unit, got #{$border-bottom or 'null'} instead';
+	}
+
 	$grid-height: -plumber-get-parameter($params, grid-height);
 	@if not($grid-height and $grid-height >= 0) or -plumber-is-unitless($grid-height) {
 		@error '$grid-height parameter must be a positive unit, got #{$grid-height or 'null'} instead';
@@ -105,17 +115,30 @@
 	font-size: $font-size;
 	line-height: $line-height;
 	margin-top: $margin-top;
-	margin-bottom: $margin-bottom;
+	
+	@if border-top {
+		border-top: $border-top;
+		padding-top: calc(#{$padding-top} - #{$border-top});
+	} @else {
 	padding-top: $padding-top;
+	}
+
+	@if border-bottom {
+		padding-bottom: calc(#{$padding-bottom} - #{border-bottom});
+		border-bottom: $border-bottom;
+	} @else {
 	padding-bottom: $padding-bottom;
 }
 
-// Built-in defaults
+	margin-bottom: $margin-bottom;
+}
 $-plumber-defaults: (
 	margin-top: 0,
 	margin-bottom: 0,
 	padding-top: 0,
 	padding-bottom: 0,
+	border-top: 0,
+	border-bottom: 0,
 	use-baseline-origin: false
 );
 
@@ -127,13 +150,22 @@ $-plumber-defaults: (
 // Convert parameter list to a map and replace shorthand properties (margin, padding) with ...-top and ...-bottom properties
 @function -plumber-expand-shorthand-properties($map) {
 	$map: keywords($map);
-	@each $key in margin, padding {
+	@each $key in margin, padding, border {
 		$value: map-get($map, $key);
 		@if $value {
 			$values: ();
-			@if length($value) == 1 { $values: (#{$key}-top: $value, #{$key}-bottom: $value); }
-			@else if length($value) == 2 { $values: (#{$key}-top: nth($value, 1), #{$key}-bottom: nth($value, 2)); }
-			@else { @error '$#{$key} parameter can contain one or two values, got \'#{$value}\' instead'; }
+			@if length($value) == 1 {
+				$values: (#{$key}-top: $value, #{$key}-bottom: $value);
+			}
+			@else if length($value) == 2 {
+				$values: (
+					#{$key}-top: nth($value, 1),
+					#{$key}-bottom: nth($value, 2)
+				);
+			}
+			@else {
+				@error '$#{$key} parameter can contain one or two (top, bottom) values, got \'#{$value}\' instead';
+			}
 			$map: map-merge(map-remove($map, $key), $values);
 		}
 	}
