@@ -63,6 +63,15 @@
 		@error '$use-baseline-origin parameter must be boolean, got #{$use-baseline-origin or 'null'} instead';
 	}
 
+	// Warn if a border is set without padding
+	@if $padding-top == 0 and $border-top > 0 {
+		@warn '$border-top parameter is defined without $padding-top, which can potentially break the grid';
+	}
+
+	@if $padding-bottom == 0 and $border-bottom > 0 {
+		@warn '$border-bottom parameter is defined without $padding-bottom, which can potentially break the grid';
+	}
+
 	// Calculate baseline correction
 	// the distance of the original baseline from the bottom
 	$baseline-from-bottom: ($line-height - $font-size) / 2 + ($font-size * $baseline);
