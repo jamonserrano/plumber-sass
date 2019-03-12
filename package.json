@@ -29,6 +29,6 @@
     "test": "jest"
   },
   "jest": {
-    "setupFiles": ["./helpers.js"]
+    "testEnvironment": "node"
   }
 }
