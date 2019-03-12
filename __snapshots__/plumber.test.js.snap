@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`plumber-sass should render scss 1`] = `
+"p {
+  font-size: 1.75rem;
+  line-height: 3rem;
+  margin-top: 0rem;
+  padding-top: 0.901855rem;
+  padding-bottom: 0.098145rem;
+  margin-bottom: 2rem;
+}
+"
+`;
+
+exports[`plumber-sass should throw an error 1`] = `"$line-height parameter must be a positive integer, got -3 instead"`;
