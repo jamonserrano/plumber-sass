@@ -39,12 +39,12 @@
 	}
 
 	$border-top: -plumber-get-parameter($params, border-top);
-	@if $border-top < 0 or -plumber-is-unitless($border-top) {
+	@if $border-top < 0 or ($border-top != 0 and plumber-is-unitless($border-top)) {
 		@error '$border-top parameter must be a non-negative unit, got #{$border-top or 'null'} instead';
 	}
 
 	$border-bottom: -plumber-get-parameter($params, border-bottom);
-	@if $border-bottom < 0 or -plumber-is-unitless($border-bottom) {
+	@if $border-bottom < 0 or ($border-bottom != 0 and -plumber-is-unitless($border-bottom)) {
 		@error '$border-bottom parameter must be a non-negative unit, got #{$border-bottom or 'null'} instead';
 	}
 
@@ -125,15 +125,15 @@
 	line-height: $line-height;
 	margin-top: $margin-top;
 	
-	@if border-top {
+	@if border-top and $border-top != 0 {
 		border-top: $border-top;
 		padding-top: calc(#{$padding-top} - #{$border-top});
 	} @else {
 		padding-top: $padding-top;
 	}
 
-	@if border-bottom {
-		padding-bottom: calc(#{$padding-bottom} - #{border-bottom});
+	@if border-bottom and $border-bottom != 0 {
+		padding-bottom: calc(#{$padding-bottom} - #{$border-bottom});
 		border-bottom: $border-bottom;
 	} @else {
 		padding-bottom: $padding-bottom;
